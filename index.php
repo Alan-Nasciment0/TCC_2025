@@ -1,3 +1,7 @@
+<?php 
+require 'conexao_bd_mysql.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
