@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -8,7 +8,7 @@
 
   <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
 
-  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css_js/css/home.css">
   <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
@@ -20,13 +20,13 @@
       <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
         <div class="carousel-inner">
           <div class="carousel-item active" >
-            <img src="../img/banner.png" class="d-block w-100" alt="...">
+            <img src="../img/" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item" >
-            <img src="../img/banner.png" class="d-block w-100" alt="...">
+            <img src="../img/" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item" >
-            <img src="../img/gta.jpg" class="d-block w-100" alt="...">
+            <img src="../img/" class="d-block w-100" alt="...">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
