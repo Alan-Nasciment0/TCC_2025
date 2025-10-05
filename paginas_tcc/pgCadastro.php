@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="botoes">
-                    <input type="submit" value="Criar conta">
+                    <input type="submit" name="Criar conta" value="Criar conta">
                 </div>
             </form>
         </div>
