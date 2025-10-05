@@ -131,7 +131,7 @@ CREATE TABLE Noticias (
 );
 
 delimiter $$
-create procedure sp_adicionar_usuario (in usu_nome varchar (50), in usu_email varchar(100), usu_senha varchar (50))
+create procedure sp_adicionar_usuario (in $usu_nome varchar (50), in $usu_email varchar(100), $usu_senha varchar (50))
 begin
  insert into usuario( usuario_nome, usuario_email, usuario_senha)
  values (usu_nome, usu_email, usu_senha);
