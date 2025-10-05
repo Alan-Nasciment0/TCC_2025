@@ -15,8 +15,8 @@
                 <a class="logo" href=""><img src="../img/img.teste.webp"></a>
             </div>
             <h2 class="titulo">Fazer login</h2>
-            <form action="../salvarUsuario.php" method="post">
-                <input type="hidden" name="acao" value="cadastrar">
+            <form>
+                
                 <div class="containerPreencher0">
                     <label>Email</label>
                     <div class="campoPreencher"> 
