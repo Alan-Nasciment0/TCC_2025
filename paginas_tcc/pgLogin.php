@@ -15,8 +15,7 @@
                 <a class="logo" href=""><img src="../img/img.teste.webp"></a>
             </div>
             <h2 class="titulo">Fazer login</h2>
-            <form>
-                
+            <form action="../salvarUsuario.php" method="post">
                 <div class="containerPreencher0">
                     <label>Email</label>
                     <div class="campoPreencher"> 
@@ -37,7 +36,7 @@
                 </div>
 
                 <div class="botoes">
-                    <input type="submit" value="Entrar">
+                    <input type="submit" name="login" value="Entrar">
                     <input type="submit" value="Criar conta" style="margin-left: 135px;">
                 </div>
             </form>
