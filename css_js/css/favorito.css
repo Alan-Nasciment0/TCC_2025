@@ -1,0 +1,36 @@
+body{
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+    background-color: #1E1E1E;
+}
+.livros{
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    margin-top: 70px;
+    justify-content: center;
+}
+.livro{
+    background-color: rgb(47, 47, 48);
+    border-radius: 10px;
+  
+    text-align: center;
+    padding: 10px;
+}
+img{
+    width: 200px;
+    height: 300px;
+}
+.titulo{
+    color: white;
+    font-size: 10px;
+    font-family: Bold;
+    margin: 10px 0 5px 0;
+}
+.pesquisa{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}

@@ -1,0 +1,102 @@
+* {
+    font-family: Arial;
+}
+.titulo {
+    font-size: 32px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+body {
+    background-color: #1E1E1E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container {
+    width: 1280px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1E1E1E;
+}
+.containerLogin {
+    width: 615px;
+    height: 527px;
+    margin: 100px;
+    border-radius: 38px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.containerLogo {
+    width: 110px;
+    height: 137px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+}
+form {
+    width: 615px;
+    height: 322px;
+}
+.containerPreencher0 {
+    margin-bottom: 20px;
+    margin-left: 23px;
+}
+.containerPreencher1 {
+    margin-left: 23px;
+}
+label {
+    color: #000;
+    font-size: 16px;
+}
+.placeHolder {
+    width: 150px;
+    height: 36px;
+    margin-left: 16px;
+    font-family: Arial, Regular;
+    border: 20px;
+    background-color: #fff;
+}
+input[type=submit] {
+    width: 160px;
+    height: 46px;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 0px;
+    border: none;
+    font-family: Arial, Regular;
+    background-color: #000;
+    color: #fff; 
+}
+.campoPreencher {
+    height: 40px;
+    width: 568px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #D9D9D9;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+}
+.esqueciaSenha {
+    margin-top: 20px;
+    margin-left: 24px;
+}
+.imgMiniatura {
+    margin-left: 534px;
+}
+.botoes {
+    margin-top: 44px;
+    margin-left: 80px;
+    margin-bottom: 40px;
+}

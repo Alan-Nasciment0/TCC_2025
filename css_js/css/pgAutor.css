@@ -1,0 +1,119 @@
+*{
+    color: white;
+    font-family: Arial;    
+}
+
+p {
+    font-size: 1rem;  
+    text-align: justify;  
+    margin: 0px;
+}
+.containerAutor {
+    width: 75rem;
+    display: flex;
+    margin-top: 50px;
+    
+}
+.containerInformacoesAutor {
+    display: flex;
+    flex-direction: column;
+    margin-left: 4rem;
+}
+.containerAlinhamento {
+    width: 665px;
+    display: flex;
+    justify-content: space-between;
+}
+.imgAutor {
+    height: 33rem;
+    width: 25rem;
+    float: left;
+    border-radius: 0.93rem;
+    border-width: 0.5px;
+    border-style: solid;
+    border-color: black;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 25);
+}
+.containerPrincipaisObras {
+    margin-top: 50px;
+    width: 80rem;
+    height: 31.5rem;
+}
+.containerLivro {
+    display: flex;
+    width: 78rem;
+    height: 28rem;
+    gap: 1rem;
+}
+.livro {
+    width: 18.75rem;
+    height: 28rem;
+    border-radius: 1rem;
+}
+.favoritar {
+    position: relative;
+}
+
+.imgLivro {
+    width: 18.75rem;
+    height: 28rem;
+    border-radius: 15px;    
+}
+.gradiente {
+    position: absolute;
+    top: 0;
+    width: 18.75rem;
+    height: 28rem;
+    border-radius: 15px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 43%, rgba(0, 0, 0, 1) 100%);
+}
+.nomeLivro {
+    position: absolute;
+    top: 24.31rem;
+    margin: auto;
+    height: auto;
+    font-size: 12px;
+    margin: 11px 8px 0 30px;
+}
+.nomeAutor {
+    position: absolute;
+    top: 25.31rem;
+    margin: auto;
+    height: auto;
+    font-size: 12px;
+    margin: 11px 8px 0 30px;
+    
+}
+.marcador {
+    position: absolute;
+    top: 0.37rem;
+    right: 0.12rem;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 25);
+}
+.imgMarcador {
+    width: 3.12rem;
+    height: 3.12rem;
+}
+.avaliacoes {
+    position: absolute;
+    top: 0.37rem;
+    left: 0.62rem;
+    display: flex;
+    color: #000;
+    width: 5rem;
+    height: 2.5rem;
+    border-radius: 20px;
+    background-color: #FFFDFD;
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 25);
+}
+.mediaAvaliacao {
+    height: 1.25rem;
+    margin-top: 0.68rem;
+    margin-left: 0.5rem;
+}
+.imgEstrela {
+    width: 1.5rem;
+    height: 1.40rem;
+    margin-top: 0.48rem;
+    margin-left: 0.75rem;
+}
