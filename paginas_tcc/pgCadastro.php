@@ -19,7 +19,7 @@
                 <div class="containerPreencher0">
                     <label>Nome do usuário</label>
                     <div class="campoPreencher"> 
-                        <input class="placeHolder" type="text" id="email" name="email" placeholder="Digite seu nome" class="text-body-secondary">
+                        <input class="placeHolder" type="text" id="nome" name="nome" placeholder="Digite seu nome" class="text-body-secondary">
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@
                     <label>Confirma a senha</label>
                     <div class="campoPreencher"> 
                         <a class="imgMiniatura" href="" style="width: 24px; height: 24px; position: absolute;"><img src="../img/img.senha.png"></a>
-                        <input class="placeHolder" type="text" id="email" name="email" placeholder="Digite novamente a senha" class="text-body-secondary">
+                        <input class="placeHolder" type="text" id="confirmaSenha" name="confirmaSenha" placeholder="Digite novamente a senha" class="text-body-secondary">
                     </div>
                 </div>
 

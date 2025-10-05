@@ -13,7 +13,9 @@
 </head>
 
 <body>
-  <header></header>
+  <header>
+    <a href="paginas_tcc/pgCadastro.php">Clique Aqui</a>
+  </header>
   <div class="container">
     <div class="carousel-container">
   
