@@ -20,10 +20,43 @@ body {
     width: 1.21rem;
     height: 1.21rem;
 }
-.containerInformacoesLivro {
+.adicionarCapaLivro {
     width: 20.5rem;
     height: 26.25rem;
     border-width: 1px;
     border-style: solid;
     border-color: #000;
+    border-radius: 0.62rem;
 }
+.informacoesLivro {
+    height: 26.25rem;
+    width: 32.12rem;
+    gap: 1.25rem;
+}
+.containerCampoPreencher {
+    height: 4.25rem;
+    width: 32.12rem;
+}
+.campoPreencher {
+    height: 40px;
+    width: 568px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #D9D9D9;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+}
+input {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    box-shadow: none;
+    font: inherit;
+    color: inherit;
+    width: auto;
+  }
+  
