@@ -17,8 +17,8 @@ require 'conexao_bd_mysql.php';
 </head>
 
 <body>
-  <header>
-    <a href="paginas_tcc/pgCadastro.php">Clique Aqui</a>
+  <header style="  display: flex; width: 100%; height: 4.71rem; background-color: beige; margin-bottom: 50px; justify-content: flex-end; align-items: center;">
+    <a class="iconePerfil" href="paginas_tcc/pgCadastro.php"><img class="login" src="./img/elon.png" alt=""></a>
   </header>
   <div class="container">
     <div class="carousel-container">

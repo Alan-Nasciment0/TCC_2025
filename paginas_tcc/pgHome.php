@@ -13,7 +13,8 @@
 </head>
 
 <body>
-  <header></header>
+  <header>
+  </header>
   <div class="container">
     <div class="carousel-container">
   
