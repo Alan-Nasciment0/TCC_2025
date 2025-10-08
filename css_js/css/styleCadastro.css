@@ -12,7 +12,7 @@ body {
     flex-direction: column;
     align-items: center;
 } 
-.containerEaa {
+.containerPrincipal {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -59,7 +59,7 @@ label {
     font-size: 16px;
 }
 .placeHolder {
-    width: 196px;
+    width: 300px;
     height: 36px;
     margin-left: 16px;
     font-family: Arial, Regular;
@@ -75,7 +75,18 @@ input[type=submit] {
     border: none;
     font-family: Arial, Regular;
     background-color: #000;
-    color: #fff; 
+    color: #fff;
+}
+input {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    box-shadow: none;
+    font: inherit;
+    color: inherit;
+    width: auto;
 }
 .campoPreencher {
     height: 40px;

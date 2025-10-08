@@ -9,7 +9,7 @@
     <title>Página de cadastro-TCC</title>
 </head>
 <body>
-    <div class="containerEaa">
+    <div class="containerPrincipal">
         <div class="containerLogin">
             <div class="containerLogo">
                 <a class="logo" href=""><img src="../img/img.teste.webp"></a>

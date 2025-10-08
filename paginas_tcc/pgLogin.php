@@ -9,7 +9,7 @@
     <title>Página de login-TCC</title>
 </head>
 <body>
-    <div class="container">
+    <div class="containerPrincipal">
         <div class="containerLogin">
             <div class="containerLogo">
                 <a class="logo" href=""><img src="../img/img.teste.webp"></a>
