@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manter Autor</title>
+    <title>Manter Livro</title>
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../css_js/css/pgManterLivro.css">
+    <link rel="stylesheet" href="../css_js/css/pgManterAutor.css">
 </head>
 <body>
     <div class="container">
-        <h1>Manter Livro</h1>
+        <h1>Manter Autor</h1>
         <div class="containerManter">
             <search class="containerPesquisa">
                 <form>
                     <img src="../img/pesquisarPreto.png" class="imgPesquisa">
-                    <input name="pesquisa" placeholder="Pesquise um livro">
+                    <input name="pesquisa" placeholder="Pesquise um autor">
                 </form>
             </search>
 
@@ -23,21 +23,21 @@
                 <div style="display: flex; gap: 8.31rem; margin-top: 6.56rem;">
                     <div class="adicionarCapaLivro">
                         <label for="file-upload" class="custom-file-label"><img src="../img/nuvem.png"></label>
-                        <label for="file-upload" class="custom-file-label">Adicionar Capa do Livro</label>
+                        <label for="file-upload" class="custom-file-label">Adicionar Foto do Autor</label>
                         <input type="file" id="file-upload" style="display: none;">
                     </div>
                     <div class="informacoesLivro">
                         <div class="containerCampoPreencher">
-                            <label>Nome do Livro</label>
+                            <label>Nome do Autor</label>
                             <div class="campoPreencher"> 
-                                <input class="placeHolder" type="text" id="nomeLivro" name="nomeLivro" placeholder="Digite o nome do livro" class="text-body-secondary">
+                                <input class="placeHolder" type="text" id="nomeAutor" name="nomeAutor" placeholder="Digite o nome do Autor" class="text-body-secondary">
                             </div>
                         </div>
 
                         <div class="containerCampoPreencher">
-                            <label>Autor do Livro</label>
-                            <div class="campoPreencher"> 
-                                <input class="placeHolder" type="text" id="autor" name="autor" placeholder="Digite o Autor" class="text-body-secondary">
+                            <label>Data de Nascimento</label>
+                            <div class="campoPreencherData"> 
+                                <input type="date" class="placeHolder" type="text" id="dataNascimentoAutor" name="dataNascimentoAutor" class="text-body-secondary">
                             </div>
                         </div>
 
@@ -55,19 +55,13 @@
                             </div>
                         </div>
 
-                        <div class="containerCampoPreencher">
-                            <label>Editora do livro</label>
-                            <div class="campoPreencher"> 
-                                <input class="placeHolder" type="text" id="editora" name="editora" placeholder="Digite a editora" class="text-body-secondary">
-                            </div>
-                        </div>
                     </div>
                 </div>
 
                 <div style="margin-top: 1.87rem;">
-                    <label>Descrição</label>
+                    <label>Descrição do Autor</label>
                             <div class="campoDescricao"> 
-                                <input class="placeHolder" type="text" id="descricao" name="descricao" placeholder="Digite a Descrição do livro" size="400" style="width: 59.68rem;">
+                                <input class="placeHolder" type="text" id="descricao" name="descricao" placeholder="Digite a descrição do autor" size="400" style="width: 59.68rem;">
                             </div>
                             <div class="containerBotoes">
                                 <button type="button" class="btn btn-dark" style="display: none;">Deasativar Autor</button>
