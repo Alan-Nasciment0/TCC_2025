@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #1c1c1c;
+  display: flex;
+  justify-content: center;
+}
+
+.tela {
+  width: 1532px;
+  min-height: 100vh;
+  background: #111;
+}
+
+.barra {
+  width: 1280px;
+  height: 77px;
+  background: #3a3a3a;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+
+.menu-superior {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.caixa-pesquisa {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.caixa-pesquisa input {
+  width: 250px;
+  height: 30px;
+  border-radius: 4px;
+  border: none;
+  padding: 5px 10px;
+}
+
+.caixa-pesquisa button {
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid #555;
+  background: #444;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.filtros {
+  width: 300px;
+  color: white;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  margin: 20px 40px;
+}
+
+.filtros ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filtros li {
+  margin-bottom: 15px;
+}
+
+.filtros a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.cartao {
+  width: 880px;
+  height: 330px;
+  background: #2a2a2a;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.imagem-capa {
+  width: 172px;
+  height: 272px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.capa {
+  margin-right: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.informacoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titulo {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.autor {
+  font-size: 20px;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.avaliacao {
+  font-size: 18px;
+  color: #ffcc00;
+  display: flex;
+  align-items: center;
+}
