@@ -4,6 +4,7 @@ body {
   background: #1c1c1c;
   display: flex;
   justify-content: center;
+  font-family: Arial, sans-serif;
 }
 
 .tela {
@@ -22,14 +23,16 @@ body {
   justify-content: space-between;
   padding: 0 20px;
   color: white;
-  font-family: Arial, sans-serif;
 }
 
+.logo {
+  height: 60px;
+}
 
 .menu-superior {
   display: flex;
-  gap: 20px;
   align-items: center;
+  gap: 20px;
 }
 
 .caixa-pesquisa {
@@ -59,7 +62,6 @@ body {
 .filtros {
   width: 300px;
   color: white;
-  font-family: Arial, sans-serif;
   padding: 20px;
   margin: 20px 40px;
 }
@@ -79,7 +81,6 @@ body {
   text-decoration: none;
   font-size: 16px;
 }
-
 
 
 .conteudo {
@@ -102,7 +103,6 @@ body {
   padding: 20px;
   box-sizing: border-box;
   color: white;
-  font-family: Arial, sans-serif;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
