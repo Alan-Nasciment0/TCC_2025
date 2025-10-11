@@ -6,7 +6,7 @@
     <title>Manter Livro</title>
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../css_js/css/pgManterAutor.css">
+    <link rel="stylesheet" href="../css_js/css/styleManterAutor.css">
 </head>
 <body>
     <div class="container">

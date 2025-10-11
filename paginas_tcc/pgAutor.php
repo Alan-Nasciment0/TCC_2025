@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página do Autor</title>
-    <link rel="stylesheet" href="../css_js/css/pgAutor.css">
+    <link rel="stylesheet" href="../css_js/css/styleAutor.css">
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>

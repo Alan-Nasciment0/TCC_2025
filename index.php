@@ -12,7 +12,7 @@ require 'conexao_bd_mysql.php';
 
   <link rel="stylesheet" href="./css_js/bootstrap/css/bootstrap.min.css">
 
-  <link rel="stylesheet" href="./css_js/css/home.css">
+  <link rel="stylesheet" href="./css_js/css/styleHome.css">
   <script src="./css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela favorito</title>
-    <link rel="stylesheet" href="../css_js/css/favorito.css">
+    <link rel="stylesheet" href="../css_js/css/styleFavorito.css">
 </head>
 <body>
     <header>

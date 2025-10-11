@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Categoria de Livros</title>
-  <link rel="stylesheet" href="../css_js/css/estilo_categoria.css">
+  <link rel="stylesheet" href="../css_js/css/styleCategoriaLivro.css">
 </head>
 <body>
   <div class="container">
