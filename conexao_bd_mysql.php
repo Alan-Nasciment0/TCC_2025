@@ -1,13 +1,15 @@
 <?php
-//<?php
 
-//$local_servidor = "localhost:3306";
-//$usuario = "root";
-//$senha = "";
+$local_servidor = "localhost:3307";
+$usuario = "root";
+$senha = "";
 
-//$bd_procurado = "bd_TCC";
+$bd_procurado = "bd_TCC";
 
-//$conexao_servidor_bd = 
-//mysqli_connect($local_servidor, $usuario, $senha,  $bd_procurado) or die ('Nao foi possivel conectar');
-                      
-//?>
+try {
+    $pdo = new PDO("mysql:host=$local_servidor;dbname=$bd_procurado;charset=utf8", $usuario, $senha);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Erro na conexão: " . $e->getMessage());
+}               
+?>
