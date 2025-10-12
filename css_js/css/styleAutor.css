@@ -93,10 +93,15 @@ p {
 .nomeLivro {
     position: absolute;
     top: 24.31rem;
+    width: 15rem;
+    height: 1.87rem;
     margin: auto;
     height: auto;
     font-size: 12px;
     margin: 11px 8px 0 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;  
 }
 .nomeAutor {
     position: absolute;

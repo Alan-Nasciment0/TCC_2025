@@ -1,3 +1,8 @@
+<?php
+
+include('BuscaLivros/buscaLivros.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -47,154 +52,46 @@
     <div class="containerLivrosRecomendados">
         <h4>Livros Recomendados</h4>
         <div class="containerLivroRecomendado">
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
+            <?php if (count($livros) > 0): ?>
+                <?php foreach ($livros as $livro): ?>
+                <div class="livro">
+                    <img src="<?= htmlspecialchars($livro['livro_capa_link']) ?>" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">
+                        <?= htmlspecialchars($livro['livro_titulo']) ?>
+                    </h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>
                 </div>
-            </div>
-
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
-
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
-
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
-
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
-
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
+                <?php endforeach; ?>
+            <?php endif; ?>            
         </div>
     </div>
 
     <div class="containerLivrosPopulares">
         <h4>Livros Populares</h4>
         <div class="containerLivroPopular">
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
+             <?php if (count($livros) > 0): ?>
+                <?php foreach ($livros as $livro): ?>
+                <div class="livro">
+                    <img src="<?= htmlspecialchars($livro['livro_capa_link']) ?>" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">
+                        <?= htmlspecialchars($livro['livro_titulo']) ?>
+                    </h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>
                 </div>
-            </div>
-
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
-
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
-
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
-
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
-
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
+                <?php endforeach; ?>
+            <?php endif; ?>              
         </div>
     </div>
 
@@ -238,77 +135,23 @@
     <div class="containerLivrosLancamentos">
         <h4>Lançamentos</h4>
         <div class="containerLivroLancamento">
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
+             <?php if (count($livros) > 0): ?>
+                <?php foreach ($livros as $livro): ?>
+                <div class="livro">
+                    <img src="<?= htmlspecialchars($livro['livro_capa_link']) ?>" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">
+                        <?= htmlspecialchars($livro['livro_titulo']) ?>
+                    </h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>
                 </div>
-            </div>
-
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
-
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
-
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
-
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
-
-            <div class="livro">
-                <img src="img/livro.jpg" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
+                <?php endforeach; ?>
+            <?php endif; ?>              
         </div>
     </div>
 </body>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'conexao_bd_mysql.php';
+require 'conecao_bd_sql/conexao_bd_mysql.php';
 
 if (isset($_POST['Criar_conta'])) {
     // Limpar e proteger os dados

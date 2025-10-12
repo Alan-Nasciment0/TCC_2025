@@ -92,7 +92,9 @@ include('../BuscaLivros/buscaLivros.php');
                     <img src="<?= htmlspecialchars($livro['livro_capa_link']) ?>" class="imgLivro">
                     <div class="gradiente"></div>
                     <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
-                    <h6 class="nomeLivro"><?= htmlspecialchars($livro['livro_titulo']) ?></h6>
+                    <h6 class="nomeLivro">
+                        <?= htmlspecialchars($livro['livro_titulo']) ?>
+                    </h6>
                     <h6 class="nomeAutor">Machado de Assis</h6>
                     <div class="avaliacoes">
                         <img src="../img/star.png" class="imgEstrela">
@@ -100,7 +102,7 @@ include('../BuscaLivros/buscaLivros.php');
                     </div>
                 </div>
                 <?php endforeach; ?>
-                 <?php endif; ?>                
+                <?php endif; ?>
             </div>
         </div>
 

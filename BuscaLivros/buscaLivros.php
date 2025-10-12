@@ -1,5 +1,5 @@
 <?php
-require '../conexao_bd_mysql.php';
+require __DIR__ . '/../conexao_bd_sql/conexao_bd_mysql.php';
 
 $options = [
   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -7,8 +7,6 @@ $options = [
 ];
 
 try {
-
-  
 
   // Consulta todos os produtos
   $stmt = $pdo->query("SELECT * FROM livros");

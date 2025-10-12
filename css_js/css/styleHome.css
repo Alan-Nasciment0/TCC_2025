@@ -19,42 +19,69 @@ body {
 .carousel-container {
     width: 100%;
     height: 35rem;
-
 }
-.containerLivrosRecomendados, .containerLivrosPopulares, .containerLivrosLancamentos {
+.bannerIMG {
+    height: 35rem;
+    width: 81.62rem;
+}
+.containerLivrosRecomendados,
+ .containerLivrosPopulares,
+  .containerLivrosLancamentos {
     margin-top: 3.12rem;
     width: 80rem;
     height: 31.5rem;
     color: #fff;
 }
-.containerLivro {
+.containerLivroRecomendado,
+ .containerLivroPopular,
+  .containerLivroLancamento {
     display: flex;
     width: 78rem;
     height: 28rem;
     gap: 1rem;
     overflow-x: auto;
     scroll-behavior: smooth;
-    anchor-name: --containerLivro;
+    anchor-name: --containerLivroRecomendado;
     scroll-snap-type: x mandatory;
 }
-.containerLivro::-webkit-scrollbar {
+.containerLivroPopular {
+    anchor-name: --containerLivroPopular;
+}
+.containerLivroLancamento {
+    anchor-name: --containerLivroLancamento;
+}
+.containerLivroRecomendado::-webkit-scrollbar,
+ .containerLivroPopular::-webkit-scrollbar,
+  .containerLivroLancamento::-webkit-scrollbar {
     display: none;
 }
-.containerLivro::scroll-button(right), .containerLivro::scroll-button(left) {
+.containerLivroRecomendado::scroll-button(right), .containerLivroRecomendado::scroll-button(left),
+ .containerLivroPopular::scroll-button(right), .containerLivroPopular::scroll-button(left),
+  .containerLivroLancamento::scroll-button(right), .containerLivroLancamento::scroll-button(left) {
     content: url('../../img/setaDireita.png');
     border: none;
     height: 2rem;
     background-color: #1E1E1E;
     cursor: pointer;
     position: fixed;
-    position-anchor: --containerLivro;
+    position-anchor: --containerLivroRecomendado;
     position-area: right center;    
 }
-.containerLivro::scroll-button(left) {
+.containerLivroPopular::scroll-button(right), .containerLivroPopular::scroll-button(left) {
+    position-anchor: --containerLivroPopular;
+}
+.containerLivroLancamento::scroll-button(right), .containerLivroLancamento::scroll-button(left) {
+    position-anchor: --containerLivroLancamento;
+}
+.containerLivroRecomendado::scroll-button(left),
+ .containerLivroPopular::scroll-button(left),
+  .containerLivroLancamento::scroll-button(left) {
     content: url('../../img/setaEsquerda.png');
     position-area: left center;
 }
-.containerLivro::scroll-button(right):disabled, .containerLivro::scroll-button(left):disabled {
+.containerLivroRecomendado::scroll-button(right):disabled, .containerLivroRecomendado::scroll-button(left):disabled,
+ .containerLivroPopular::scroll-button(right):disabled, .containerLivroPopular::scroll-button(left):disabled,
+  .containerLivroLancamento::scroll-button(right):disabled, .containerLivroLancamento::scroll-button(left):disabled {
     cursor: auto;
 }
 .livro {
@@ -148,10 +175,15 @@ body {
 .nomeLivro {
     position: absolute;
     top: 24.31rem;
+    width: 15rem;
+    height: 1.87rem;
     margin: auto;
     height: auto;
     font-size: 12px;
     margin: 11px 8px 0 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;  
 }
 .nomeAutor {
     position: absolute;
