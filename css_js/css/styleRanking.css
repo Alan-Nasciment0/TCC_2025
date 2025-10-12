@@ -1,32 +1,31 @@
 body {
   margin: 0;
   padding: 0;
-  background: #1c1c1c;
+  background-color: #1E1E1E;
   display: flex;
   justify-content: center;
   font-family: Arial, sans-serif;
 }
 
 .tela {
-  width: 1532px;
-  min-height: 100vh;
-  background: #111;
+  width: 100vh;
+  background-color: #1E1E1E;
 }
 
 .barra {
-  width: 1280px;
+  width: 100vh;
   height: 77px;
   background: #3a3a3a;
   margin: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 0 20px;
   color: white;
 }
 
 .logo {
   height: 60px;
+  margin-right: 80px;
 }
 
 .menu-superior {
@@ -38,7 +37,7 @@ body {
 .caixa-pesquisa {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 80px;
 }
 
 .caixa-pesquisa input {
