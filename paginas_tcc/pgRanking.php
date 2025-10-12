@@ -28,8 +28,7 @@
     <div class="filtros">
       <ul>
         <li><a href="#">Melhores avaliados ></a></li>
-        <li><a href="#">Livros de histórias curtas ></a></li>
-        <li><a href="#">Livros de histórias grandes ></a></li>
+        <li><a href="#">Piores avaliados ></a></li>
       </ul>
     </div>
 
