@@ -7,7 +7,8 @@ CREATE TABLE Usuario (
     usuario_email VARCHAR(100),
     usuario_senha VARCHAR(50),
     usuario_tempo_banimento VARCHAR(50),
-    nivel_acesso INTEGER
+    nivel_acesso INTEGER default 1,
+    primeiro_acesso bool default 0
 );
 
 CREATE TABLE Autor (
@@ -136,3 +137,4 @@ begin
  insert into usuario( usuario_nome, usuario_email, usuario_senha)
  values (usu_nome, usu_email, usu_senha);
  end $$
+ 
