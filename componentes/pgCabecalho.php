@@ -2,11 +2,6 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
-    <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
-    <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body class="containerEBAAA">

@@ -18,8 +18,10 @@ include('BuscaLivros/buscaLivros.php');
 
 <body>
     <header>
-        <iframe name="iframe_cabecalho" src="componentes/pgCabecalho.php" frameborder="0"
-            style="position: relative; width: 100%; height: 77px;" id="iframe_cabecalho"></iframe>
+        <?php
+
+        include('componentes/pgCabecalho.php');
+?>
     </header>
     <div class="container">
         <div class="carousel-container">
@@ -53,46 +55,18 @@ include('BuscaLivros/buscaLivros.php');
     <div class="containerLivrosRecomendados">
         <h4>Livros Recomendados</h4>
         <div class="containerLivroRecomendado">
-            <?php if (count($livros) > 0): ?>
-            <?php foreach ($livros as $livro): ?>
-            <div class="livro">
-                <img src="<?= htmlspecialchars($livro['livro_capa_link']) ?>" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">
-                    <?= htmlspecialchars($livro['livro_titulo']) ?>
-                </h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
-            <?php endforeach; ?>
-            <?php endif; ?>
+            <?php
+             include('componentes/livrosRecomendados.php');
+            ?>
         </div>
     </div>
 
     <div class="containerLivrosPopulares">
         <h4>Livros Populares</h4>
         <div class="containerLivroPopular">
-            <?php if (count($livros) > 0): ?>
-            <?php foreach ($livros as $livro): ?>
-            <div class="livro">
-                <img src="<?= htmlspecialchars($livro['livro_capa_link']) ?>" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">
-                    <?= htmlspecialchars($livro['livro_titulo']) ?>
-                </h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
-            <?php endforeach; ?>
-            <?php endif; ?>
+            <?php
+             include('componentes/livrosPopulares.php');
+            ?>
         </div>
     </div>
 
@@ -136,23 +110,9 @@ include('BuscaLivros/buscaLivros.php');
     <div class="containerLivrosLancamentos">
         <h4>Lançamentos</h4>
         <div class="containerLivroLancamento">
-            <?php if (count($livros) > 0): ?>
-            <?php foreach ($livros as $livro): ?>
-            <div class="livro">
-                <img src="<?= htmlspecialchars($livro['livro_capa_link']) ?>" class="imgLivro">
-                <div class="gradiente"></div>
-                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                <h6 class="nomeLivro">
-                    <?= htmlspecialchars($livro['livro_titulo']) ?>
-                </h6>
-                <h6 class="nomeAutor">Machado de Assis</h6>
-                <div class="avaliacoes">
-                    <img src="img/star.png" class="imgEstrela">
-                    <h6 class="mediaAvaliacao">4,1</h6>
-                </div>
-            </div>
-            <?php endforeach; ?>
-            <?php endif; ?>
+            <?php
+             include('componentes/livrosLancamentos.php');
+            ?>
         </div>
     </div>
 </body>
