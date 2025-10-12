@@ -1,4 +1,4 @@
---Livros Não Ficção
+/*Livros Não Ficção*/
 
 INSERT INTO Livros (livro_titulo, livro_ano, livro_editora, livro_descricao, livro_capa_link) VALUES ('Além do bem e do mal', '2024/05/04', 'Veríssimo', 'Em Além do Bem e do Mal, Nietzsche incita uma revolução filosófica, desafiando o pensamento convencional e a moralidade estratificada, estabelecida. Com o ímpeto de um guerreiro e a precisão de um filólogo, o autor questiona as fundações sobre as quais repousam as filosofias anteriores. Em vez de aceitar o bem e o mal como opostos irreconciliáveis, ele propõe uma nova perspectiva: são, na essência, manifestações diferentes dos mesmos ímpetos básicos.', 'https://m.media-amazon.com/images/I/51AgKOZQM4L._SY342_.jpg');
 INSERT INTO Livros (livro_titulo, livro_ano, livro_editora, livro_descricao, livro_capa_link) VALUES ('O manifesto comunista', '2021/11/22', 'Paz & Terra', 'Escrito há quase 200 anos, O manifesto comunista, de Karl Marx e Friedrich Engels, foi concebido excepcionalmente para comunicar as ideias seminais da organização política do proletariado a um público amplo e popular. A finalidade dos autores era aproximar a classe trabalhadora das teorias políticas que formariam as bases do comunismo na Europa. A empreitada resultou num texto claro e objetivo, que chegou aos quatro cantos do planeta e se tornou um dos principais acontecimentos políticos do mundo moderno e contemporâneo.', 'https://m.media-amazon.com/images/I/71Zy2zMjZ+L._SY466_.jpg');
@@ -43,7 +43,7 @@ INSERT INTO Livros (livro_titulo, livro_ano, livro_editora, livro_descricao, liv
 INSERT INTO Livros (livro_titulo, livro_ano, livro_editora, livro_descricao, livro_capa_link) VALUES ('Estatística Prática Para Cientistas de Dados: 50 Conceitos Essenciais', '2019/01/07', 'Alta Books', 'Este guia prático conecta estatística e ciência de dados, ensinando a aplicar métodos estatísticos de forma correta e eficaz usando R. Voltado para quem já tem noções básicas, aborda desde análise exploratória e amostragem até regressão, classificação e aprendizado de máquina. Com foco em evitar erros comuns, o livro mostra como extrair insights valiosos de dados, tornando-se uma ponte essencial entre teoria estatística e práticas modernas da ciência de dados.', 'https://m.media-amazon.com/images/I/916ooK2oBNL._SY425_.jpg'); 
   
 
---Livros Poesia
+/*Livros Poesia*/
 
 INSERT INTO Livros (livro_titulo, livro_ano, livro_editora, livro_descricao, livro_capa_link) VALUES
 ('A Rosa do Povo', '1945/10/31', 'Companhia das Letras', 'Obra marcada pelo contexto da Segunda Guerra Mundial e pela inquietação social do Brasil na época. Drummond une lirismo com crítica social em versos densos e reflexivos.', 'https://m.media-amazon.com/images/I/6197n1XXABL._UF1000,1000_QL80_.jpg'),
@@ -97,7 +97,7 @@ INSERT INTO Livros (livro_titulo, livro_ano, livro_editora, livro_descricao, liv
 ('Golden Ax', '2022/08/30', 'Penguin Books', 'Rio Cortez resgata a história afro-americana no Velho Oeste, mapeando pertencimento e memória.', 'https://m.media-amazon.com/images/I/A1BrC4eFLWL._UF894,1000_QL80_.jpg');
 
 
---Livros Livros Ficção
+/*Livros Livros Ficção*/
 
 INSERT INTO Livros (livro_titulo, livro_ano, livro_editora, livro_descricao, livro_capa_link) VALUES
 ('1984', '1949-01-01', 'Secker & Warburg', 'Sociedade totalitária que vigia e manipula a verdade — Winston Smith tenta resistir.', 'https://m.media-amazon.com/images/I/819js3EQwbL._SY522_.jpg'),
@@ -141,7 +141,7 @@ INSERT INTO Livros (livro_titulo, livro_ano, livro_editora, livro_descricao, liv
 ('The Curious Incident of the Dog in the Night-Time', '2003-01-01', 'Jonathan Cape', 'Christopher investiga morte de cão e descobre segredos familiares.', 'https://m.media-amazon.com/images/I/51rfZjc9MbL._SY425_.jpg'),
 ('The Secret History', '1992-01-01', 'Alfred A. Knopf', 'Grupo de estudantes clássicos envolvidos em assassinato.', 'https://m.media-amazon.com/images/I/41YhiinsnpL._SY445_SX342_.jpg');
  
- --Livros Infantis
+ /*Livros Infantis*/
 
  INSERT INTO Livros (livro_titulo, livro_ano, livro_editora, livro_descricao, livro_capa_link) VALUES
 ('O Sítio do Picapau Amarelo', '1920-01-01', 'Editora Globo', 'Fantasia com folclore, ciência e cultura brasileira.', 'https://m.media-amazon.com/images/I/71EatkadfoL._SY385_.jpg'),

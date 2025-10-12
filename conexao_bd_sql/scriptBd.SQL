@@ -43,7 +43,7 @@ CREATE TABLE Livros (
     livro_titulo VARCHAR(50),
     livro_ano DATE,
     livro_editora VARCHAR(50),
-    livro_descrição VARCHAR(200),
+    livro_descricao VARCHAR(200),
     livro_capa_link text
 );
 
