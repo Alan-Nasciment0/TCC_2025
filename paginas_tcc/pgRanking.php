@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ranking de Livros</title>
   <link rel="stylesheet" href="../css_js/css/styleRanking.css">
 </head>
+
 <body>
   <div class="tela">
     <!-- Barra superior -->
@@ -68,4 +70,5 @@
     </div>
   </div>
 </body>
+
 </html>

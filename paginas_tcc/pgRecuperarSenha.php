@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="../css_js/css/styleRecuperarSenha.css">
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
@@ -8,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página esqueci a senha-TCC</title>
 </head>
+
 <body>
     <div class="container">
         <div class="containerLogin">
@@ -18,7 +20,7 @@
             <form>
                 <div class="containerPreencher">
                     <label>Email</label>
-                    <div class="campoPreencher">          
+                    <div class="campoPreencher">
                         <input class="placeHolder" type="text" id="email" name="email" placeholder="Digite seu email">
                     </div>
                 </div>
@@ -30,4 +32,5 @@
         </div>
     </div>
 </body>
+
 </html>

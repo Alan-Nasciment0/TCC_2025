@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <link rel="stylesheet" href="../css_js/css/styleLogin.css">
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
@@ -8,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de login-TCC</title>
 </head>
+
 <body>
     <div class="containerPrincipal">
         <div class="containerLogin">
@@ -18,16 +20,19 @@
             <form action="../salvarUsuario.php" method="post">
                 <div class="containerPreencher0">
                     <label>Email</label>
-                    <div class="campoPreencher"> 
-                        <input class="placeHolder" type="text" id="email" name="email" placeholder="Digite seu email" class="text-body-secondary">
+                    <div class="campoPreencher">
+                        <input class="placeHolder" type="text" id="email" name="email" placeholder="Digite seu email"
+                            class="text-body-secondary">
                     </div>
                 </div>
 
                 <div class="containerPreencher1">
                     <label>Senha</label>
                     <div class="campoPreencher">
-                        <a class="imgMiniatura" href="" style="width: 24px; height: 24px; position: absolute;"><img src="../img/img.senha.png"></a>
-                        <input class="placeHolder" type="password" id="senha" name="senha" placeholder="Digite sua senha." class="text-body-secondary">
+                        <a class="imgMiniatura" href="" style="width: 24px; height: 24px; position: absolute;"><img
+                                src="../img/img.senha.png"></a>
+                        <input class="placeHolder" type="password" id="senha" name="senha"
+                            placeholder="Digite sua senha." class="text-body-secondary">
                     </div>
                 </div>
 
@@ -43,4 +48,5 @@
         </div>
     </div>
 </body>
+
 </html>
