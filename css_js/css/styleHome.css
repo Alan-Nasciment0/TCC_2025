@@ -6,6 +6,9 @@ body {
     height: auto;   
     background-color: #1E1E1E;
 }
+header {
+    width: 100%;
+}
 
 .container {
     width: 100%;
@@ -23,6 +26,9 @@ body {
 .bannerIMG {
     height: 35rem;
     width: 81.62rem;
+}
+.carousel-inner {
+    border-radius: 1rem;
 }
 .containerLivrosRecomendados,
  .containerLivrosPopulares,

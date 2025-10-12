@@ -12,13 +12,14 @@ include('BuscaLivros/buscaLivros.php');
     <title>Tela home</title>
 
     <link rel="stylesheet" href="css_js/bootstrap/css/bootstrap.min.css">
-
     <link rel="stylesheet" href="css_js/css/styleIndex.css">
     <script src="css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body>
     <header>
+        <iframe name="iframe_cabecalho" src="componentes/pgCabecalho.php" frameborder="0"
+            style="position: relative; width: 100%; height: 77px;" id="iframe_cabecalho"></iframe>
     </header>
     <div class="container">
         <div class="carousel-container">
@@ -53,45 +54,45 @@ include('BuscaLivros/buscaLivros.php');
         <h4>Livros Recomendados</h4>
         <div class="containerLivroRecomendado">
             <?php if (count($livros) > 0): ?>
-                <?php foreach ($livros as $livro): ?>
-                <div class="livro">
-                    <img src="<?= htmlspecialchars($livro['livro_capa_link']) ?>" class="imgLivro">
-                    <div class="gradiente"></div>
-                    <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                    <h6 class="nomeLivro">
-                        <?= htmlspecialchars($livro['livro_titulo']) ?>
-                    </h6>
-                    <h6 class="nomeAutor">Machado de Assis</h6>
-                    <div class="avaliacoes">
-                        <img src="img/star.png" class="imgEstrela">
-                        <h6 class="mediaAvaliacao">4,1</h6>
-                    </div>
+            <?php foreach ($livros as $livro): ?>
+            <div class="livro">
+                <img src="<?= htmlspecialchars($livro['livro_capa_link']) ?>" class="imgLivro">
+                <div class="gradiente"></div>
+                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
+                <h6 class="nomeLivro">
+                    <?= htmlspecialchars($livro['livro_titulo']) ?>
+                </h6>
+                <h6 class="nomeAutor">Machado de Assis</h6>
+                <div class="avaliacoes">
+                    <img src="img/star.png" class="imgEstrela">
+                    <h6 class="mediaAvaliacao">4,1</h6>
                 </div>
-                <?php endforeach; ?>
-            <?php endif; ?>            
+            </div>
+            <?php endforeach; ?>
+            <?php endif; ?>
         </div>
     </div>
 
     <div class="containerLivrosPopulares">
         <h4>Livros Populares</h4>
         <div class="containerLivroPopular">
-             <?php if (count($livros) > 0): ?>
-                <?php foreach ($livros as $livro): ?>
-                <div class="livro">
-                    <img src="<?= htmlspecialchars($livro['livro_capa_link']) ?>" class="imgLivro">
-                    <div class="gradiente"></div>
-                    <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                    <h6 class="nomeLivro">
-                        <?= htmlspecialchars($livro['livro_titulo']) ?>
-                    </h6>
-                    <h6 class="nomeAutor">Machado de Assis</h6>
-                    <div class="avaliacoes">
-                        <img src="img/star.png" class="imgEstrela">
-                        <h6 class="mediaAvaliacao">4,1</h6>
-                    </div>
+            <?php if (count($livros) > 0): ?>
+            <?php foreach ($livros as $livro): ?>
+            <div class="livro">
+                <img src="<?= htmlspecialchars($livro['livro_capa_link']) ?>" class="imgLivro">
+                <div class="gradiente"></div>
+                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
+                <h6 class="nomeLivro">
+                    <?= htmlspecialchars($livro['livro_titulo']) ?>
+                </h6>
+                <h6 class="nomeAutor">Machado de Assis</h6>
+                <div class="avaliacoes">
+                    <img src="img/star.png" class="imgEstrela">
+                    <h6 class="mediaAvaliacao">4,1</h6>
                 </div>
-                <?php endforeach; ?>
-            <?php endif; ?>              
+            </div>
+            <?php endforeach; ?>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -135,23 +136,23 @@ include('BuscaLivros/buscaLivros.php');
     <div class="containerLivrosLancamentos">
         <h4>Lançamentos</h4>
         <div class="containerLivroLancamento">
-             <?php if (count($livros) > 0): ?>
-                <?php foreach ($livros as $livro): ?>
-                <div class="livro">
-                    <img src="<?= htmlspecialchars($livro['livro_capa_link']) ?>" class="imgLivro">
-                    <div class="gradiente"></div>
-                    <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
-                    <h6 class="nomeLivro">
-                        <?= htmlspecialchars($livro['livro_titulo']) ?>
-                    </h6>
-                    <h6 class="nomeAutor">Machado de Assis</h6>
-                    <div class="avaliacoes">
-                        <img src="img/star.png" class="imgEstrela">
-                        <h6 class="mediaAvaliacao">4,1</h6>
-                    </div>
+            <?php if (count($livros) > 0): ?>
+            <?php foreach ($livros as $livro): ?>
+            <div class="livro">
+                <img src="<?= htmlspecialchars($livro['livro_capa_link']) ?>" class="imgLivro">
+                <div class="gradiente"></div>
+                <a class="marcador"><img src="img/bookmark.png" class="imgMarcador"></a>
+                <h6 class="nomeLivro">
+                    <?= htmlspecialchars($livro['livro_titulo']) ?>
+                </h6>
+                <h6 class="nomeAutor">Machado de Assis</h6>
+                <div class="avaliacoes">
+                    <img src="img/star.png" class="imgEstrela">
+                    <h6 class="mediaAvaliacao">4,1</h6>
                 </div>
-                <?php endforeach; ?>
-            <?php endif; ?>              
+            </div>
+            <?php endforeach; ?>
+            <?php endif; ?>
         </div>
     </div>
 </body>
