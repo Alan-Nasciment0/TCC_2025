@@ -1,0 +1,65 @@
+--Gênero Não ficção
+
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Filosofia', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Ciências Sociais', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Comunismo e Socialismo', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Psicologia', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Finanças', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Finanças Públicas', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Economia Internacinal', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Economia Ambiental', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Macroeconomia', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('AutoAjuda', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Motivacional', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Biografias de Ciências Sociais', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Investimento', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Relações Interpessoais', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Saúde', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Educação', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Biografia', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Crime', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Design', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Arte', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Habilidade de Leitura', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Fotografia', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Programação de Computadores', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Design de Sofware', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Hardware', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Probabilidade e Estatística', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Base de Dados', 2 );
+
+--Gênero Poesia
+
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Lírica', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Social', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Modernista', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Antologia Poética', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Surrealista', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Mística', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Filosófica', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Existencial', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Simbolista', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Construtiva', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Poética', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Cultura', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Contemporâneo', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Político', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Identidade', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Queer', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Ensaístico', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Visual', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Natureza', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Espiritual', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Soneto Moderno', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Confessional', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Feminino', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Resiliência', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Imigração', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Histórico', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Indígena', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Pessoal', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Recuperação', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Desejo', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Racial', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) values ('Regional', 3 );
