@@ -42,7 +42,7 @@
 
                 <div class="botoes">
                     <input type="submit" name="login" value="Entrar">
-                    <input type="submit" value="Criar conta" style="margin-left: 135px;">
+                    <input type="submit" name="pgCriar_conta" value="Criar conta" style="margin-left: 135px;">
                 </div>
             </form>
         </div>

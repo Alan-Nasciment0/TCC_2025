@@ -1,6 +1,7 @@
 <?php
-
+session_start();
 include('BuscaLivros/buscaLivros.php');
+$primeiro_acesso = isset($_SESSION['primeiro_acesso']) ? $_SESSION['primeiro_acesso'] : 0;
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +21,8 @@ include('BuscaLivros/buscaLivros.php');
     <header>
         <?php
 
-        include('componentes/pgCabecalho.php');
+        include('componentes/pgCabecalho.php');        
+
 ?>
     </header>
     <div class="container">
@@ -56,7 +58,7 @@ include('BuscaLivros/buscaLivros.php');
         <h4>Livros Recomendados</h4>
         <div class="containerLivroRecomendado">
             <?php
-             include('componentes/livrosRecomendados.php');
+             include('componentes/componentesIndex/livrosRecomendados.php');
             ?>
         </div>
     </div>
@@ -65,7 +67,7 @@ include('BuscaLivros/buscaLivros.php');
         <h4>Livros Populares</h4>
         <div class="containerLivroPopular">
             <?php
-             include('componentes/livrosPopulares.php');
+             include('componentes/componentesIndex/livrosPopulares.php');
             ?>
         </div>
     </div>
@@ -111,7 +113,7 @@ include('BuscaLivros/buscaLivros.php');
         <h4>Lançamentos</h4>
         <div class="containerLivroLancamento">
             <?php
-             include('componentes/livrosLancamentos.php');
+             include('componentes/componentesIndex/livrosLancamentos.php');
             ?>
         </div>
     </div>

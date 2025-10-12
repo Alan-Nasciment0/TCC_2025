@@ -1,5 +1,8 @@
 <?php
-
+session_start();
+echo '<pre>';
+print_r($_SESSION);
+echo '</pre>';
 include('../BuscaLivros/buscaLivros.php');
 ?>
 
@@ -12,16 +15,40 @@ include('../BuscaLivros/buscaLivros.php');
     <title>Tela home</title>
 
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css_js/css/styleIndex.css">
+    <link rel="stylesheet" href="../css_js/css/styleHome.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <header>
-        <?php
 
-        include('componentes/pgCabecalho.php');
-?>
+    <header>
+
+        <?php
+        include('../componentes/pgCabecalho.php');
+        
+        echo '<pre>';
+        print_r($_SESSION);
+        echo '</pre>';
+        ?>
+
+        <?php if (isset($_SESSION['primeiro_acesso']) && $_SESSION['primeiro_acesso'] == 0): ?>
+        <div id="modalCategoria" class="modal-overlay">
+            <div class="modal-content">
+                <?php include(__DIR__ . '/pgCategoria.php'); ?>
+            </div>
+        </div>
+        <script>
+            // Fechar o modal ao clicar fora dele
+            document.addEventListener('click', function (event) {
+                const modal = document.getElementById('modalCategoria');
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        </script>
+        <?php unset($_SESSION['primeiro_acesso']); ?>
+        <?php endif; ?>
+
     </header>
     <div class="container">
         <div class="carousel-container">
@@ -56,7 +83,7 @@ include('../BuscaLivros/buscaLivros.php');
         <h4>Livros Recomendados</h4>
         <div class="containerLivroRecomendado">
             <?php
-             include('../componentes/livrosRecomendados.php');
+             include('../componentes/componentesPaginas_tcc/livrosRecomendados.php');
             ?>
         </div>
     </div>
@@ -65,7 +92,7 @@ include('../BuscaLivros/buscaLivros.php');
         <h4>Livros Populares</h4>
         <div class="containerLivroPopular">
             <?php
-             include('../componentes/livrosPopulares.php');
+             include('../componentes/componentesPaginas_tcc/livrosPopulares.php');
             ?>
         </div>
     </div>
@@ -111,7 +138,7 @@ include('../BuscaLivros/buscaLivros.php');
         <h4>Lançamentos</h4>
         <div class="containerLivroLancamento">
             <?php
-             include('../componentes/livrosLancamentos.php');
+             include('../componentes/componentesPaginas_tcc/livrosLancamentos.php');
             ?>
         </div>
     </div>

@@ -5,7 +5,7 @@ CREATE TABLE Usuario (
     usuario_cod INTEGER PRIMARY KEY AUTO_INCREMENT,
     usuario_nome VARCHAR(50),
     usuario_email VARCHAR(100),
-    usuario_senha VARCHAR(50),
+    usuario_senha text,
     usuario_tempo_banimento VARCHAR(50),
     nivel_acesso INTEGER default 1,
     primeiro_acesso bool default 0
@@ -106,6 +106,7 @@ CREATE TABLE Livros_Lidos (
     constraint fk_usuario_cod_4 foreign key(usuario_cod) references usuario (usuario_cod)
 );
 
+
 CREATE TABLE Genero_preferido_usuario (
  usuario_cod INTEGER,
     genero_cod INTEGER,
@@ -113,12 +114,21 @@ CREATE TABLE Genero_preferido_usuario (
  constraint fk_usuario_cod_5 foreign key(usuario_cod) references usuario (usuario_cod),
     constraint fk_genero_cod_3 foreign key(genero_cod) references genero (genero_cod)
 );
+
+CREATE TABLE Categoria_preferida_usuario (
+ usuario_cod INTEGER,
+    categoria_cod integer,
+    PRIMARY KEY (usuario_cod, categoria_cod),
+ constraint fk_usuario_cod_6 foreign key(usuario_cod) references usuario (usuario_cod),
+    constraint fk_categoria_cod_1 foreign key(categoria_cod) references categoria (categoria_cod)
+);
+
 CREATE TABLE Avaliacoes (
  avaliacao_cod INTEGER PRIMARY KEY AUTO_INCREMENT,
     usuario_cod INTEGER,
     livro_cod INTEGER,
     nota INTEGER CHECK (nota >= 1 and nota <=5),
-    constraint fk_usuario_cod_6 foreign key(usuario_cod) references usuario (usuario_cod),
+    constraint fk_usuario_cod_7 foreign key(usuario_cod) references usuario (usuario_cod),
     constraint fk_livro_cod_6 foreign key(livro_cod) references livros (livro_cod),
     CONSTRAINT unq_usuario_livro UNIQUE (usuario_cod, livro_cod)
 );

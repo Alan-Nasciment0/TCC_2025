@@ -15,7 +15,7 @@
                 <button>Pesquisar</button>
             </div>
             <h4>Favoritos</h4>
-            <a href="../paginas_tcc/pgLogin.php"><img class="logoUserPadrao" src="../img/userPadrao.png">Fazer Login</a>
+            <a href="paginas_tcc/pgLogin.php"><img class="logoUserPadrao" src="../img/userPadrao.png">Fazer Login</a>
         </div>
     </div>
 
