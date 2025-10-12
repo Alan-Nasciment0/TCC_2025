@@ -57,6 +57,7 @@
         <div class="containerPrincipaisObras">
             <h4>Principais Obras</h4>
             <div class="containerLivro">
+<<<<<<< HEAD
                 <div class="livro">
                     <div class="favoritar">
                         <img src="../img/livro.jpg" class="imgLivro">
@@ -112,6 +113,55 @@
                         </div>
                     </div>
                 </div>
+=======
+                <div class="livro">                                   
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                    
+                </div>
+
+                <div class="livro">                                  
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                   
+                </div>
+
+                <div class="livro">                                   
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                      
+                </div>
+
+                <div class="livro">                                    
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                   
+                </div>                
+>>>>>>> ce9d76aa37c4947e07210758972d1e98c3055694
             </div>
         </div>
 

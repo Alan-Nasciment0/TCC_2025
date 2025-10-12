@@ -44,111 +44,273 @@
     </div>
   </div>
 
-  <div class="livros" style="margin-top: 80px;">
-<!--Livros  Recomendados -->
-  
-    <div class="livro">
-      <img class="marcador" src="../img/bookmark.png" alt="marcador" >
-      <img src="https://m.media-amazon.com/images/I/41YhiinsnpL._SY445_SX342_.jpg" alt="livro">
-      <h6>Águas de homens  pretos</h6>
-      <h6>Machado de Assis</h6>
-    </div>
+  <div class="containerLivrosRecomendados">
+            <h4>Livros Recomendados</h4>
+            <div class="containerLivro">
+                <div class="livro">                                      
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                       
+                </div>
 
-    <div class="livro">
-      <img src="https://m.media-amazon.com/images/I/41YhiinsnpL._SY445_SX342_.jpg" alt="livro">
-      <h6>Águas de homens  pretos</h6>
-      <h6>Machado de Assis</h6>
-    </div>
-    
-    <div class="livro">
-      <img src="https://m.media-amazon.com/images/I/41YhiinsnpL._SY445_SX342_.jpg" alt="livro">
-      <h6>Águas de homens  pretos</h6>
-      <h6>Machado de Assis</h6>
-    </div>
+                <div class="livro">                                     
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                 
+                </div>
 
-    <div class="livro">
-      <img src="https://m.media-amazon.com/images/I/41YhiinsnpL._SY445_SX342_.jpg" alt="livro">
-      <h6>Águas de homens  pretos</h6>
-      <h6>Machado de Assis</h6>
-    </div>
-  </div>
+                <div class="livro">                    
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                       
+                </div>
 
-<div class="livros" style="margin-top: 80px;">
-  <!--Livros Populares-->
-    <div class="livro">
-      <img src="https://m.media-amazon.com/images/I/41YhiinsnpL._SY445_SX342_.jpg" alt="livro">
-      <h6>Águas de homens  pretos</h6>
-      <h6>Machado de Assis</h6>
-    </div>
-    
-    <div class="livro">
-      <img src="https://m.media-amazon.com/images/I/41YhiinsnpL._SY445_SX342_.jpg" alt="livro">
-      <h6>Águas de homens  pretos</h6>
-      <h6>Machado de Assis</h6>
-    </div>
+                <div class="livro">                                  
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                     
+                </div>       
+                
+                <div class="livro">                              
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                     
+                </div> 
 
-    <div class="livro">
-      <img src="https://m.media-amazon.com/images/I/41YhiinsnpL._SY445_SX342_.jpg" alt="livro">
-      <h6>Águas de homens  pretos</h6>
-      <h6>Machado de Assis</h6>
-    </div>
+                <div class="livro">                                  
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                     
+                </div> 
+            </div>
+        </div>
 
-    <div class="livro">
-      <img src="https://m.media-amazon.com/images/I/41YhiinsnpL._SY445_SX342_.jpg" alt="livro">
-      <h6>Águas de homens  pretos</h6>
-      <h6>Machado de Assis</h6>
-    </div>
-  </div>  
+<div class="containerLivrosPopulares">
+            <h4>Livros Populares</h4>
+            <div class="containerLivro">
+                <div class="livro">                                      
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                       
+                </div>
 
-  <div class="autores" style="margin-top: 80px;">
+                <div class="livro">                                     
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                 
+                </div>
+
+                <div class="livro">                    
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                       
+                </div>
+
+                <div class="livro">                                  
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                     
+                </div>       
+                
+                <div class="livro">                              
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                     
+                </div> 
+
+                <div class="livro">                                  
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                     
+                </div> 
+            </div>
+        </div>
+
+  <div class="containerAutores" style="margin-top: 80px;">
     <!--Autores em destaque-->
-    <div class="autor">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Machado_de_Assis_1908.jpg" alt="autor">
-      <h6>Machado de Assis</h6>
-    </div>
+    <h4>Autores</h4>
+    <div class="containerAutor">
+      <div class="autor">
+        <img class="autoresIMG" src="../img/autor.jpg" alt="autor">
+        <h6>Machado de Assis</h6>
+      </div>
 
-    <div class="autor">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Machado_de_Assis_1908.jpg" alt="autor">
-      <h6>Machado de Assis</h6>
-    </div>
+      <div class="autor">
+        <img class="autoresIMG" src="../img/autor.jpg" alt="autor">
+        <h6>Machado de Assis</h6>
+      </div>
 
-    <div class="autor">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Machado_de_Assis_1908.jpg" alt="autor">
-      <h6>Machado de Assis</h6>
-    </div>
+      <div class="autor">
+        <img class="autoresIMG" src="../img/autor.jpg" alt="autor">
+        <h6>Machado de Assis</h6>
+      </div>
 
-    <div class="autor">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Machado_de_Assis_1908.jpg" alt="autor">
-      <h6>Machado de Assis</h6>
+      <div class="autor">
+        <img class="autoresIMG" src="../img/autor.jpg" alt="autor">
+        <h6>Machado de Assis</h6>
+      </div>
+
+      <div class="autor">
+        <img class="autoresIMG" src="../img/autor.jpg" alt="autor">
+        <h6>Machado de Assis</h6>
+      </div>
+
+      <div class="autor">
+        <img class="autoresIMG" src="../img/autor.jpg" alt="autor">
+        <h6>Machado de Assis</h6>
+      </div>
     </div>
 
   </div>
-  <div class="livros" style="margin-top: 80px;">
-    <!--Livros Novos-->
-      <div class="livro">
-        <img src="https://m.media-amazon.com/images/I/41YhiinsnpL._SY445_SX342_.jpg" alt="livro">
-        <h6>Águas de homens  pretos</h6>
-        <h6>Machado de Assis</h6>
-      </div>
-      
-      <div class="livro">
-        <img src="https://m.media-amazon.com/images/I/41YhiinsnpL._SY445_SX342_.jpg" alt="livro">
-        <h6>Águas de homens  pretos</h6>
-        <h6>Machado de Assis</h6>
-      </div>
-  
-      <div class="livro">
-        <img src="https://m.media-amazon.com/images/I/41YhiinsnpL._SY445_SX342_.jpg" alt="livro">
-        <h6>Águas de homens  pretos</h6>
-        <h6>Machado de Assis</h6>
-      </div>
-  
-      <div class="livro">
-        <img src="https://m.media-amazon.com/images/I/41YhiinsnpL._SY445_SX342_.jpg" alt="livro">
-        <h6>Águas de homens  pretos</h6>
-        <h6>Machado de Assis</h6>
-      </div>
-  </div>
+
+  <div class="containerLivrosLancamentos">
+            <h4>Lançamentos</h4>
+            <div class="containerLivro">
+                <div class="livro">                                      
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                       
+                </div>
+
+                <div class="livro">                                     
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                 
+                </div>
+
+                <div class="livro">                    
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                       
+                </div>
+
+                <div class="livro">                                  
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                     
+                </div>       
+                
+                <div class="livro">                              
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                     
+                </div> 
+
+                <div class="livro">                                  
+                    <img src="../img/livro.jpg" class="imgLivro">
+                    <div class="gradiente"></div>
+                    <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                    <h6 class="nomeLivro">Memórias Póstumas de Bras Cubas</h6>
+                    <h6 class="nomeAutor">Machado de Assis</h6>
+                    <div class="avaliacoes">
+                        <img src="../img/star.png" class="imgEstrela">
+                        <h6 class="mediaAvaliacao">4,1</h6>
+                    </div>                                     
+                </div> 
+            </div>
+        </div>
 </body>
 
 </html>
