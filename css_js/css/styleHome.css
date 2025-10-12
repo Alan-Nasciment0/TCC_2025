@@ -163,26 +163,57 @@ body {
     
 }
 
-.autores{
+.containerAutores{
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column;
+    color: #fff;       
+}
+.containerAutor {
+    display: flex;
+    width: 78rem;
+    height: 15.12rem;
+    gap: 6.25rem;
     width: 80rem;
     max-width: 1200px;
     margin: 50px ;
-    justify-content: space-between;    
+    justify-content: space-between; 
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    anchor-name: --containerAutor;
+    scroll-snap-type: x mandatory;
+}
+.containerAutor::-webkit-scrollbar {
+    display: none;
+}
+.containerAutor::scroll-button(right), .containerAutor::scroll-button(left) {
+    content: url('../../img/setaDireita.png');
+    border: none;
+    height: 2rem;
+    background-color: #1E1E1E;
+    cursor: pointer;
+    position: fixed;
+    position-anchor: --containerAutor;
+    position-area: right center;    
+}
+.containerAutor::scroll-button(left) {
+    content: url('../../img/setaEsquerda.png');
+    position-area: left center;
+}
+.containerAutor::scroll-button(right):disabled, .containerAutor::scroll-button(left):disabled {
+    cursor: auto;
 }
 .autor{
-    background-color: rgb(227, 232, 237);
-    border-radius: 100%;
-    overflow: hidden;
     text-align: center;
     padding: 10px;
+    height: 15.12rem;
+    width: 14rem;
+    color: #fff;
 }
 
-.autores img{
-    width: 100px;
-    height: 100px;
+.autoresIMG{
+    width: 12.5rem;
+    height: 12.5rem;
+    border-radius: 50%;
 }
 .iconePerfil{
     width: 3.125rem;

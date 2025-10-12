@@ -198,26 +198,39 @@
             </div>
         </div>
 
-  <div class="autores" style="margin-top: 80px;">
+  <div class="containerAutores" style="margin-top: 80px;">
     <!--Autores em destaque-->
-    <div class="autor">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Machado_de_Assis_1908.jpg" alt="autor">
-      <h6>Machado de Assis</h6>
-    </div>
+    <h4>Autores</h4>
+    <div class="containerAutor">
+      <div class="autor">
+        <img class="autoresIMG" src="../img/autor.jpg" alt="autor">
+        <h6>Machado de Assis</h6>
+      </div>
 
-    <div class="autor">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Machado_de_Assis_1908.jpg" alt="autor">
-      <h6>Machado de Assis</h6>
-    </div>
+      <div class="autor">
+        <img class="autoresIMG" src="../img/autor.jpg" alt="autor">
+        <h6>Machado de Assis</h6>
+      </div>
 
-    <div class="autor">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Machado_de_Assis_1908.jpg" alt="autor">
-      <h6>Machado de Assis</h6>
-    </div>
+      <div class="autor">
+        <img class="autoresIMG" src="../img/autor.jpg" alt="autor">
+        <h6>Machado de Assis</h6>
+      </div>
 
-    <div class="autor">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Machado_de_Assis_1908.jpg" alt="autor">
-      <h6>Machado de Assis</h6>
+      <div class="autor">
+        <img class="autoresIMG" src="../img/autor.jpg" alt="autor">
+        <h6>Machado de Assis</h6>
+      </div>
+
+      <div class="autor">
+        <img class="autoresIMG" src="../img/autor.jpg" alt="autor">
+        <h6>Machado de Assis</h6>
+      </div>
+
+      <div class="autor">
+        <img class="autoresIMG" src="../img/autor.jpg" alt="autor">
+        <h6>Machado de Assis</h6>
+      </div>
     </div>
 
   </div>
