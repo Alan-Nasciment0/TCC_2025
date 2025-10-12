@@ -20,9 +20,10 @@
                 <button>Pesquisar</button>
             </div>
             <h4>Favoritos</h4>
-            <a><img class="logoUserPadrao" src="../img/userPadrao.png"></a>
+            <a href="../paginas_tcc/pgLogin.php"><img class="logoUserPadrao" src="../img/userPadrao.png">Fazer Login</a>
         </div>
     </div>
+
 </body>
 
 </html>
