@@ -41,11 +41,11 @@ CREATE TABLE Genero (
  
 CREATE TABLE Livros (
     livro_cod INTEGER PRIMARY KEY AUTO_INCREMENT,
-    livro_titulo VARCHAR(50),
+    livro_titulo VARCHAR(200),
     livro_ano DATE,
     livro_editora VARCHAR(50),
-    livro_descricao VARCHAR(200),
-    livro_capa_link text
+    livro_descricao TEXT,
+    livro_capa_link TEXT
 );
 
 CREATE TABLE LivroGenero (
