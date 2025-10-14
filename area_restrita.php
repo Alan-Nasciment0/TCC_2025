@@ -7,6 +7,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] == true) {
 }
 else {
     header('Location: index.php');
+    session_destroy();
     exit;
 }
 ?>

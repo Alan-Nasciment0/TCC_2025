@@ -1,8 +1,6 @@
 <?php
 session_start();
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
+
 include('../BuscaLivros/buscaLivros.php');
 ?>
 
@@ -16,6 +14,7 @@ include('../BuscaLivros/buscaLivros.php');
 
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css_js/css/styleHome.css">
+    <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
@@ -26,9 +25,6 @@ include('../BuscaLivros/buscaLivros.php');
         <?php
         include('../componentes/pgCabecalho.php');
         
-        echo '<pre>';
-        print_r($_SESSION);
-        echo '</pre>';
         ?>
 
         <?php if (isset($_SESSION['primeiro_acesso']) && $_SESSION['primeiro_acesso'] == 0): ?>

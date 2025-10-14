@@ -1,6 +1,6 @@
 <?php
 
-$local_servidor = "localhost:3307";
+$local_servidor = "localhost:8081";
 $usuario = "root";
 $senha = "";
 

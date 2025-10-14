@@ -34,6 +34,7 @@ if (isset($_POST['Criar_conta'])) {
     exit;
 }
 
+
 if (isset($_POST['login'])) {
     $email = trim($_POST['email']);
     $senha = trim($_POST['senha']);

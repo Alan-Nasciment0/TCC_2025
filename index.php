@@ -2,6 +2,7 @@
 session_start();
 include('BuscaLivros/buscaLivros.php');
 $primeiro_acesso = isset($_SESSION['primeiro_acesso']) ? $_SESSION['primeiro_acesso'] : 0;
+$_SESSION['logado'] = false;
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +15,7 @@ $primeiro_acesso = isset($_SESSION['primeiro_acesso']) ? $_SESSION['primeiro_ace
 
     <link rel="stylesheet" href="css_js/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css_js/css/styleIndex.css">
+    <link rel="stylesheet" href="css_js/css/styleCabecalho.css">
     <script src="css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
