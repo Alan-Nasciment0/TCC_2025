@@ -23,7 +23,7 @@ include('../BuscaLivros/buscaLivros.php');
     <header>
 
         <?php
-        include('../componentes/pgCabecalho.php');
+        include('../componentes/pgCabecalhoPaginas.php');
         
         ?>
 

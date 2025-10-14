@@ -1,8 +1,7 @@
 <?php
 session_start();
 include('BuscaLivros/buscaLivros.php');
-$primeiro_acesso = isset($_SESSION['primeiro_acesso']) ? $_SESSION['primeiro_acesso'] : 0;
-$_SESSION['logado'] = false;
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +22,7 @@ $_SESSION['logado'] = false;
     <header>
         <?php
 
-        include('componentes/pgCabecalho.php');        
+        include('componentes/pgCabecalhoIndex.php');        
 
 ?>
     </header>
