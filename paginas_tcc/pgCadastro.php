@@ -13,10 +13,10 @@
 <body>
     <div class="containerPrincipal">
         <div class="containerLogin">
+            <h2 class="titulo">Fazer cadastro</h2>
             <div class="containerLogo">
                 <a class="logo" href=""><img src="../img/img.teste.webp"></a>
             </div>
-            <h2 class="titulo">Fazer cadastro</h2>
             <form action="../salvarUsuario.php" method="post">
                 <input type="hidden" name="acao" value="cadastrar">
                 <div class="containerPreencher0">

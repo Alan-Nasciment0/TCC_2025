@@ -3,6 +3,7 @@
 }
 .titulo {
     font-size: 32px;
+    margin-top: 10px;
     margin-bottom: 25px;
     font-weight: bold;
 }
@@ -33,7 +34,7 @@ body {
 .containerLogo {
     width: 110px;
     height: 137px;
-    margin-top: 20px;
+    margin-bottom: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,5 +106,5 @@ input {
 .botoes {
     margin-top: 47px;
     margin-left: 155px;
-    margin-bottom: 55px;
+    margin-bottom: 45px;
 }
