@@ -28,6 +28,8 @@ include('../BuscaLivros/buscaLivros.php');
         ?>
 
         <?php if (isset($_SESSION['primeiro_acesso']) && $_SESSION['primeiro_acesso'] == 0): ?>
+
+
         <div id="modalCategoria" class="modal-overlay">
             <div class="modal-content">
                 <?php include(__DIR__ . '/pgCategoria.php'); ?>
@@ -42,6 +44,23 @@ include('../BuscaLivros/buscaLivros.php');
                 }
             });
         </script>
+        //se ja houver dado preenchido na tabela de categoria do usuario
+        <div id="modalGenero" class="modal-overlay">
+            <div class="modal-content">
+                <?php include(__DIR__ . '/pgGenero.php'); ?>
+            </div>
+        </div>
+        <script>
+            // Fechar o modal ao clicar fora dele
+            document.addEventListener('click', function (event) {
+                const modal = document.getElementById('modalCategoria');
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        </script>
+
+
         <?php unset($_SESSION['primeiro_acesso']); ?>
         <?php endif; ?>
 
@@ -52,7 +71,7 @@ include('../BuscaLivros/buscaLivros.php');
             <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
+                        <img class="bannerIMG" src="../img/banner.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
                         <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
