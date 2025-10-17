@@ -119,8 +119,8 @@ header {
     box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 25);
 }
 .imgMarcador {
-    width: 3.12rem;
-    height: 3.12rem;
+    width: 4.12rem;
+    height: 4.12rem;
 }
 .marcador {
     position: absolute;
@@ -129,8 +129,8 @@ header {
     box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 25);
 }
 .imgMarcador {
-    width: 3.12rem;
-    height: 3.12rem;
+    width: 5.12rem;
+    height: 5.12rem;
 }
 .avaliacoes {
     position: absolute;
