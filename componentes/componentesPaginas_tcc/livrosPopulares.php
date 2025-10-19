@@ -3,7 +3,7 @@
             <div class="livro">
                 <img src="<?= htmlspecialchars($livro['livro_capa_link']) ?>" class="imgLivro">
                 <div class="gradiente"></div>
-                <a class="marcador"><img src="../img/bookmark.png" class="imgMarcador"></a>
+                <a class="marcador"><img src="../img/salvar_livro.png" class="imgMarcador"></a>
                 <h6 class="nomeLivro">
                     <?= htmlspecialchars($livro['livro_titulo']) ?>
                 </h6>

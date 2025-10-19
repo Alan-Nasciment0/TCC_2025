@@ -15,6 +15,7 @@
     justify-content: center;
     padding: 0 20px;
     color: white;
+    gap: 5rem;
 }
 
 .fotoUsuario {
@@ -80,4 +81,52 @@
     color: white;
     border-radius: 4px;
     cursor: pointer;
+}
+.dropDown {
+    position: relative;
+    display: inline-block;
+}
+.containerMenu {
+    padding-top: 1rem;
+    width: 220px;
+    height: auto;
+    background-color: aliceblue;
+    border-radius: 10px;
+    display: none;
+    position: absolute;
+    z-index: 9999;
+}
+.containerItens {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.dropDownBotao {
+    height: 3.25rem;
+    width: 3.25rem;
+    border: none;
+    border-radius: 50%;
+    background-color: #00000000;
+}
+
+.containerItem {
+    gap: 10px;
+    list-style: none;
+    display: flex;
+    height: 1.87rem;
+    flex-direction: row;
+    align-items: center;
+}
+
+.itemMenu {
+    text-decoration: none;
+    color: black;  
+}
+.imgMenu {
+    width: 30px;
+    height: 30px;
+    margin-left: -11px;
+}
+.mostrarMenu {
+    display: block;
 }
