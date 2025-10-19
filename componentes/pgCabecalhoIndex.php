@@ -8,14 +8,28 @@
     <div class="barra">
         <img src="img/Quanto_mais_você_lê_mais_você_voa__2_-removebg-preview.png" alt="Logo" class="logo">
         <div class="menu-superior">
-            <h4>Início</h4>
-            <h4>Ranking</h4>
-            <div class="caixa-pesquisa">
-                <input type="text" placeholder="Search">
-                <button>Pesquisar</button>
-            </div>
-            <h4>Favoritos</h4>
-            <a href="paginas_tcc/pgLogin.php"><img class="logoUserPadrao" src="img/userPadrao.png">Fazer Login</a>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="index.php">Início</a>
+                    </li>
+                    <li>
+                        <a href="paginas_tcc/pgRanking.php">Ranking</a>
+                    </li>
+                    <li>
+                        <div class="caixa-pesquisa">
+                            <input type="text" placeholder="Search">
+                            <button>Pesquisar</button>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="paginas_tcc/pgFavorito.php">Favoritos</a>
+                    </li>
+                    <li>
+                        <a href="paginas_tcc/pgLogin.php">Fazer Login</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
 
