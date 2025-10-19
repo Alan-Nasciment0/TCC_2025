@@ -1,5 +1,4 @@
 /*Gênero da categoria Não ficção*/
-
 INSERT INTO Genero (genero_nome, categoria_cod) values ('Filosofia', 2 );
 INSERT INTO Genero (genero_nome, categoria_cod) values ('Ciências Sociais', 2 );
 INSERT INTO Genero (genero_nome, categoria_cod) values ('Comunismo e Socialismo', 2 );
@@ -28,8 +27,8 @@ INSERT INTO Genero (genero_nome, categoria_cod) values ('Hardware', 2 );
 INSERT INTO Genero (genero_nome, categoria_cod) values ('Probabilidade e Estatística', 2 );
 INSERT INTO Genero (genero_nome, categoria_cod) values ('Base de Dados', 2 );
 
-/*Gênero da categoria Poesia*/
 
+/*Gênero da categoria Poesia*/
 INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Lírica', 3 );
 INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Social', 3 );
 INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Modernista', 3 );
