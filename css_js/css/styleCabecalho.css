@@ -17,13 +17,15 @@
     color: white;
 }
 
+.fotoUsuario {
+    height: 3.25rem;
+    width: 3.25rem;
+    border-radius: 50%;
+}
+
 .logo {
     height: 60px;
     margin-right: 80px;
-}
-.logoUserPadrao {
-    height: 2.25rem;
-    width: 2.25rem;
 }
 
 .menu-superior {
@@ -32,6 +34,30 @@
     gap: 20px;
 }
 
+.menu-superior nav {
+    padding-top: 1rem;
+}
+
+.menu-superior nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.menu-superior nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.menu-superior nav ul li a:hover {
+    color: #000;
+}
 .caixa-pesquisa {
     display: flex;
     align-items: center;
