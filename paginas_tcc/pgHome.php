@@ -27,9 +27,22 @@ include('../BuscaLivros/buscaLivros.php');
         
         ?>
 
-        <?php if (isset($_SESSION['primeiro_acesso']) && $_SESSION['primeiro_acesso'] == 0): ?>
+        <?php 
+            $usuarioCod = $_SESSION['usuario_cod'];
 
+            $sql = "SELECT COUNT(*) AS total FROM categoria_preferida_usuario WHERE usuario_cod = :usuario_cod";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':usuario_cod', $usuarioCod, PDO::PARAM_INT);
+            $stmt->execute();
+            $resultadoCategoria = $stmt->fetch(PDO::FETCH_ASSOC); 
 
+            $sql = "SELECT COUNT(*) AS total FROM genero_preferido_usuario WHERE usuario_cod = :usuario_cod";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':usuario_cod', $usuarioCod, PDO::PARAM_INT);
+            $stmt->execute();
+            $resultadoGenero = $stmt->fetch(PDO::FETCH_ASSOC); 
+            
+        if ($resultadoCategoria['total'] == 0){?>        
         <div id="modalCategoria" class="modal-overlay">
             <div class="modal-content">
                 <?php include(__DIR__ . '/pgCategoria.php'); ?>
@@ -44,7 +57,8 @@ include('../BuscaLivros/buscaLivros.php');
                 }
             });
         </script>
-        //se ja houver dado preenchido na tabela de categoria do usuario
+        <?php
+        }elseif ($resultadoGenero['total'] == 0){?>
         <div id="modalGenero" class="modal-overlay">
             <div class="modal-content">
                 <?php include(__DIR__ . '/pgGenero.php'); ?>
@@ -62,7 +76,7 @@ include('../BuscaLivros/buscaLivros.php');
 
 
         <?php unset($_SESSION['primeiro_acesso']); ?>
-        <?php endif; ?>
+        <?php } ?>
 
     </header>
     <div class="container">
