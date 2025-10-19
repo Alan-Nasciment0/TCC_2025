@@ -85,13 +85,13 @@ if($_SESSION['nivel_acesso'] == 1) {?>
                             </li>
 
                             <li class="containerItem">
-                                <a class="itemMenu" href="pgHistorico.php">
+                                <a class="itemMenu" href="pgDenuncias.php">
                                     <img class="imgMenu" src="../img/denunciaIcone.png">Denúncias
                                 </a>
                             </li>
 
                             <li class="containerItem">
-                                <a class="itemMenu" href="pgHistorico.php">
+                                <a class="itemMenu" href="pgBanidos.php">
                                     <img class="imgMenu" src="../img/banIcone.png">Banidos
                                 </a>
                             </li>
@@ -148,31 +148,31 @@ if($_SESSION['nivel_acesso'] == 1) {?>
                             </li>
 
                             <li class="containerItem">
-                                <a class="itemMenu" href="pgHistorico.php">
+                                <a class="itemMenu" href="pgDenucias.php">
                                     <img class="imgMenu" src="../img/denunciaIcone.png">Denúncias
                                 </a>
                             </li>
 
                             <li class="containerItem">
-                                <a class="itemMenu" href="pgHistorico.php">
+                                <a class="itemMenu" href="pgBanidos.php">
                                     <img class="imgMenu" src="../img/banIcone.png">Banidos
                                 </a>
                             </li>
 
                             <li class="containerItem">
-                                <a class="itemMenu" href="pgHistorico.php">
+                                <a class="itemMenu" href="pgAdicionarModerador.php">
                                     <img class="imgMenu" src="../img/adicionarIcone.png">Adicionar Moderador
                                 </a>
                             </li>
 
                             <li class="containerItem">
-                                <a class="itemMenu" href="pgHistorico.php">
+                                <a class="itemMenu" href="pgManterLivro.php">
                                     <img class="imgMenu" src="../img/bookAdicionarIcone.png">Manter Livros
                                 </a>
                             </li>
 
                             <li class="containerItem">
-                                <a class="itemMenu" href="pgHistorico.php">
+                                <a class="itemMenu" href="pgManterAutor.php">
                                     <img class="imgMenu" src="../img/bookAdicionarIcone.png">Manter Autor
                                 </a>
                             </li>
