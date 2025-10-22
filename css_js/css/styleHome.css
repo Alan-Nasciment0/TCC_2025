@@ -22,13 +22,10 @@ header {
     justify-content: center;
 }
 
-.modal-content {
-    background: white;
-    padding: 30px;
+.modal-content {    
     border-radius: 10px;
     max-width: 600px;
-    width: 90%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width: 90%;    
 }
 
 .container {
