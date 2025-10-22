@@ -67,7 +67,7 @@ include('../BuscaLivros/buscaLivros.php');
         <script>
             // Fechar o modal ao clicar fora dele
             document.addEventListener('click', function (event) {
-                const modal = document.getElementById('modalCategoria');
+                const modal = document.getElementById('modalGenero');
                 if (event.target === modal) {
                     modal.style.display = 'none';
                 }
