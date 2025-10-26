@@ -36,8 +36,8 @@ INSERT INTO Autor (autor_nome, autor_data_nascimento, autor_data_falecimento, au
 ('Andrew Hunt', '1964-01-01', NULL, 'Desenvolvimento de Software', 'Cocriador de O Programador Pragmático.', 'https://m.media-amazon.com/images/S/amzn-author-media-prod/nss2a5eho42ssngjjdpfurn96u.jpg'),
 ('Antônio Manzano', NULL, NULL, 'Lógica de Programação', 'Autor brasileiro de Algoritmos e Lógica da Programação.', 'https://tse3.mm.bing.net/th/id/OIP.CxDhvnPvkdnmjcSF7PzedAHaEL?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3'),
 ('Alan Beaulieu', NULL, NULL, 'Banco de Dados / SQL', 'Autor de Introdução à Linguagem SQL.', 'https://www.barnesdennig.com/wp-content/uploads/Alan-Beaulieu-ITR-Economics-1638x2048.png'),
-('Peter Bruce', '1956-10-02', NULL, 'Estatística / Ciência de Dados', 'Autor de Estatística Prática Para Cientistas de Dados.', 'https://www.faraday.ac.uk/wp-content/uploads/2019/10/Peter-Bruce-profile.jpg');
-('Mariana Caltabiano', '1972-06-21', NULL, 'Biografia', 'Mariana começou sua carreira como publicitária em 1990. Afirma que entrou para a DM9, de Nizan Guanaes', 'https://images.mubicdn.net/images/cast_member/156075/cache-4078-1478101707/image-w856.jpg')
+('Peter Bruce', '1956-10-02', NULL, 'Estatística / Ciência de Dados', 'Autor de Estatística Prática Para Cientistas de Dados.', 'https://www.faraday.ac.uk/wp-content/uploads/2019/10/Peter-Bruce-profile.jpg'),
+('Mariana Caltabiano', '1972-06-21', NULL, 'Biografia', 'Mariana começou sua carreira como publicitária em 1990. Afirma que entrou para a DM9, de Nizan Guanaes', 'https://images.mubicdn.net/images/cast_member/156075/cache-4078-1478101707/image-w856.jpg');
 
 
 /*Autor de Livros de Poesia*/
@@ -89,7 +89,7 @@ INSERT INTO Autor (autor_nome, autor_data_nascimento, autor_data_falecimento, au
 ('Albert Camus', '1913-11-07', '1960-01-04', 'Existencialismo / Absurdismo', 'Filósofo e escritor francês, autor de “O Estrangeiro” e “A Peste”, defensor do humanismo em tempos de crise.', 'https://th.bing.com/th/id/R.848467ba0f0b1902e00e2ade2b29e49b?rik=qzc%2fcrXnVUjG6w&riu=http%3a%2f%2f1.bp.blogspot.com%2f-_yxOzzOzKYE%2fVLwGix2aSqI%2fAAAAAAABCcM%2flU5jYBIaHmc%2fs1600%2falbert%252Bcamus%252B002_alta.jpg&ehk=Yf1Hz4YWJ0YdOGz0i9UvSk06NeiIado9M8reQl883Ks%3d&risl=&pid=ImgRaw&r=0'),
 ('Ray Bradbury', '1920-08-22', '2012-06-05', 'Ficção científica / Distopia', 'Escritor americano conhecido por “Fahrenheit 451”, uma crítica à censura e à alienação social.', 'https://cdn.britannica.com/23/200923-050-510EBC89/Ray-Bradbury-1982.jpg'),
 ('Umberto Eco', '1932-01-05', '2016-02-19', 'Pós-modernismo / Semiótica', 'Filósofo e escritor italiano, autor de “O Nome da Rosa”, que combina mistério, história e filosofia.', 'https://images.gr-assets.com/authors/1588941738p8/1730.jpg'),
-('Paulo Coelho', '1947-08-24', NULL, 'Espiritualismo / Realismo mágico', 'Escritor brasileiro de “O Alquimista”, obra sobre autodescoberta e destino, traduzida para dezenas de idiomas.', 'https://d1nslcd7m2225b.cloudfront.net/Pictures/2000x2000fit/7/2/3/1281723_Paulo-Coelho.jpg');
+('Paulo Coelho', '1947-08-24', NULL, 'Espiritualismo / Realismo mágico', 'Escritor brasileiro de “O Alquimista”, obra sobre autodescoberta e destino, traduzida para dezenas de idiomas.', 'https://d1nslcd7m2225b.cloudfront.net/Pictures/2000x2000fit/7/2/3/1281723_Paulo-Coelho.jpg'),
 ('Yann Martel', '1963-06-25', NULL, 'Realismo mágico', 'Autor canadense conhecido por unir filosofia e espiritualidade em narrativas simbólicas, como em "Life of Pi".', 'https://www.thefactsite.com/wp-content/uploads/2013/02/yann-martel.jpg'),
 ('Ian McEwan', '1948-06-21', NULL, 'Realismo psicológico', 'Escritor britânico renomado por romances que exploram dilemas morais e psicológicos, como "Atonement".', 'https://assets.vogue.com/photos/5891629b58aa89a00d5431e8/master/w_2560%2Cc_limit/ian-mcewan.jpg'),
 ('Alice Walker', '1944-02-09', NULL, 'Feminismo', 'Autora e ativista americana, ganhadora do Pulitzer, conhecida por abordar racismo e gênero em "The Color Purple".', 'https://news.uga.edu/wp-content/uploads/2017/12/Alice-Walker.jpg'),
@@ -101,7 +101,7 @@ INSERT INTO Autor (autor_nome, autor_data_nascimento, autor_data_falecimento, au
 ('Stieg Larsson', '1954-08-15', '2004-11-09', 'Romance policial', 'Jornalista e escritor sueco conhecido pela trilogia "Millennium", iniciada com "The Girl with the Dragon Tattoo".', 'https://images.deepai.org/chat-style-image/f2cc35d1e181485a8dd00378dc7f41f4/stieg-larsson.jpg'),
 ('Thomas Harris', '1940-09-22', NULL, 'Suspense psicológico', 'Autor americano criador do icônico personagem Hannibal Lecter, destaque em "The Silence of the Lambs".', 'https://101livros.com/wp-content/uploads/2022/11/Thomas-Harris.png'),
 ('Erin Morgenstern', '1978-07-08', NULL, 'Fantasia contemporânea', 'Autora americana reconhecida por "The Night Circus", uma obra poética e visual sobre magia e amor.', 'https://s26162.pcdn.co/wp-content/uploads/2022/01/Erin-Morgenstern-credit-Adam-Scott.jpg'),
-('Mark Haddon', '1962-09-26', NULL, 'Ficção contemporânea', 'Autor britânico e ilustrador, conhecido por explorar neurodiversidade em "The Curious Incident of the Dog in the Night-Time".', 'https://m.media-amazon.com/images/I/C1g-imYBb8S._SY600_.jpg'),
+('Mark Haddon', '1962-09-26', NULL, 'Ficção contemporânea', 'Autor britânico e ilustrador, conhecido por explorar neurodiversidade em "The Curious Incident of the Dog in the Night-Time".', 'https://m.media-amazon.com/images/I/C1g-imYBb8S._SY600_.jpg');
 
 
 /* Autor de Livros Infantojuvenis*/
