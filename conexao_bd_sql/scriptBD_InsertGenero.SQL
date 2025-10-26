@@ -1,64 +1,163 @@
+/*Gênero da categoria Ficção*/
+INSERT INTO genero (genero_nome, categoria_cod) VALUES
+('Distopia', 1),
+('Ficção política', 1),
+('Distopia', 1)
+('Ficção científica', 1),
+('Southern Gothic', 1),
+('Bildungsroman', 1),
+('Romance', 1),
+('Tragédia', 1),
+('Romance', 1),
+('Novel of manners', 1),
+('Aventura', 1),
+('Épico marítimo', 1),
+('Romance histórico', 1),
+('Romance psicológico', 1),
+('Coming-of-age', 1),
+('Realismo mágico', 1),
+('Fantasia épica', 1),
+('Fantasia', 1),
+('Drama histórico', 1),
+('Pós-apocalíptico', 1),
+('Ficção histórica', 1), 
+('Realismo mágico', 1),
+('Distopia', 1),
+('Romance controverso', 1),
+('Romance filosófico', 1),
+('Romance realista', 1),
+('Gótico', 1),
+('Bildungsroman', 1),
+('Romance gótico', 1),
+('Gótico', 1),
+('Filosófico', 1),
+('Romance existencial', 1),
+('Fantasia', 1),
+('Aventura', 1),
+('Distopia', 1), 
+('Ficção científica', 1),
+('Mistério histórico', 1),
+('Alegoria', 1), 
+('Ficção espiritual', 1),
+('Ficção filosófica', 1), 
+('Aventura', 1),
+('Drama', 1), 
+('Romance histórico', 1),
+('Epistolar', 1), 
+('Ficção social', 1),
+('Mistério', 1),
+('Romance gótico', 1),
+('Fantasia', 1), 
+('Mitologia moderna', 1),
+('Ficção literária', 1),
+('Ficção científica', 1),
+('Distopia', 1),
+('Ficção familiar', 1),
+('Bildungsroman', 1),
+('Thriller', 1),
+('Crime', 1),
+('Thriller psicológico', 1),
+('Fantasia', 1), 
+('Romance mágico', 1),
+('Mistério', 1),
+('Ficção contemporânea', 1),
+('Thriller acadêmico', 1);
+
+
 /*Gênero da categoria Não ficção*/
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Filosofia', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Ciências Sociais', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Comunismo e Socialismo', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Psicologia', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Finanças', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Finanças Públicas', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Economia Internacinal', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Economia Ambiental', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Macroeconomia', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('AutoAjuda', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Motivacional', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Biografias de Ciências Sociais', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Investimento', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Relações Interpessoais', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Saúde', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Educação', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Biografia', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Crime', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Design', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Arte', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Habilidade de Leitura', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Fotografia', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Programação de Computadores', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Design de Sofware', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Hardware', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Probabilidade e Estatística', 2 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Base de Dados', 2 );
+INSERT INTO Genero (genero_nome, categoria_cod) VALUES 
+('Filosofia', 2),
+('Ciências Sociais', 2),
+('Comunismo e Socialismo', 2),
+('Psicologia', 2),
+('Finanças', 2),
+('Finanças Públicas', 2),
+('Economia Internacinal', 2),
+('Economia Ambiental', 2),
+('Macroeconomia', 2),
+('AutoAjuda', 2),
+('Motivacional', 2),
+('Biografias de Ciências Sociais', 2),
+('Investimento', 2),
+('Relações Interpessoais', 2 ),
+('Saúde', 2),
+('Educação', 2),
+('Biografia', 2),
+('Crime', 2),
+('Design', 2),
+('Arte', 2),
+('Habilidade de Leitura', 2),
+('Fotografia', 2),
+('Programação de Computadores', 2),
+('Design de Sofware', 2),
+('Hardware', 2),
+('Probabilidade e Estatística', 2),
+('Base de Dados', 2);
 
 
 /*Gênero da categoria Poesia*/
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Lírica', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Social', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Modernista', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Antologia Poética', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Surrealista', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Mística', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Filosófica', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Existencial', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Simbolista', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Construtiva', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Poesia Poética', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Cultura', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Contemporâneo', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Político', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Identidade', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Queer', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Ensaístico', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Visual', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Natureza', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Espiritual', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Soneto Moderno', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Confessional', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Feminino', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Resiliência', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Imigração', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Histórico', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Indígena', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Pessoal', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Recuperação', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Desejo', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Racial', 3 );
-INSERT INTO Genero (genero_nome, categoria_cod) values ('Regional', 3 );
+INSERT INTO Genero (genero_nome, categoria_cod) VALUES 
+('Poesia Lírica', 3),
+('Poesia Social', 3),
+('Poesia Modernista', 3),
+('Antologia Poética', 3),
+('Surrealista', 3),
+('Poesia Mística', 3),
+('Poesia Filosófica', 3),
+('Poesia Existencial', 3),
+('Poesia Simbolista', 3),
+('Poesia Construtiva', 3),
+('Poesia', 3),
+('Poesia Poética', 3),
+('Cultura', 3),
+('Contemporâneo', 3),
+('Político', 3),
+('Identidade', 3),
+('Queer', 3),
+('Ensaístico', 3),
+('Visual', 3),
+('Natureza', 3),
+('Espiritual', 3),
+('Soneto Moderno', 3),
+('Confessional', 3),
+('Feminino', 3),
+('Resiliência', 3),
+('Imigração', 3),
+('Histórico', 3),
+('Indígena', 3),
+('Pessoal', 3),
+('Recuperação', 3),
+('Desejo', 3),
+('Racial', 3),
+('Regional', 3);
+
+
+/*Gênero da categoria Infantis*/
+INSERT INTO Genero (genero_nome, categoria_cod) VALUES
+('Fantasia Infantil', 4),
+('Fantasia Infantil', 4),
+('Humor Infantil', 4),
+('Fábula Moderna', 4),
+('Conto Infantil', 4),
+('Literatura Infantil', 4),
+('Aventura Policial Juvenil', 4),
+('Mistério Juvenil', 4),
+('Aventura Infantojuvenil', 4),
+('Ficção Infantojuvenil', 4),
+('Drama Social', 4),
+('Ficção Juvenil', 4),
+('Mistério Infantojuvenil', 4),
+('Fantasia', 4),
+('Fábula Moderna', 4),
+('Romance Juvenil', 4),
+('Humor Infantil', 4),
+('Drama Infantil', 4),
+('Lenda Indígena', 4),
+('Mito Indígena', 4),
+('Fábula', 4),
+('Romance Poético', 4),
+('Romance Juvenil', 4),
+('Mito Indígena', 4),
+('Poesia Infantil', 4),
+('Fábula Moderna', 4),
+('Aventura Policial Juvenil', 4);
