@@ -39,6 +39,7 @@ INSERT INTO Autor (autor_nome, autor_data_nascimento, autor_data_falecimento, au
 ('Peter Bruce', '1956-10-02', NULL, 'Estatística / Ciência de Dados', 'Autor de Estatística Prática Para Cientistas de Dados.', 'https://www.faraday.ac.uk/wp-content/uploads/2019/10/Peter-Bruce-profile.jpg');
 ('Mariana Caltabiano', '1972-06-21', NULL, 'Biografia', 'Mariana começou sua carreira como publicitária em 1990. Afirma que entrou para a DM9, de Nizan Guanaes', 'https://images.mubicdn.net/images/cast_member/156075/cache-4078-1478101707/image-w856.jpg')
 
+
 /*Autor de Livros de Poesia*/
 INSERT INTO Autor (autor_nome, autor_data_nascimento, autor_data_falecimento, autor_movimento_literario, autor_biografia, autor_link_foto) VALUES
 ('Carlos Drummond de Andrade', '1902-10-31', '1987-08-17', 'Modernismo (2ª geração)', 'Um dos maiores poetas brasileiros, mineiro de Itabira, conhecido por unir lirismo e ironia. Obras como Sentimento do Mundo (1940) e A Rosa do Povo (1945) refletem sua visão existencial e social.', 'https://upload.wikimedia.org/wikipedia/commons/1/17/Foto_Carlos_Drummond_de_Andrade_%28restaurada%29.png'),
@@ -61,6 +62,7 @@ INSERT INTO Autor (autor_nome, autor_data_nascimento, autor_data_falecimento, au
 ('Kaveh Akbar', '1989-01-15', NULL, 'Poesia espiritual contemporânea / Pós-modernismo', 'Poeta iraniano-americano, autor de Calling a Wolf a Wolf (2017) e Pilgrim Bell (2021). Sua obra trata de fé, vício, exílio e identidade.', 'https://www.supporthclib.org/sites/default/files/styles/half_image/public/2025-08/KavehAkbar_creditBeowulfSheehan-web.jpg.webp'),
 ('Natalie Diaz', '1978-09-04', NULL, 'Poesia indígena contemporânea / Pós-modernismo lírico', 'Poeta e ex-jogadora de basquete profissional. Sua poesia aborda amor, identidade indígena e linguagem.', 'https://cdn.shortpixel.ai/spai/q_glossy/www.nativeartsandcultures.org/wp-content/uploads/2012/12/Natalie-Diaz-headshot.jpg'),
 ('Rio Cortez', '1984-01-01', NULL, 'Poesia afro-americana contemporânea / Poesia social', 'Poeta e curadora literária, conhecida por Golden Ax (2022), que explora ancestralidade negra, história e resistência.', 'https://images4.penguinrandomhouse.com/author/2261536');
+
 
 /* Autor de Livros Ficção*/
 INSERT INTO Autor (autor_nome, autor_data_nascimento, autor_data_falecimento, autor_movimento_literario, autor_biografia, autor_link_foto) VALUES
@@ -102,7 +104,6 @@ INSERT INTO Autor (autor_nome, autor_data_nascimento, autor_data_falecimento, au
 ('Mark Haddon', '1962-09-26', NULL, 'Ficção contemporânea', 'Autor britânico e ilustrador, conhecido por explorar neurodiversidade em "The Curious Incident of the Dog in the Night-Time".', 'https://m.media-amazon.com/images/I/C1g-imYBb8S._SY600_.jpg'),
 
 
-
 /* Autor de Livros Infantojuvenis*/
 INSERT INTO Autor (autor_nome, autor_data_nascimento, autor_data_falecimento, autor_movimento_literario, autor_biografia,  autor_link_foto) VALUES
 ('Monteiro Lobato', '1882-04-18', '1948-07-04', 'Pré-modernismo / Modernismo', 'Foi um dos maiores escritores brasileiros, pioneiro da literatura infantil no país. Criador do universo do Sítio do Picapau Amarelo, uniu folclore, ciência e cultura popular em suas histórias. Além disso, atuou como editor e defensor da valorização da cultura e das riquezas nacionais.', 'https://s2.glbimg.com/0mM17eK9pZ04RmYNI-hkcqOfNcw=/0x0:755x641/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2019/I/F/n3BRxQSsSagA1Q4wxsvg/foto16cul-105-molina-d26.jpg'),
@@ -120,6 +121,3 @@ INSERT INTO Autor (autor_nome, autor_data_nascimento, autor_data_falecimento, au
 ('Tiago Hakiy', NULL, NULL, 'Indígena/poético', 'É um escritor, poeta e contador de histórias indígena, descendente do povo Sateré-Mawé, nascido em Barreirinha, Amazonas. Sua obra, como O Canto do Uirapuru, mistura mitologia indígena e poesia, celebrando a cultura da floresta e a oralidade tradicional. Formado em Biblioteconomia pela UFAM, Hakiy é reconhecido por sua contribuição à literatura indígena contemporânea do Brasil.', 'https://www.livrariamaraca.com.br/wp-content/uploads/2019/01/tiago-hakiy-e1548081252307.jpg'),
 ('Alicia Baladan', '1969-01-01', NULL, 'Infantil/ilustrado', 'É uma escritora e ilustradora uruguaia radicada na Itália. Após viver no Brasil e estudar na Accademia di Belle Arti di Brera, em Milão, dedicou-se à ilustração e literatura infantojuvenil. Suas obras, como Uma História Guarani, combinam elementos culturais latino-americanos com uma estética poética e sensível, conquistando reconhecimento internacional. Atualmente, reside e trabalha em Brescia, Itália.', 'https://www.uovonero.com/images/autori/large_Baladan-Alicia.jpg'),
 ('Maria Clara Machado', '1921-04-03', '2001-04-30', 'Teatro infantil', 'Foi uma dramaturga e escritora brasileira, reconhecida por suas peças de teatro infantil e juvenil. Criadora de obras como O Cavalinho Azul, destacou-se por incentivar a imaginação, a fantasia e o gosto pela leitura e pelo teatro entre crianças e jovens no Brasil.', 'https://lh3.googleusercontent.com/-uH7zI6Atdhw/YGjeOohfbHI/AAAAAAAAJjI/dpcFZNtebyUyDhGS4hZOYne8jc4dYacbgCLcBGAsYHQ/image.png');
-
-
-
