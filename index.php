@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('BuscaLivros/buscaLivros.php');
+include('buscaAutor/buscaAutor.php');
 
 ?>
 
@@ -77,35 +78,9 @@ include('BuscaLivros/buscaLivros.php');
         <!--Autores em destaque-->
         <h4>Autores</h4>
         <div class="containerAutor">
-            <div class="autor">
-                <img class="autoresIMG" src="img/autor.jpg" alt="autor">
-                <h6>Machado de Assis</h6>
-            </div>
-
-            <div class="autor">
-                <img class="autoresIMG" src="img/autor.jpg" alt="autor">
-                <h6>Machado de Assis</h6>
-            </div>
-
-            <div class="autor">
-                <img class="autoresIMG" src="img/autor.jpg" alt="autor">
-                <h6>Machado de Assis</h6>
-            </div>
-
-            <div class="autor">
-                <img class="autoresIMG" src="img/autor.jpg" alt="autor">
-                <h6>Machado de Assis</h6>
-            </div>
-
-            <div class="autor">
-                <img class="autoresIMG" src="img/autor.jpg" alt="autor">
-                <h6>Machado de Assis</h6>
-            </div>
-
-            <div class="autor">
-                <img class="autoresIMG" src="img/autor.jpg" alt="autor">
-                <h6>Machado de Assis</h6>
-            </div>
+            <?php
+             include('componentes/componentesIndex/buscaAutor.php');
+            ?>
         </div>
 
     </div>
