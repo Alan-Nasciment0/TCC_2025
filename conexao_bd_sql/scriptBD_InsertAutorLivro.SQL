@@ -8,6 +8,7 @@ INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (5, 5);
 INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (5, 6);
 INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (6, 7);
 INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (7, 8);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (8, 114);
 INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (9, 9);
 INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (10, 10);
 INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (11, 12);
