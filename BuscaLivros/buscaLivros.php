@@ -9,15 +9,22 @@ $options = [
 try {
 
   // Consulta todos os livros
-  $sql = "SELECT 
+  $sql = " SELECT 
     l.livro_cod,
     l.livro_titulo,
     l.livro_capa_link,
-    a.autor_nome
+    l.livro_editora,
+    l.livro_ano,
+    l.livro_descricao,
+    a.autor_nome,
+    g.genero_nome
 FROM livros l
 LEFT JOIN autorLivro al ON l.livro_cod = al.livro_cod
 LEFT JOIN autor a ON al.autor_cod = a.autor_cod
-ORDER BY l.livro_titulo ";
+LEFT JOIN livroGenero lg ON l.livro_cod = lg.livro_cod
+LEFT JOIN genero g ON lg.genero_cod = g.genero_cod
+ORDER BY l.livro_titulo;
+";
     
   $stmt = $pdo->query($sql);
   $livrosRaw = $stmt->fetchAll();
@@ -33,6 +40,10 @@ ORDER BY l.livro_titulo ";
                 'livro_cod' => $row['livro_cod'],
                 'livro_titulo' => $row['livro_titulo'],
                 'livro_capa_link' => $row['livro_capa_link'],
+                'livro_editora' => $row['livro_editora'],
+                'livro_descricao' => $row['livro_descricao'],
+                'livro_ano' => $row['livro_ano'],
+                'genero_nome' => $row['genero_nome'],
                 'autores' => [], // array para múltiplos autores
             ];
         }

@@ -249,6 +249,7 @@ header {
     cursor: auto;
 }
 .autor{
+    position: relative;
     text-align: center;
     padding: 10px;
     height: 15.12rem;

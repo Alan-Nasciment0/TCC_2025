@@ -133,7 +133,7 @@ include('../buscaAutor/buscaAutor.php');
         <h4>Autores</h4>
         <div class="containerAutor">
            <?php
-             include('../componentes/componentesIndex/buscaAutor.php');
+             include('../componentes/componentesPaginas_tcc/buscaAutor.php');
             ?>
         </div>
 

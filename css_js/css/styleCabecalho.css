@@ -142,3 +142,15 @@
     top: 0;
     left: 0;
 }
+
+.botaoAutorSelecionado {
+    all: unset; 
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    width: 12.5rem;
+    height: 12.5rem;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+}
