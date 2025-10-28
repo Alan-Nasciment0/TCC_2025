@@ -1,21 +1,21 @@
 /*Gênero da categoria Ficção*/
 INSERT INTO genero (genero_nome, categoria_cod) VALUES
 ('Distopia', 1),
-('Ficção', 2),
-('Ficção científica', 3),
-('Southern Gothic', 4),
-('Bildungsroman', 5),
-('Romance', 6),
-('Drama', 7),
-('Aventura', 8),
-('Realismo mágico', 9),
-('Fantasia', 10),
-('Gótico', 11),
-('Filosófico', 12),
-('Mistério', 13),
-('Alegoria', 14),
-('Epistolar', 15),
-('Mitologia moderna', 16),
+('Ficção', 1),
+('Ficção científica', 1),
+('Southern Gothic', 1),
+('Bildungsroman', 1),
+('Romance', 1),
+('Drama', 1),
+('Aventura', 1),
+('Realismo mágico', 1),
+('Fantasia', 1),
+('Gótico', 1),
+('Filosófico', 1),
+('Mistério', 1),
+('Alegoria', 1),
+('Epistolar', 1),
+('Mitologia moderna', 1);
 
 
 

@@ -136,7 +136,7 @@ Insert Into LivroGenero (livro_cod, genero_cod) Values
 (129, 13); 
 
 /*Infantis*/
-INSERT INTO livro_genero (livro_id, genero_id) VALUES
+INSERT INTO livrogenero (livro_cod, genero_cod) VALUES
 (107, 76),
 (108, 80),
 (109, 77),
