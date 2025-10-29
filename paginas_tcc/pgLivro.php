@@ -77,8 +77,11 @@ include('../BuscaLivros/buscaLivros.php');
                     </p>
                     <button type="button" class="btn btn-warning" style="width: 16.31rem; height: 3.28rem;"><img
                             src="../img/coracao.png"
-                            style="width: 1.5rem; height: 1.28rem; margin-right: 0.5rem;">Adicionar aos
+                            style="width: 24px; height: 24px; margin-right: 0.5rem;">Adicionar aos
                         favoritos</button>
+                    <button type="button" class="btn btn-info" style="width: 16.31rem; height: 3.28rem; margin-left: 89px"><img
+                            src="../img/img.visto.png"
+                            style="width: 24px; height: 24px; margin-right: 0.5rem;">Marcar livro como já lido</button>
                 </div>
             </div>
         </div>

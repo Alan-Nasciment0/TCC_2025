@@ -1,4 +1,13 @@
-body{
+* {
+    font-family: Arial;
+}
+.titulo {
+    color: white;
+    font-size: 32px;
+    font-size: Bold;
+    margin: 10px 0 5px 0;
+}
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,31 +18,33 @@ body{
 header {
     width: 100%;
 }
-.livros{
+.containerPrincipal {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+}
+.livros {
     display: flex;
     gap: 20px;
     max-width: 1200px;
     margin-top: 70px;
     justify-content: center;
 }
-.livro{
+.livro {
     background-color: rgb(47, 47, 48);
     border-radius: 10px;
   
     text-align: center;
     padding: 10px;
 }
-img{
+img {
     width: 200px;
     height: 300px;
 }
-.titulo{
-    color: white;
-    font-size: 10px;
-    font-family: Bold;
-    margin: 10px 0 5px 0;
-}
-.pesquisa{
+.pesquisa { 
     display: flex;
     justify-content: center;
     margin: 20px;
