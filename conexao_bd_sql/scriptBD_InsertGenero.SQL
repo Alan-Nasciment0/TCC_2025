@@ -1,6 +1,5 @@
 /*Gênero da categoria Ficção*/
 INSERT INTO genero (genero_nome, categoria_cod) VALUES
-INSERT INTO Genero (genero_nome, categoria_cod) VALUES
 ('Distopia', 1),
 ('Ficção', 1),
 ('Ficção científica', 1),
