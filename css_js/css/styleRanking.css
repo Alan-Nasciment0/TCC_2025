@@ -7,6 +7,10 @@ body {
   font-family: Arial, sans-serif;
 }
 
+header {
+    width: 100%;
+}
+
 .tela {
   width: 100vh;
   background-color: #1E1E1E;
