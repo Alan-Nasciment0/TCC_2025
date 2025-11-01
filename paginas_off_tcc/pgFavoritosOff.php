@@ -10,7 +10,7 @@
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
     <link rel="stylesheet" href="../css_js/css/styleFavorito.css">
-    
+
 </head>
 
 <body>
@@ -25,7 +25,12 @@
     <div class="containerPrincipal">
         <div class="containerFavorito">
             <h2 class="titulo">Favorito</h2>
+            <div class="containerPesquisa">
+                <img src="../img/pesquisarPreto.png" class="imgPesquisa">
+                <input name="pesquisa" placeholder="Pesquisa de livro" style="width: 200px; height: 26px; margin-top: 73px; ">
+            </div>
         </div>
+
     </div>
 </body>
 

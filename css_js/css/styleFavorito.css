@@ -5,7 +5,8 @@
     color: white;
     font-size: 32px;
     font-size: Bold;
-    margin: 10px 0 5px 0;
+    margin-top: 73px;
+    margin-left: 550px;
 }
 body {
     display: flex;
@@ -26,6 +27,14 @@ header {
     padding: 20px;
     align-items: center;
 }
+.containerFavorito {
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+.containerPesquisa {
+    margin-left: 600px;
+}
 .livros {
     display: flex;
     gap: 20px;
@@ -40,12 +49,7 @@ header {
     text-align: center;
     padding: 10px;
 }
-img {
-    width: 200px;
-    height: 300px;
-}
-.pesquisa { 
-    display: flex;
-    justify-content: center;
-    margin: 20px;
+.imgPesquisa {
+    width: 1.61rem;
+    height: 1.61rem;
 }
