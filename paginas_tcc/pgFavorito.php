@@ -21,6 +21,17 @@
         ?>
 
     </header>
+
+     
+
+    <div class="containerLivrosRecomendados">
+        <h4>Livros Recomendados</h4>
+        <div class="containerLivroRecomendado">
+            <?php
+             include('../componentes/componentesPaginas_tcc/livrosRecomendados.php');
+            ?>
+        </div>
+    </div>
 </body>
 
 </html>
