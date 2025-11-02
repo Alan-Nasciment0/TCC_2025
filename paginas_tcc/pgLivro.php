@@ -94,9 +94,44 @@ $livro_ano =  $_POST['livro_ano_selecionado'];
                             src="../img/coracao.png"
                             style="width: 24px; height: 24px; margin-right: 0.5rem;">Adicionar aos
                         favoritos</button>
-                    <button type="button" class="btn btn-info" style="width: 16.31rem; height: 3.28rem; margin-left: 89px"><img
-                            src="../img/img.visto.png"
-                            style="width: 24px; height: 24px; margin-right: 0.5rem;">Marcar livro como já lido</button>
+                    
+     <button id="btn-lido" 
+    class="btn btn-info" 
+    style="width: 16.31rem; height: 3.28rem; margin-left: 89px;">
+    <img src="../img/img_visto.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">
+    Marcar livro como já lido
+</button>
+
+<script>
+document.getElementById('btn-lido').addEventListener('click', function() {
+    const livroCod = "<?php echo $livro_cod; ?>";
+
+    fetch('../acoes/marcarLivroLido.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'livro_cod=' + encodeURIComponent(livroCod)
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);
+        if (data.includes("✅")) {
+            const btn = document.getElementById('btn-lido');
+            btn.classList.remove('btn-info');
+            btn.classList.add('btn-success');
+            btn.innerHTML = '<img src="../img/img_visto.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">Livro marcado como lido';
+        }
+    })
+    .catch(error => {
+        alert("Erro ao marcar livro como lido.");
+        console.error(error);
+    });
+});
+</script>
+
+
+
+
+
                 </div>
             </div>
         </div>
