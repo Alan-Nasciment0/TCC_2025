@@ -1,3 +1,9 @@
+<?php
+session_start();
+include('../BuscaLivros/buscaLivros.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

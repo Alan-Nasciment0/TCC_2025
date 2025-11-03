@@ -1,6 +1,10 @@
 body {
     background-color: #1E1E1E;
 }
+
+header {
+    width: 100%;
+}
 .container {
     width: 100%;
     display: flex;

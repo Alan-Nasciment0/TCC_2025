@@ -1,6 +1,17 @@
 <?php
+session_start();
 
 include('../BuscaLivros/buscaLivros.php');
+
+$livro_cod =  $_POST['cod_livro_selecionado']; 
+$livro_titulo =  $_POST['livro_titulo_selecionado'];
+$livro_capa = $_POST['livro_capa_selecionado'];
+$livro_editora = $_POST['livro_editora_selecionado'];
+$livro_descricao =  $_POST['livro_descricao_selecionado'];
+$livro_autor =  $_POST['autor_nome_selecionado'];
+$livro_genero =  $_POST['genero_nome_selecionado'];
+$livro_ano =  $_POST['livro_ano_selecionado'];
+
 ?>
 
 <!DOCTYPE html>
@@ -11,15 +22,23 @@ include('../BuscaLivros/buscaLivros.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página do Livro</title>
     <link rel="stylesheet" href="../css_js/css/styleLivro.css">
+    <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body
     style="width: 100%;height: auto; display: flex; flex-direction: column; align-items: center; background-color: #1E1E1E;">
+
+    <header>
+        <?php
+        include('../componentes/pgCabecalhoPaginas.php');
+        
+        ?>
+    </header>
     <div class="container">
         <div class="containerLivroCapa">
-            <img class="imgLivroCapa" src="../img/livro.jpg">
+            <img class="imgLivroCapa" src="<?php echo $livro_capa; ?>">
             <div>
                 <div class="containerInformacoesLivro">
                     <div class="containerAlinhamentoLadoEsquerdo">
@@ -38,11 +57,11 @@ include('../BuscaLivros/buscaLivros.php');
                         </div>
                         <div>
                             <h4>Autor</h4>
-                            <p>Machado de Assis</p>
+                            <p><?php echo $livro_autor; ?></p>
                         </div>
                         <div>
                             <h4>Ano de Publicação</h4>
-                            <p>1899</p>
+                            <p><?php echo $livro_ano; ?></p>
                         </div>
                     </div>
 
@@ -58,30 +77,61 @@ include('../BuscaLivros/buscaLivros.php');
                         </div>
                         <div>
                             <h4>Gênero da Obra</h4>
-                            <p>Ficção e Romance</p>
+                            <p><?php echo $livro_genero; ?></p>
                         </div>
                         <div>
                             <h4>Editora</h4>
-                            <p>Nemo</p>
+                            <p><?php echo $livro_editora; ?></p>
                         </div>
                     </div>
                 </div>
 
                 <div class="containerDescricao">
                     <h4>Descrição</h4>
-                    <p>Dom Casmurro é um romance de Machado de Assis, publicado em 1899. Narrado na primeira pessoa, o
-                        enredo gira em torno de Bentinho eCapitu,dois amigos de infância que acabam casando. O livro
-                        explora temas atemporais como a desconfiança, o ciúme e a traição.Traçandoum retrato moral da
-                        época, a obra é considerada a maior de Machado de Assis, e uma das mais importantes da
-                        literatura brasileira.
+                    <p><?php echo $livro_descricao; ?>
                     </p>
                     <button type="button" class="btn btn-warning" style="width: 16.31rem; height: 3.28rem;"><img
                             src="../img/coracao.png"
                             style="width: 24px; height: 24px; margin-right: 0.5rem;">Adicionar aos
                         favoritos</button>
-                    <button type="button" class="btn btn-info" style="width: 16.31rem; height: 3.28rem; margin-left: 89px"><img
-                            src="../img/img.visto.png"
-                            style="width: 24px; height: 24px; margin-right: 0.5rem;">Marcar livro como já lido</button>
+                    
+     <button id="btn-lido" 
+    class="btn btn-info" 
+    style="width: 16.31rem; height: 3.28rem; margin-left: 89px;">
+    <img src="../img/img_visto.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">
+    Marcar livro como já lido
+</button>
+
+<script>
+document.getElementById('btn-lido').addEventListener('click', function() {
+    const livroCod = "<?php echo $livro_cod; ?>";
+
+    fetch('../acoes/marcarLivroLido.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'livro_cod=' + encodeURIComponent(livroCod)
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);
+        if (data.includes("✅")) {
+            const btn = document.getElementById('btn-lido');
+            btn.classList.remove('btn-info');
+            btn.classList.add('btn-success');
+            btn.innerHTML = '<img src="../img/img_visto.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">Livro marcado como lido';
+        }
+    })
+    .catch(error => {
+        alert("Erro ao marcar livro como lido.");
+        console.error(error);
+    });
+});
+</script>
+
+
+
+
+
                 </div>
             </div>
         </div>
