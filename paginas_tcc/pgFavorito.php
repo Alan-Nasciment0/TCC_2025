@@ -22,16 +22,34 @@
 
     </header>
 
-     
+    <div class="containerPrincipal">
+        <div class="containerFavorito">
+            <h2 class="titulo">Favorito</h2>
 
-    <div class="containerLivrosRecomendados">
-        <h4>Livros Recomendados</h4>
-        <div class="containerLivroRecomendado">
-            <?php
-             include('../componentes/componentesPaginas_tcc/livrosRecomendados.php');
-            ?>
+            <div class="containerPesquisa">
+                <img src="../img/pesquisarBranco.png" class="imgPesquisa" alt="Pesquisar">
+                <input name="pesquisa" placeholder="Pesquisa de livro"
+                    style="width: 200px; height: 26px; margin-top: 73px;">
+            </div>
+
+            <div class="containerFiltro">
+                <div class="dropdown">
+                    <img src="../img/filtro.png" class="imgFiltro" alt="Filtro">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Filtro
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Mais antigos</a></li>
+                        <li><a class="dropdown-item" href="#">Mais novos</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
+    <form>
+        
+    </form>
 </body>
 
 </html>

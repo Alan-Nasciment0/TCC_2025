@@ -25,7 +25,7 @@ header {
     flex-direction: column;
     align-items: center;
 }
-.containerFavorito {
+.containerHistorico {
     width: 100%;
     height: auto;
     display: flex;
@@ -42,14 +42,6 @@ header {
     margin-left: 500px;
     color: white;
     font-size: 32px;
-}
-.containerAviso {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh; 
-    text-align: center; 
-    gap: 15px;
 }
 input[type=submit] {
     width: 150px;
@@ -73,16 +65,4 @@ input[type=submit] {
 .imgFavorito {
     width: 2.6rem;
     height: 2.6rem;
-}
-.botao input {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    background-color: white;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-}
-.botao input:hover {
-    background-color: white;
 }
