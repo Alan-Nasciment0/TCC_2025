@@ -82,7 +82,6 @@ include('buscaAutor/buscaAutor.php');
              include('componentes/componentesIndex/buscaAutor.php');
             ?>
         </div>
-
     </div>
 
     <div class="containerLivrosLancamentos">
@@ -93,6 +92,24 @@ include('buscaAutor/buscaAutor.php');
             ?>
         </div>
     </div>
+
+    <div class="containerLivrosFavoritos">
+        <h4>Sua lista</h4>
+        <form style="width: 240px; height: 220px; margin-left: 505px;">
+            <div class="containerAviso">
+                <label style="color: white;">Quer salvar seus livros favorito?</label>
+                <img src="../img/bookmark.png" class="imgFavorito" alt="Favorito">
+                <label style="color: white;">Faça login para salvar seus livros</label>
+                <div class="botao">
+                    <input type="submit" name="Criar conta" value="Fazer login">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        
+    </footer>
 </body>
 
 </html>

@@ -32,7 +32,8 @@ header {
 }
 .containerLivrosRecomendados,
  .containerLivrosPopulares,
-  .containerLivrosLancamentos {
+  .containerLivrosLancamentos,
+   .containerLivrosFavoritos {
     margin-top: 3.12rem;
     width: 80rem;
     height: 31.5rem;
@@ -40,7 +41,8 @@ header {
 }
 .containerLivroRecomendado,
  .containerLivroPopular,
-  .containerLivroLancamento {
+  .containerLivroLancamento,
+   .containerLivrosFavorito {
     display: flex;
     width: 78rem;
     height: 28rem;
@@ -230,6 +232,13 @@ header {
 .containerAutor::scroll-button(right):disabled, .containerAutor::scroll-button(left):disabled {
     cursor: auto;
 }
+.containerAviso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; 
+    gap: 15px;
+}
 .autor{
     text-align: center;
     padding: 10px;
@@ -253,4 +262,27 @@ header {
 .login{
    width: 100%;
    height: auto;
+}
+input[type=submit] {
+    width: 150px;
+    height: 46px;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 0px;
+    border: none;
+    font-family: Arial, Regular;
+    background-color: #000;
+    color: #fff;
+}
+.botao input {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+.botao input:hover {
+    background-color: white;
 }
