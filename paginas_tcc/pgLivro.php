@@ -98,7 +98,7 @@ $livro_ano =  $_POST['livro_ano_selecionado'];
      <button id="btn-lido" 
     class="btn btn-info" 
     style="width: 16.31rem; height: 3.28rem; margin-left: 89px;">
-    <img src="../img/img_visto.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">
+    <img src="../img/img.visto.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">
     Marcar livro como já lido
 </button>
 
@@ -118,7 +118,7 @@ document.getElementById('btn-lido').addEventListener('click', function() {
             const btn = document.getElementById('btn-lido');
             btn.classList.remove('btn-info');
             btn.classList.add('btn-success');
-            btn.innerHTML = '<img src="../img/img_visto.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">Livro marcado como lido';
+            btn.innerHTML = '<img src="../img/img.visto.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">Livro marcado como lido';
         }
     })
     .catch(error => {
