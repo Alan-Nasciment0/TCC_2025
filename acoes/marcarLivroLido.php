@@ -2,6 +2,7 @@
 session_start();
 require __DIR__ . '/../conexao_bd_sql/conexao_bd_mysql.php';
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Verifica se há um usuário logado
     if (!isset($_SESSION['usuario_cod'])) {
@@ -26,17 +27,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $verifica->execute(['usuario' => $usuario_cod, 'livro' => $livro_cod]);
 
         if ($verifica->rowCount() > 0) {
-            echo "📘 Este livro já foi marcado como lido.";
+            // Já está marcado → remover
+            $remove = $pdo->prepare("
+                DELETE FROM Livros_Lidos 
+                WHERE usuario_cod = :usuario AND livro_cod = :livro
+            ");
+            $remove->execute(['usuario' => $usuario_cod, 'livro' => $livro_cod]);
+
+            echo "❎ Livro removido da lista de lidos.";
         } else {
-            $stmt = $pdo->prepare("
+            // Ainda não está → adicionar
+            $insere = $pdo->prepare("
                 INSERT INTO Livros_Lidos (usuario_cod, livro_cod) 
                 VALUES (:usuario, :livro)
             ");
-            $stmt->execute(['usuario' => $usuario_cod, 'livro' => $livro_cod]);
+            $insere->execute(['usuario' => $usuario_cod, 'livro' => $livro_cod]);
+
             echo "✅ Livro marcado como lido com sucesso!";
         }
+
     } catch (PDOException $e) {
-        echo "Erro ao marcar livro como lido: " . $e->getMessage();
+        echo "Erro ao atualizar status do livro: " . $e->getMessage();
     }
 }
 ?>
