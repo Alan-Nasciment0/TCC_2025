@@ -13,17 +13,18 @@
     <h2>Escolha sua categoria favoritos de livros</h2>
     <p>Usamos sua categoria favorita para fazer melhores recomendações de livros e personalizar o que você vê em seu
       feed de atualizações.</p>
+   
+      <form action="../salvarPreferencias/salvarPreferencias.php" method="post">
+  <div class="opcoes">
+    <label class="opcao"><input type="checkbox" name="categoriaPreferencia[]" value="1"> Ficção</label>
+    <label class="opcao"><input type="checkbox" name="categoriaPreferencia[]" value="2"> Não ficção</label>
+    <label class="opcao"><input type="checkbox" name="categoriaPreferencia[]" value="3"> Poesia</label>
+    <label class="opcao"><input type="checkbox" name="categoriaPreferencia[]" value="4"> Infantil</label>
+  </div>
 
-    <form action="../salvarPreferencias/salvarPreferencias.php" method="post">
-      <div class="opcoes">
-        <label class="opcao"><input type="checkbox" name="categoriaPreferencia" value="1"> Ficção</label>
-        <label class="opcao"><input type="checkbox" name="categoriaPreferencia" value="3"> Poesia</label>
-        <label class="opcao"><input type="checkbox" name="categoriaPreferencia" value="2"> Não ficção</label>
-        <label class="opcao"><input type="checkbox" name="categoriaPreferencia" value="4"> Infantil</label>
-      </div>
+  <button class="btn" name="salvar_categoria">Próxima página</button>
+</form>
 
-      <button class="btn" name="salvar_categoria">Próxima página</button>
-    </form>
   </div>
 
 </body>
