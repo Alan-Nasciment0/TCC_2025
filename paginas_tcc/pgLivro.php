@@ -99,10 +99,70 @@ $livro_ano =  $_POST['livro_ano_selecionado'];
                     <p>
                         <?php echo $livro_descricao; ?>
                     </p>
-                    <button type="button" class="btn btn-warning" style="width: 16.31rem; height: 3.28rem;">
-                        <img src="../img/coracao.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">
-                        Adicionar aos favoritos
-                    </button>
+                    
+                   <button id="btn-favoritos" class="btn btn-warning" 
+    style="width: 16.31rem; height: 3.28rem;">
+    <img src="../img/coracao.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">
+    Adicionar aos favoritos
+</button>
+
+<?php 
+$usuario_cod = $_SESSION['usuario_cod'];                            
+
+// Verifica se o livro já está nos favoritos
+$sql = "SELECT * FROM Favoritos WHERE usuario_cod = :usuario_cod AND livro_cod = :livro_cod";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':usuario_cod', $usuario_cod, PDO::PARAM_INT);
+$stmt->bindParam(':livro_cod', $livro_cod, PDO::PARAM_INT);
+$stmt->execute();
+$favorito = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Se o livro já estiver nos favoritos, muda a cor e o texto do botão
+if ($favorito) {
+    echo "
+    <script>
+        const btnFav = document.getElementById('btn-favoritos');
+        btnFav.classList.remove('btn-warning');
+        btnFav.classList.add('btn-success');
+        btnFav.innerHTML = '<img src=\"../img/coracao.png\" style=\"width: 24px; height: 24px; margin-right: 0.5rem;\">Livro adicionado aos favoritos';
+    </script>";
+}
+?>
+
+<script>
+document.getElementById('btn-favoritos').addEventListener('click', function () {
+    const livroCod = "<?php echo $livro_cod; ?>";
+    const btnFav = document.getElementById('btn-favoritos');
+
+    fetch('../acoes/adicionarLivrosFavoritos.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'livro_cod=' + encodeURIComponent(livroCod)
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);
+
+        if (data.includes("✅")) {
+            // Adicionado aos favoritos
+            btnFav.classList.remove('btn-warning');
+            btnFav.classList.remove('btn-danger');
+            btnFav.classList.add('btn-success');
+            btnFav.innerHTML = '<img src="../img/coracao.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">Favoritado';
+        } else if (data.includes("❎")) {
+            // Removido dos favoritos
+            btnFav.classList.remove('btn-success');
+            btnFav.classList.add('btn-warning');
+            btnFav.innerHTML = '<img src="../img/coracao.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">Adicionar aos favoritos';
+        }
+    })
+    .catch(error => {
+        alert("Erro ao adicionar livro aos favoritos.");
+        console.error(error);
+    });
+});
+</script>
+
 
                     <button id="btn-lido" class="btn btn-info"
                         style="width: 16.31rem; height: 3.28rem; margin-left: 89px;">
