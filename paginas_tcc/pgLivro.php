@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include('../conexao_bd_sql/conexao_bd_mysql.php');
 include('../BuscaLivros/buscaLivros.php');
 
 $livro_cod =  $_POST['cod_livro_selecionado']; 
@@ -26,6 +26,47 @@ $livro_ano =  $_POST['livro_ano_selecionado'];
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const estrelas = document.querySelectorAll('.estrela');
+    const livroCodEl = document.getElementById('livro_cod');
+    const msg = document.getElementById('mensagem-avaliacao');
+
+    if (!livroCodEl) return;
+
+    const livroCod = livroCodEl.value;
+
+    estrelas.forEach(star => {
+        star.addEventListener('click', function () {
+            const nota = this.getAttribute('data-nota');
+
+            fetch('../acoes/avaliarLivro.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'livro_cod=' + encodeURIComponent(livroCod) + '&nota=' + encodeURIComponent(nota)
+            })
+            .then(response => response.text())
+            .then(data => {
+                msg.innerText = data;
+
+                // atualiza o visual das estrelas
+                estrelas.forEach(st => {
+                    if (parseInt(st.getAttribute('data-nota')) <= parseInt(nota)) {
+                        st.src = '../img/star.png'; // estrela cheia
+                    } else {
+                        st.src = '../img/starAvaliacao.png'; // estrela vazia
+                    }
+                });
+            })
+            .catch(error => {
+                alert("Erro ao enviar avaliação! Veja console.");
+                console.error(error);
+            });
+        });
+    });
+});
+</script>
+
 
 <body
     style="width: 100%;height: auto; display: flex; flex-direction: column; align-items: center; background-color: #1E1E1E;">
@@ -48,7 +89,7 @@ $livro_ano =  $_POST['livro_ano_selecionado'];
                                 <img src="../img/star.png" class="imgAvaliacao">
                                 <div style="margin-left: 1.5rem; height: 3.25rem;">
                                     <div style="display: flex; height: 1.75rem;">
-                                        <p>4,9</p>
+                                        <p>echo</p>
                                         <p style="opacity: 20%;">/5</p>
                                     </div>
                                     <p style="height: 1.75rem;">100 mil</p>
@@ -70,15 +111,19 @@ $livro_ano =  $_POST['livro_ano_selecionado'];
                     </div>
 
                     <div class="containerAlinhamentoLadoDireito">
-                        <div>
-                            <h4>Sua Avaliação</h4>
-                            <div style="display: flex; margin-top: 1.37rem;">
-                                <img src="../img/starAvaliacao.png" class="imgAvaliacao">
-                                <div style="margin-left: 1.5rem;">
-                                    <p style="color: #0A58CA; margin-left: 1.18rem;">Avaliar</p>
-                                </div>
-                            </div>
-                        </div>
+                 <form id="form-avaliacao" style="margin-top: 1.37rem;">
+    <div style="display: flex; gap: 8px;">
+        <input type="hidden" id="livro_cod" value="<?php echo htmlspecialchars($livro_cod); ?>">
+        <?php for ($i = 1; $i <= 5; $i++): ?>
+            <img src="../img/starAvaliacao.png" class="estrela" data-nota="<?php echo $i; ?>" 
+                style="width: 32px; height: 32px; cursor: pointer;">
+        <?php endfor; ?>
+    </div>
+</form>
+<p id="mensagem-avaliacao" style="color: #0A58CA; margin-top: 0.5rem;"></p>
+
+
+
                         <div>
                             <h4>Gênero da Obra</h4>
                             <p>
@@ -124,7 +169,7 @@ if ($favorito) {
         const btnFav = document.getElementById('btn-favoritos');
         btnFav.classList.remove('btn-warning');
         btnFav.classList.add('btn-success');
-        btnFav.innerHTML = '<img src=\"../img/coracao.png\" style=\"width: 24px; height: 24px; margin-right: 0.5rem;\">Livro adicionado aos favoritos';
+        btnFav.innerHTML = '<img src=\"../img/coracao.png\" style=\"width: 24px; height: 24px; margin-right: 0.5rem;\">Favoritado';
     </script>";
 }
 ?>
