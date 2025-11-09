@@ -239,6 +239,7 @@ header {
     text-align: center; 
     gap: 15px;
 }
+
 .autor{
     text-align: center;
     padding: 10px;
@@ -285,4 +286,12 @@ input[type=submit] {
 }
 .botao input:hover {
     background-color: white;
+}
+.imgFavorito {
+    width: 2.6rem;
+    height: 2.6rem;
+}
+.imgLogo {
+    width: 6.6rem;
+    height: 6.6rem;
 }

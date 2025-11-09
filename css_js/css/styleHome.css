@@ -27,7 +27,6 @@ header {
     max-width: 600px;
     width: 90%;    
 }
-
 .container {
     width: 100%;
     height: auto;
@@ -107,6 +106,13 @@ header {
  .containerLivroPopular::scroll-button(right):disabled, .containerLivroPopular::scroll-button(left):disabled,
   .containerLivroLancamento::scroll-button(right):disabled, .containerLivroLancamento::scroll-button(left):disabled {
     cursor: auto;
+}
+.containerAviso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; 
+    gap: 15px;
 }
 .livro {
     scroll-snap-align: start;
@@ -272,4 +278,8 @@ header {
 .login{
    width: 100%;
    height: auto;
+}
+.imgLogo {
+    width: 6.6rem;
+    height: 6.6rem;
 }

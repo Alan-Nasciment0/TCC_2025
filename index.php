@@ -95,20 +95,26 @@ include('buscaAutor/buscaAutor.php');
 
     <div class="containerLivrosFavoritos">
         <h4>Sua lista</h4>
-        <form style="width: 240px; height: 220px; margin-left: 505px;">
-            <div class="containerAviso">
-                <label style="color: white;">Quer salvar seus livros favorito?</label>
-                <img src="../img/bookmark.png" class="imgFavorito" alt="Favorito">
-                <label style="color: white;">Faça login para salvar seus livros</label>
-                <div class="botao">
-                    <input type="submit" name="Criar conta" value="Fazer login">
-                </div>
+        <div class="containerAviso">
+            <label style="color: white;">Quer salvar seus livros favorito?</label>
+            <img src="./img/bookmark.png" class="imgFavorito" alt="Favorito">
+            <label style="color: white;">Faça login para salvar seus livros</label>
+            <div class="botao">
+                <input type="submit" name="Criar conta" value="Fazer login">
             </div>
-        </form>
+        </div>
+
     </div>
 
+    <hr style="width: 100%; border-color: white;">
     <footer>
-        
+        <form style="width: 270px; height: 220px;">
+            <div class="containerAviso">
+                <img src="./img/Quanto_mais_você_lê_mais_você_voa__2_-removebg-preview.png" class="imgLogo" alt="Logo">
+                <label style="color: white;">Quanto mais você le, mais você voa</label>
+                <label style="color: white;">2025 - TCC ETEC</label>
+            </div>
+        </form>
     </footer>
 </body>
 
