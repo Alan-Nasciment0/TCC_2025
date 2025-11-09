@@ -8,7 +8,8 @@ CREATE TABLE Usuario (
     usuario_senha text,
     usuario_tempo_banimento VARCHAR(50),
     nivel_acesso INTEGER default 1,
-    primeiro_acesso bool default 0
+    primeiro_acesso bool default 0,
+    UNIQUE (usuario_email)
 );
 
 CREATE TABLE Autor (
