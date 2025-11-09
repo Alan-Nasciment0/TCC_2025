@@ -95,7 +95,8 @@ CREATE TABLE Favoritos (
     livro_cod integer, 
     usuario_cod integer,
     constraint fk_livro_cod_4 foreign key(livro_cod) references livros (livro_cod),
-    constraint fk_usuario_cod_3 foreign key(usuario_cod) references usuario (usuario_cod)
+    constraint fk_usuario_cod_3 foreign key(usuario_cod) references usuario (usuario_cod),
+    UNIQUE (livro_cod, usuario_cod)
 );
  
 CREATE TABLE Livros_Lidos (
