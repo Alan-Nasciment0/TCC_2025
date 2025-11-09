@@ -10,33 +10,33 @@ try {
 
   // Consulta todos os livros
   $sql = "WITH preferred_genres AS (
-  -- Gêneros que o usuário marcou como preferidos
+  
   SELECT genero_cod
   FROM Genero_preferido_usuario
-  WHERE usuario_cod = 1
+  WHERE usuario_cod = :usuario_cod
 
   UNION
 
-  -- Gêneros dos livros que ele favoritou
+  
   SELECT lg.genero_cod
   FROM Favoritos f
   JOIN LivroGenero lg ON lg.livro_cod = f.livro_cod
-  WHERE f.usuario_cod = 1
+  WHERE f.usuario_cod = :usuario_cod
 ),
 user_read AS (
-  -- Livros já lidos (não devem ser recomendados novamente)
+  
   SELECT livro_cod
   FROM Livros_Lidos
-  WHERE usuario_cod = 1
+  WHERE usuario_cod = :usuario_cod
 ),
 pop AS (
-  -- Popularidade: quantas vezes cada livro foi lido
+  
   SELECT livro_cod, COUNT(*) AS popularity
   FROM Livros_Lidos
   GROUP BY livro_cod
 ),
 genre_match AS (
-  -- Quantos gêneros do livro batem com os gêneros preferidos ou dos favoritos
+  
   SELECT lg.livro_cod, COUNT(DISTINCT lg.genero_cod) AS genre_matches
   FROM LivroGenero lg
   JOIN preferred_genres pg ON pg.genero_cod = lg.genero_cod
@@ -71,15 +71,16 @@ GROUP BY
   gm.genre_matches,
   p.popularity
 ORDER BY
-  COALESCE(gm.genre_matches, 0) DESC,   -- Gêneros semelhantes primeiro
-  COALESCE(p.popularity, 0) DESC,       -- Depois os mais populares
-  l.livro_ano DESC,                     -- Mais recentes em seguida
-  RAND()                                -- E aleatoriedade no fim
+  COALESCE(gm.genre_matches, 0) DESC,   
+  COALESCE(p.popularity, 0) DESC,       
+  l.livro_ano DESC,                     
+  RAND()                                
 LIMIT 20;
 
 ";
-    
-  $stmt = $pdo->query($sql);
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindValue(':usuario_cod', $usuario_cod, PDO::PARAM_INT);
+  $stmt->execute();
   $livrosRaw = $stmt->fetchAll();
 
     // Organiza os dados para agrupar múltiplos autores por livro
