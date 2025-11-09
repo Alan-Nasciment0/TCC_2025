@@ -27,44 +27,44 @@ $livro_ano =  $_POST['livro_ano_selecionado'];
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const estrelas = document.querySelectorAll('.estrela');
-    const livroCodEl = document.getElementById('livro_cod');
-    const msg = document.getElementById('mensagem-avaliacao');
+    document.addEventListener('DOMContentLoaded', function () {
+        const estrelas = document.querySelectorAll('.estrela');
+        const livroCodEl = document.getElementById('livro_cod');
+        const msg = document.getElementById('mensagem-avaliacao');
 
-    if (!livroCodEl) return;
+        if (!livroCodEl) return;
 
-    const livroCod = livroCodEl.value;
+        const livroCod = livroCodEl.value;
 
-    estrelas.forEach(star => {
-        star.addEventListener('click', function () {
-            const nota = this.getAttribute('data-nota');
+        estrelas.forEach(star => {
+            star.addEventListener('click', function () {
+                const nota = this.getAttribute('data-nota');
 
-            fetch('../acoes/avaliarLivro.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: 'livro_cod=' + encodeURIComponent(livroCod) + '&nota=' + encodeURIComponent(nota)
-            })
-            .then(response => response.text())
-            .then(data => {
-                msg.innerText = data;
+                fetch('../acoes/avaliarLivro.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: 'livro_cod=' + encodeURIComponent(livroCod) + '&nota=' + encodeURIComponent(nota)
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        msg.innerText = data;
 
-                // atualiza o visual das estrelas
-                estrelas.forEach(st => {
-                    if (parseInt(st.getAttribute('data-nota')) <= parseInt(nota)) {
-                        st.src = '../img/star.png'; // estrela cheia
-                    } else {
-                        st.src = '../img/starAvaliacao.png'; // estrela vazia
-                    }
-                });
-            })
-            .catch(error => {
-                alert("Erro ao enviar avaliação! Veja console.");
-                console.error(error);
+                        // atualiza o visual das estrelas
+                        estrelas.forEach(st => {
+                            if (parseInt(st.getAttribute('data-nota')) <= parseInt(nota)) {
+                                st.src = '../img/star.png'; // estrela cheia
+                            } else {
+                                st.src = '../img/starAvaliacao.png'; // estrela vazia
+                            }
+                        });
+                    })
+                    .catch(error => {
+                        alert("Erro ao enviar avaliação! Veja console.");
+                        console.error(error);
+                    });
             });
         });
     });
-});
 </script>
 
 
@@ -111,16 +111,66 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
 
                     <div class="containerAlinhamentoLadoDireito">
-                 <form id="form-avaliacao" style="margin-top: 1.37rem;">
-    <div style="display: flex; gap: 8px;">
-        <input type="hidden" id="livro_cod" value="<?php echo htmlspecialchars($livro_cod); ?>">
-        <?php for ($i = 1; $i <= 5; $i++): ?>
-            <img src="../img/starAvaliacao.png" class="estrela" data-nota="<?php echo $i; ?>" 
-                style="width: 32px; height: 32px; cursor: pointer;">
-        <?php endfor; ?>
-    </div>
-</form>
-<p id="mensagem-avaliacao" style="color: #0A58CA; margin-top: 0.5rem;"></p>
+                        <div class="subContainerAlinhamento">
+                            <form id="form-avaliacao" style="margin-top: 1.37rem;">
+                                <div style="display: flex; gap: 8px;">
+                                    <input type="hidden" id="livro_cod"
+                                        value="<?php echo htmlspecialchars($livro_cod); ?>">
+                                    <?php for ($i = 1; $i <= 5; $i++): ?>
+                                    <img src="../img/starAvaliacao.png" class="estrela" data-nota="<?php echo $i; ?>"
+                                        style="width: 32px; height: 32px; cursor: pointer;">
+                                    <?php endfor; ?>
+                                </div>
+
+                            </form>
+                            <p id="mensagem-avaliacao"></p>
+                        </div>
+                        <?php 
+                        $usuarioCod = $_SESSION['usuario_cod'];
+                        $sql = "SELECT nota FROM avaliacoes WHERE usuario_cod = :usuario_cod AND livro_cod = :livro_cod";
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->bindParam(':usuario_cod', $usuarioCod, PDO::PARAM_INT);
+                        $stmt->bindParam(':livro_cod', $livro_cod, PDO::PARAM_INT);
+                        $stmt->execute();
+                        $avaliacao = $stmt->fetch(PDO::FETCH_ASSOC);
+                        $notaUsuario = $avaliacao ? (int)$avaliacao['nota'] : 0;
+                        ?>
+                        <script>
+                            const notaSalva = <?= $notaUsuario ?>; // vinda do PHP
+                            document.addEventListener("DOMContentLoaded", () => {
+                                const estrelas = document.querySelectorAll(".estrela");
+                                // Função para preencher as estrelas até a nota selecionada
+                                function preencherEstrelas(nota) {
+                                    estrelas.forEach(e => {
+                                        const valor = parseInt(e.dataset.nota);
+                                        e.src = valor <= nota ? "../img/star.png" : "../img/starAvaliacao.png";
+                                    });
+                                }
+                                // Quando a página carregar, marca as estrelas salvas
+                                if (notaSalva > 0) {
+                                    preencherEstrelas(notaSalva);
+                                }
+                                // Evento de clique para nova avaliação
+                                estrelas.forEach(estrela => {
+                                    estrela.addEventListener("click", () => {
+                                        const novaNota = parseInt(estrela.dataset.nota);
+                                        preencherEstrelas(novaNota);
+                                        // Enviar nova avaliação via AJAX
+                                        const livroCod = document.getElementById("livro_cod").value;
+                                        fetch("salvar_avaliacao.php", {
+                                            method: "POST",
+                                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                                            body: `livro_cod=${livroCod}&nota=${novaNota}`
+                                        })
+                                            .then(resp => resp.text())
+                                            .then(msg => {
+                                                document.getElementById("mensagem-avaliacao").textContent = msg;
+                                            });
+                                    });
+                                });
+                            });
+                        </script>
+
 
 
 
@@ -144,69 +194,68 @@ document.addEventListener('DOMContentLoaded', function () {
                     <p>
                         <?php echo $livro_descricao; ?>
                     </p>
-                    
-                   <button id="btn-favoritos" class="btn btn-warning" 
-    style="width: 16.31rem; height: 3.28rem;">
-    <img src="../img/coracao.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">
-    Adicionar aos favoritos
-</button>
 
-<?php 
-$usuario_cod = $_SESSION['usuario_cod'];                            
+                    <button id="btn-favoritos" class="btn btn-warning" style="width: 16.31rem; height: 3.28rem;">
+                        <img src="../img/coracao.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">
+                        Adicionar aos favoritos
+                    </button>
 
-// Verifica se o livro já está nos favoritos
-$sql = "SELECT * FROM Favoritos WHERE usuario_cod = :usuario_cod AND livro_cod = :livro_cod";
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':usuario_cod', $usuario_cod, PDO::PARAM_INT);
-$stmt->bindParam(':livro_cod', $livro_cod, PDO::PARAM_INT);
-$stmt->execute();
-$favorito = $stmt->fetch(PDO::FETCH_ASSOC);
+                    <?php 
+                    $usuario_cod = $_SESSION['usuario_cod'];                            
+                                    
+                    // Verifica se o livro já está nos favoritos
+                    $sql = "SELECT * FROM Favoritos WHERE usuario_cod = :usuario_cod AND livro_cod = :livro_cod";
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->bindParam(':usuario_cod', $usuario_cod, PDO::PARAM_INT);
+                    $stmt->bindParam(':livro_cod', $livro_cod, PDO::PARAM_INT);
+                    $stmt->execute();
+                    $favorito = $stmt->fetch(PDO::FETCH_ASSOC);
+                                    
+                    // Se o livro já estiver nos favoritos, muda a cor e o texto do botão
+                    if ($favorito) {
+                        echo "
+                        <script>
+                            const btnFav = document.getElementById('btn-favoritos');
+                            btnFav.classList.remove('btn-warning');
+                            btnFav.classList.add('btn-success');
+                            btnFav.innerHTML = '<img src=\"../img/coracao.png\" style=\"width: 24px; height: 24px; margin-right: 0.5rem;\">Favoritado';
+                        </script>";
+                    }
+                    ?>
 
-// Se o livro já estiver nos favoritos, muda a cor e o texto do botão
-if ($favorito) {
-    echo "
-    <script>
-        const btnFav = document.getElementById('btn-favoritos');
-        btnFav.classList.remove('btn-warning');
-        btnFav.classList.add('btn-success');
-        btnFav.innerHTML = '<img src=\"../img/coracao.png\" style=\"width: 24px; height: 24px; margin-right: 0.5rem;\">Favoritado';
-    </script>";
-}
-?>
+                    <script>
+                        document.getElementById('btn-favoritos').addEventListener('click', function () {
+                            const livroCod = "<?php echo $livro_cod; ?>";
+                            const btnFav = document.getElementById('btn-favoritos');
 
-<script>
-document.getElementById('btn-favoritos').addEventListener('click', function () {
-    const livroCod = "<?php echo $livro_cod; ?>";
-    const btnFav = document.getElementById('btn-favoritos');
+                            fetch('../acoes/adicionarLivrosFavoritos.php', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                                body: 'livro_cod=' + encodeURIComponent(livroCod)
+                            })
+                                .then(response => response.text())
+                                .then(data => {
+                                    alert(data);
 
-    fetch('../acoes/adicionarLivrosFavoritos.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: 'livro_cod=' + encodeURIComponent(livroCod)
-    })
-    .then(response => response.text())
-    .then(data => {
-        alert(data);
-
-        if (data.includes("✅")) {
-            // Adicionado aos favoritos
-            btnFav.classList.remove('btn-warning');
-            btnFav.classList.remove('btn-danger');
-            btnFav.classList.add('btn-success');
-            btnFav.innerHTML = '<img src="../img/coracao.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">Favoritado';
-        } else if (data.includes("❎")) {
-            // Removido dos favoritos
-            btnFav.classList.remove('btn-success');
-            btnFav.classList.add('btn-warning');
-            btnFav.innerHTML = '<img src="../img/coracao.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">Adicionar aos favoritos';
-        }
-    })
-    .catch(error => {
-        alert("Erro ao adicionar livro aos favoritos.");
-        console.error(error);
-    });
-});
-</script>
+                                    if (data.includes("✅")) {
+                                        // Adicionado aos favoritos
+                                        btnFav.classList.remove('btn-warning');
+                                        btnFav.classList.remove('btn-danger');
+                                        btnFav.classList.add('btn-success');
+                                        btnFav.innerHTML = '<img src="../img/coracao.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">Favoritado';
+                                    } else if (data.includes("❎")) {
+                                        // Removido dos favoritos
+                                        btnFav.classList.remove('btn-success');
+                                        btnFav.classList.add('btn-warning');
+                                        btnFav.innerHTML = '<img src="../img/coracao.png" style="width: 24px; height: 24px; margin-right: 0.5rem;">Adicionar aos favoritos';
+                                    }
+                                })
+                                .catch(error => {
+                                    alert("Erro ao adicionar livro aos favoritos.");
+                                    console.error(error);
+                                });
+                        });
+                    </script>
 
 
                     <button id="btn-lido" class="btn btn-info"

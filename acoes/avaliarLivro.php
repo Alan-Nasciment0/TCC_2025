@@ -24,23 +24,38 @@ if ($nota < 1 || $nota > 5) {
 }
 
 try {
-    // Verifica se já existe
-    $sqlCheck = "SELECT avaliacao_cod FROM Avaliacoes WHERE usuario_cod = :usuario_cod AND livro_cod = :livro_cod";
+     // Verifica se o usuário já avaliou o livro
+    $sqlCheck = "SELECT avaliacao_cod FROM avaliacoes WHERE usuario_cod = :usuario_cod AND livro_cod = :livro_cod";
     $stmtCheck = $pdo->prepare($sqlCheck);
-    $stmtCheck->execute([':usuario_cod' => $usuario_cod, ':livro_cod' => $livro_cod]);
+    $stmtCheck->execute([
+        ':usuario_cod' => $usuario_cod,
+        ':livro_cod' => $livro_cod
+    ]);
 
-    if ($stmtCheck->rowCount() > 0) {
-        $sql = "UPDATE Avaliacoes SET nota = :nota WHERE usuario_cod = :usuario_cod AND livro_cod = :livro_cod";
+    $avaliacaoExistente = $stmtCheck->fetch(PDO::FETCH_ASSOC);
+
+    if ($avaliacaoExistente) {
+        // Atualiza a nota
+        $sql = "UPDATE avaliacoes SET nota = :nota WHERE usuario_cod = :usuario_cod AND livro_cod = :livro_cod";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([':nota' => $nota, ':usuario_cod' => $usuario_cod, ':livro_cod' => $livro_cod]);
-        echo "";
+        $stmt->execute([
+            ':nota' => $nota,
+            ':usuario_cod' => $usuario_cod,
+            ':livro_cod' => $livro_cod
+        ]);
+        echo "✅ Avaliação atualizada!";
     } else {
-        $sql = "INSERT INTO Avaliacoes (usuario_cod, livro_cod, nota) VALUES (:usuario_cod, :livro_cod, :nota)";
+        // Insere nova avaliação
+        $sql = "INSERT INTO avaliacoes (usuario_cod, livro_cod, nota) VALUES (:usuario_cod, :livro_cod, :nota)";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([':usuario_cod' => $usuario_cod, ':livro_cod' => $livro_cod, ':nota' => $nota]);
-        echo ")";
+        $stmt->execute([
+            ':usuario_cod' => $usuario_cod,
+            ':livro_cod' => $livro_cod,
+            ':nota' => $nota
+        ]);
+        echo "⭐ Avaliação registrada com sucesso!";
     }
+
 } catch (PDOException $e) {
-    // Em desenvolvimento só: echo erro. Em produção logue em arquivo.
     echo "❌ Erro ao salvar avaliação: " . $e->getMessage();
 }

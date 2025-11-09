@@ -44,7 +44,15 @@ p {
     height: 16.62rem;
     display: flex;
     flex-direction: column;
-    gap: 1.56rem;
+    gap: 2rem;
+}
+.subContainerAlinhamento {
+    height: 4.8rem;
+}
+#mensagem-avaliacao {
+    color: #0A58CA;
+    margin-top: 0.2rem;
+    height: 1.5rem;
 }
 .imgAvaliacao{
     width: 1.62rem;
