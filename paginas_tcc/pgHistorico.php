@@ -30,31 +30,38 @@ include('../BuscaLivros/buscaLivros.php');
 
     <div class="containerPrincipal">
         <div class="containerHistorico">
-            <h2 class="titulo">Historico</h2>
-
-            <div class="containerPesquisa">
-                <img src="../img/pesquisarBranco.png" class="imgPesquisa" alt="Pesquisar">
-                <input name="pesquisa" placeholder="Pesquisa de livro"
-                    style="width: 200px; height: 26px; margin-top: 73px;">
+            <div class="containerTitulo">
+                <h2 class="titulo">Historico</h2>
             </div>
+            <div class="containerAlinhamento">
+                <div class="containerPesquisa">
+                    <img src="../img/pesquisarBranco.png" class="imgPesquisa" alt="Pesquisar">
+                    <input name="pesquisa" placeholder="Pesquisa de livro">
+                </div>
 
-            <div class="containerFiltro">
-                <div class="dropdown">
-                    <img src="../img/filtro.png" class="imgFiltro" alt="Filtro">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Filtro
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Mais antigos</a></li>
-                        <li><a class="dropdown-item" href="#">Mais novos</a></li>
-                    </ul>
+                <div class="containerFiltro">
+                    <div class="dropdown">
+                        <img src="../img/filtro.png" class="imgFiltro" alt="Filtro">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Filtro
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Mais antigos</a></li>
+                            <li><a class="dropdown-item" href="#">Mais novos</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="containerLivrosHistoricoVisualizacao">
+            <?php
+             include('../componentes/componentesPaginas_tcc/livrosHistoricoVisualizacao.php');
+            ?>
+        </div>
     </div>
     <form>
-        
+
     </form>
 </body>
 
