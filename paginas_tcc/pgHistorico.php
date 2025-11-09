@@ -24,7 +24,7 @@ include('../BuscaLivros/buscaLivros.php');
     <header>
 
         <?php
-        include('../componentes/pgCabecalhoPaginas.php');
+        include('../componentes/componentesPaginas_tcc/pgCabecalhoPaginas.php');
         
         ?>
 

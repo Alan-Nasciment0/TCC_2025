@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 include('../BuscaLivros/buscaLivros.php');
 
@@ -32,7 +31,7 @@ $autor_link_foto =  $_POST['autor_link_foto_selecionado'];
 
     <header>
         <?php
-        include('../componentes/componentesPaginas_tcc/pgCabecalhoPaginas.php');
+        include('../componentes/componentesIndex/pgCabecalhoIndex.php');
         
         ?>
     </header>
@@ -78,7 +77,7 @@ $autor_link_foto =  $_POST['autor_link_foto_selecionado'];
             <h4>Principais Obras</h4>
             <div class="containerPrincipalObra">
                 <?php
-             include('../componentes/componentesPaginas_tcc/livrosRecomendados.php');
+             include('../componentes/componentesIndex/livrosRecomendados.php');
             ?>
             </div>
         </div> 

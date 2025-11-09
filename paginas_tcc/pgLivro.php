@@ -82,7 +82,7 @@ $stmt->execute();
 
     <header>
         <?php
-        include('../componentes/pgCabecalhoPaginas.php');
+        include('../componentes/componentesPaginas_tcc/pgCabecalhoPaginas.php');
         
         ?>
     </header>
@@ -345,7 +345,7 @@ $stmt->execute();
     <?php
         include('../componentes/componentesPaginas_tcc/rodape.php');
     ?>
-    
+
 </body>
 
 </html>
