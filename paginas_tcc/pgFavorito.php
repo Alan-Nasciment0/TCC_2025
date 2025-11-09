@@ -20,6 +20,7 @@ if (!$usuario_cod) {
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
     <link rel="stylesheet" href="../css_js/css/styleFavorito.css">
+    <link rel="stylesheet" href="../css_js/css/styleRodape.css">
     <link rel="stylesheet" href="../css_js/css/styleContainerLivros.css">
 </head>
 
@@ -63,7 +64,11 @@ if (!$usuario_cod) {
              <?php
              include('../componentes/componentesPaginas_tcc/livrosFavoritos.php');
             ?>
-        </div>
+        </div>        
     </div>
+
+    <?php
+        include('../componentes/componentesPaginas_tcc/rodape.php');
+    ?>
 </body>
 </html>

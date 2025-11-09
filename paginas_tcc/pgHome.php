@@ -25,6 +25,7 @@ if (!$usuario_cod) {
     <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
     <link rel="stylesheet" href="../css_js/css/styleContainerLivros.css">
     <link rel="stylesheet" href="../css_js/css/styleContainerAutores.css">
+    <link rel="stylesheet" href="../css_js/css/styleRodape.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
@@ -52,7 +53,7 @@ if (!$usuario_cod) {
             $stmt->execute();
             $resultadoGenero = $stmt->fetch(PDO::FETCH_ASSOC); 
             
-        if ($resultadoCategoria['total'] == 0){?>        
+        if ($resultadoCategoria['total'] == 0){?>
         <div id="modalCategoria" class="modal-overlay">
             <div class="modal-content">
                 <?php include(__DIR__ . '/pgCategoria.php'); ?>
@@ -140,7 +141,7 @@ if (!$usuario_cod) {
         <!--Autores em destaque-->
         <h4>Autores</h4>
         <div class="containerAutor">
-           <?php
+            <?php
              include('../componentes/componentesPaginas_tcc/buscaAutor.php');
             ?>
         </div>
@@ -165,16 +166,9 @@ if (!$usuario_cod) {
         </div>
     </div>
 
-    <hr style="width: 100%; border-color: white;">
-    <footer>
-        <form style="width: 270px; height: 220px;">
-            <div class="containerAviso">
-                <img src="../img/Quanto_mais_você_lê_mais_você_voa__2_-removebg-preview.png" class="imgLogo" alt="Logo">
-                <label style="color: white;">Quanto mais você le, mais você voa</label>
-                <label style="color: white;">2025 - TCC ETEC</label>
-            </div>
-        </form>
-    </footer>
+    <?php
+        include('../componentes/componentesPaginas_tcc/rodape.php');
+    ?>
 </body>
 
 </html>

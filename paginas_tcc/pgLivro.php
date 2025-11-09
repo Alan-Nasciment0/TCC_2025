@@ -31,6 +31,7 @@ $stmt->execute();
     <link rel="stylesheet" href="../css_js/css/styleLivro.css">
     <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
     <link rel="stylesheet" href="../css_js/css/styleContainerLivros.css">
+    <link rel="stylesheet" href="../css_js/css/styleRodape.css">
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
@@ -337,11 +338,14 @@ $stmt->execute();
                 include('../componentes/componentesPaginas_tcc/livrosRecomendados.php');
                 ?>
             </div>
-        </div>
-
-        <hr>
+        </div>    
 
     </div>
+
+    <?php
+        include('../componentes/componentesPaginas_tcc/rodape.php');
+    ?>
+    
 </body>
 
 </html>

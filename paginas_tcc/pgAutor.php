@@ -22,6 +22,8 @@ $autor_link_foto =  $_POST['autor_link_foto_selecionado'];
     <title>Página do Autor</title>
     <link rel="stylesheet" href="../css_js/css/styleAutor.css">
     <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
+    <link rel="stylesheet" href="../css_js/css/styleRodape.css">
+    <link rel="stylesheet" href="../css_js/css/styleContainerLivros.css">
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
@@ -72,18 +74,18 @@ $autor_link_foto =  $_POST['autor_link_foto_selecionado'];
             </div>
         </div>
 
-        <div class="containerPrincipaisObras">
+        <div class="containerPrincipaisObrasAutor">
             <h4>Principais Obras</h4>
-            <div class="containerLivro">
+            <div class="containerPrincipalObra">
                 <?php
              include('../componentes/componentesPaginas_tcc/livrosRecomendados.php');
             ?>
             </div>
-        </div>
-
-        <hr>
-
+        </div> 
     </div>
+    <?php
+        include('../componentes/componentesPaginas_tcc/rodape.php');
+        ?>
 </body>
 
 </html>
