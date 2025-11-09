@@ -66,7 +66,7 @@ CREATE TABLE AutorLivro (
 
 CREATE TABLE Historico_Visualizacao (
     historico_cod INTEGER PRIMARY KEY AUTO_INCREMENT,
-    historico_data_hora DATETIME,
+    historico_data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
     usuario_cod integer,
     livro_cod integer,
     constraint fk_usuario_cod foreign key(usuario_cod) references usuario (usuario_cod),

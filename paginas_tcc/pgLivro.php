@@ -11,6 +11,13 @@ $livro_descricao =  $_POST['livro_descricao_selecionado'];
 $livro_autor =  $_POST['autor_nome_selecionado'];
 $livro_genero =  $_POST['genero_nome_selecionado'];
 $livro_ano =  $_POST['livro_ano_selecionado'];
+$usuarioCod =  $_SESSION['usuario_cod'];
+
+$sql = "INSERT INTO historico_visualizacao (usuario_cod, livro_cod) VALUES (:usuario_cod, :livro_cod);";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':usuario_cod', $usuarioCod, PDO::PARAM_INT);
+$stmt->bindParam(':livro_cod', $livro_cod, PDO::PARAM_INT);
+$stmt->execute();
 
 ?>
 
