@@ -17,6 +17,7 @@ include('../buscaAutor/buscaAutor.php');
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css_js/css/styleHome.css">
     <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
+    <link rel="stylesheet" href="../css_js/css/styleContainerLivros.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 

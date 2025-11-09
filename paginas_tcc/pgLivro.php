@@ -30,6 +30,7 @@ $stmt->execute();
     <title>Página do Livro</title>
     <link rel="stylesheet" href="../css_js/css/styleLivro.css">
     <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
+    <link rel="stylesheet" href="../css_js/css/styleContainerLivros.css">
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
@@ -331,7 +332,7 @@ $stmt->execute();
 
         <div class="containerLivrosRecomendados">
             <h4>Livros Recomendados</h4>
-            <div class="containerLivro">
+            <div class="containerLivroRecomendado">
                 <?php
                 include('../componentes/componentesPaginas_tcc/livrosRecomendados.php');
                 ?>

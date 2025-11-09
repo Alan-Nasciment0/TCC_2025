@@ -16,6 +16,7 @@ include('../BuscaLivros/buscaLivros.php');
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
     <link rel="stylesheet" href="../css_js/css/styleHistorico.css">
+    <link rel="stylesheet" href="../css_js/css/styleContainerLivros.css">
 </head>
 
 <body>
@@ -60,9 +61,6 @@ include('../BuscaLivros/buscaLivros.php');
             ?>
         </div>
     </div>
-    <form>
-
-    </form>
 </body>
 
 </html>
