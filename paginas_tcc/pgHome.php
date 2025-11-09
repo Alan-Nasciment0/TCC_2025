@@ -4,6 +4,12 @@ session_start();
 include('../BuscaLivros/buscaLivros.php');
 include('../buscaAutor/buscaAutor.php');
 
+$usuario_cod = $_SESSION['usuario_cod'] ?? null;
+
+if (!$usuario_cod) {
+    header('Location:pglogin.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +24,7 @@ include('../buscaAutor/buscaAutor.php');
     <link rel="stylesheet" href="../css_js/css/styleHome.css">
     <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
     <link rel="stylesheet" href="../css_js/css/styleContainerLivros.css">
+    <link rel="stylesheet" href="../css_js/css/styleContainerAutores.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
@@ -149,11 +156,20 @@ include('../buscaAutor/buscaAutor.php');
         </div>
     </div>
 
+    <div class="containerLivrosFavoritos">
+        <h4>Favoritos</h4>
+        <div class="containerLivroFavorito">
+            <?php
+             include('../componentes/componentesPaginas_tcc/livrosFavoritos.php');
+            ?>
+        </div>
+    </div>
+
     <hr style="width: 100%; border-color: white;">
     <footer>
         <form style="width: 270px; height: 220px;">
             <div class="containerAviso">
-                <img src="./img/Quanto_mais_você_lê_mais_você_voa__2_-removebg-preview.png" class="imgLogo" alt="Logo">
+                <img src="../img/Quanto_mais_você_lê_mais_você_voa__2_-removebg-preview.png" class="imgLogo" alt="Logo">
                 <label style="color: white;">Quanto mais você le, mais você voa</label>
                 <label style="color: white;">2025 - TCC ETEC</label>
             </div>

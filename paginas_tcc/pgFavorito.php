@@ -60,8 +60,8 @@ if (!$usuario_cod) {
             </div>
         </div>
         <div class="containerLivrosFavoritos">
-            <?php
-             include('../BuscaLivros/buscaLivrosFavoritos.php');
+             <?php
+             include('../componentes/componentesPaginas_tcc/livrosFavoritos.php');
             ?>
         </div>
     </div>

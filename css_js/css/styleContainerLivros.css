@@ -1,6 +1,7 @@
 .containerLivrosRecomendados,
  .containerLivrosPopulares,
-  .containerLivrosLancamentos {
+  .containerLivrosLancamentos,
+  .containerLivrosFavoritos {
     margin-top: 3.12rem;
     width: 80rem;
     height: 31.5rem;
@@ -8,7 +9,8 @@
 }
 .containerLivroRecomendado,
  .containerLivroPopular,
-  .containerLivroLancamento {
+  .containerLivroLancamento,
+  .containerLivroFavorito {
     display: flex;
     width: 78rem;
     height: 28rem;
@@ -24,14 +26,19 @@
 .containerLivroLancamento {
     anchor-name: --containerLivroLancamento;
 }
+.containerLivroFavorito {
+    anchor-name: --containerLivroFavorito;
+}
 .containerLivroRecomendado::-webkit-scrollbar,
  .containerLivroPopular::-webkit-scrollbar,
-  .containerLivroLancamento::-webkit-scrollbar {
+  .containerLivroLancamento::-webkit-scrollbar,
+  .containerLivroFavorito::-webkit-scrollbar {
     display: none;
 }
 .containerLivroRecomendado::scroll-button(right), .containerLivroRecomendado::scroll-button(left),
  .containerLivroPopular::scroll-button(right), .containerLivroPopular::scroll-button(left),
-  .containerLivroLancamento::scroll-button(right), .containerLivroLancamento::scroll-button(left) {
+  .containerLivroLancamento::scroll-button(right), .containerLivroLancamento::scroll-button(left),
+  .containerLivroFavorito::scroll-button(right), .containerLivroFavorito::scroll-button(left) {
     content: url('../../img/setaDireita.png');
     border: none;
     height: 2rem;
@@ -47,15 +54,20 @@
 .containerLivroLancamento::scroll-button(right), .containerLivroLancamento::scroll-button(left) {
     position-anchor: --containerLivroLancamento;
 }
+.containerLivroFavorito::scroll-button(right), .containerLivroFavorito::scroll-button(left) {
+    position-anchor: --containerLivroFavorito;
+}
 .containerLivroRecomendado::scroll-button(left),
  .containerLivroPopular::scroll-button(left),
-  .containerLivroLancamento::scroll-button(left) {
+  .containerLivroLancamento::scroll-button(left),
+  .containerLivroFavorito::scroll-button(left) {
     content: url('../../img/setaEsquerda.png');
     position-area: left center;
 }
 .containerLivroRecomendado::scroll-button(right):disabled, .containerLivroRecomendado::scroll-button(left):disabled,
  .containerLivroPopular::scroll-button(right):disabled, .containerLivroPopular::scroll-button(left):disabled,
-  .containerLivroLancamento::scroll-button(right):disabled, .containerLivroLancamento::scroll-button(left):disabled {
+  .containerLivroLancamento::scroll-button(right):disabled, .containerLivroLancamento::scroll-button(left):disabled,
+  .containerLivroFavorito::scroll-button(right):disabled, .containerLivroFavorito::scroll-button(left):disabled {
     cursor: auto;
 }
 .livro {
