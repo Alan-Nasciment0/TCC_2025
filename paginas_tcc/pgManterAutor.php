@@ -17,6 +17,12 @@ include('../BuscaLivros/buscaLivros.php');
 </head>
 
 <body>
+    <header>
+        <?php
+        include('../componentes/componentesPaginas_tcc/pgCabecalhoPaginas.php');
+        
+        ?>
+    </header>
     <div class="container">
         <h1>Manter Autor</h1>
         <div class="containerManter">

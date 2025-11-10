@@ -8,7 +8,8 @@ CREATE TABLE Usuario (
     usuario_senha text,
     usuario_tempo_banimento VARCHAR(50),
     nivel_acesso INTEGER default 1,
-    primeiro_acesso bool default 0
+    primeiro_acesso bool default 0,
+    UNIQUE (usuario_email)
 );
 
 CREATE TABLE Autor (
@@ -66,7 +67,7 @@ CREATE TABLE AutorLivro (
 
 CREATE TABLE Historico_Visualizacao (
     historico_cod INTEGER PRIMARY KEY AUTO_INCREMENT,
-    historico_data_hora DATETIME,
+    historico_data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
     usuario_cod integer,
     livro_cod integer,
     constraint fk_usuario_cod foreign key(usuario_cod) references usuario (usuario_cod),
@@ -95,7 +96,8 @@ CREATE TABLE Favoritos (
     livro_cod integer, 
     usuario_cod integer,
     constraint fk_livro_cod_4 foreign key(livro_cod) references livros (livro_cod),
-    constraint fk_usuario_cod_3 foreign key(usuario_cod) references usuario (usuario_cod)
+    constraint fk_usuario_cod_3 foreign key(usuario_cod) references usuario (usuario_cod),
+    UNIQUE (livro_cod, usuario_cod)
 );
  
 CREATE TABLE Livros_Lidos (

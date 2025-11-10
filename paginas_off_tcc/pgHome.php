@@ -1,15 +1,8 @@
 <?php
 session_start();
-
 include('../BuscaLivros/buscaLivros.php');
 include('../buscaAutor/buscaAutor.php');
 
-$usuario_cod = $_SESSION['usuario_cod'] ?? null;
-
-if (!$usuario_cod) {
-    header('Location:pglogin.php');
-    exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -30,65 +23,12 @@ if (!$usuario_cod) {
 </head>
 
 <body>
-
     <header>
-
         <?php
-        include('../componentes/componentesPaginas_tcc/pgCabecalhoPaginas.php');
-        
-        ?>
 
-        <?php 
-            $usuarioCod = $_SESSION['usuario_cod'];
+        include('../componentes/componentesIndex/pgCabecalhoIndex.php');        
 
-            $sql = "SELECT COUNT(*) AS total FROM categoria_preferida_usuario WHERE usuario_cod = :usuario_cod";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':usuario_cod', $usuarioCod, PDO::PARAM_INT);
-            $stmt->execute();
-            $resultadoCategoria = $stmt->fetch(PDO::FETCH_ASSOC); 
-
-            $sql = "SELECT COUNT(*) AS total FROM genero_preferido_usuario WHERE usuario_cod = :usuario_cod";
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindParam(':usuario_cod', $usuarioCod, PDO::PARAM_INT);
-            $stmt->execute();
-            $resultadoGenero = $stmt->fetch(PDO::FETCH_ASSOC); 
-            
-        if ($resultadoCategoria['total'] == 0){?>
-        <div id="modalCategoria" class="modal-overlay">
-            <div class="modal-content">
-                <?php include(__DIR__ . '/pgCategoria.php'); ?>
-            </div>
-        </div>
-        <script>
-            // Fechar o modal ao clicar fora dele
-            document.addEventListener('click', function (event) {
-                const modal = document.getElementById('modalCategoria');
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-        </script>
-        <?php
-        }elseif ($resultadoGenero['total'] == 0){?>
-        <div id="modalGenero" class="modal-overlay">
-            <div class="modal-content">
-                <?php include(__DIR__ . '/pgGenero.php'); ?>
-            </div>
-        </div>
-        <script>
-            // Fechar o modal ao clicar fora dele
-            document.addEventListener('click', function (event) {
-                const modal = document.getElementById('modalGenero');
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-        </script>
-
-
-        <?php unset($_SESSION['primeiro_acesso']); ?>
-        <?php } ?>
-
+?>
     </header>
     <div class="container">
         <div class="carousel-container">
@@ -96,7 +36,7 @@ if (!$usuario_cod) {
             <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="bannerIMG" src="../img/banner.png" class="d-block w-100" alt="...">
+                        <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
                         <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
@@ -123,7 +63,7 @@ if (!$usuario_cod) {
         <h4>Livros Recomendados</h4>
         <div class="containerLivroRecomendado">
             <?php
-             include('../componentes/componentesPaginas_tcc/livrosRecomendados.php');
+             include('../componentes/componentesIndex/livrosRecomendados.php');
             ?>
         </div>
     </div>
@@ -132,7 +72,7 @@ if (!$usuario_cod) {
         <h4>Livros Populares</h4>
         <div class="containerLivroPopular">
             <?php
-             include('../componentes/componentesPaginas_tcc/livrosPopulares.php');
+             include('../componentes/componentesIndex/livrosPopulares.php');
             ?>
         </div>
     </div>
@@ -142,33 +82,43 @@ if (!$usuario_cod) {
         <h4>Autores</h4>
         <div class="containerAutor">
             <?php
-             include('../componentes/componentesPaginas_tcc/buscaAutor.php');
+             include('../componentes/componentesIndex/buscaAutor.php');
             ?>
         </div>
-
     </div>
 
     <div class="containerLivrosLancamentos">
         <h4>Lançamentos</h4>
         <div class="containerLivroLancamento">
             <?php
-             include('../componentes/componentesPaginas_tcc/livrosLancamentos.php');
+             include('../componentes/componentesIndex/livrosLancamentos.php');
             ?>
         </div>
     </div>
 
     <div class="containerLivrosFavoritos">
-        <h4>Favoritos</h4>
-        <div class="containerLivroFavorito">
-            <?php
-             include('../componentes/componentesPaginas_tcc/livrosFavoritos.php');
-            ?>
+        <h4>Sua lista</h4>
+        <div class="containerAviso">
+            <label style="color: white;">Quer salvar seus livros favorito?</label>
+            <img src="../img/bookmark.png" class="imgFavorito" alt="Favorito">
+            <label style="color: white;">Faça login para salvar seus livros</label>
+            <div class="botao">
+                <input type="submit" name="Criar conta" value="Fazer login">
+            </div>
         </div>
+
     </div>
 
-    <?php
-        include('../componentes/componentesPaginas_tcc/rodape.php');
-    ?>
+    <hr style="width: 100%; border-color: white;">
+    <footer>
+        <form style="width: 270px; height: 220px;">
+            <div class="containerAviso">
+                <img src="../img/Quanto_mais_você_lê_mais_você_voa__2_-removebg-preview.png" class="imgLogo" alt="Logo">
+                <label style="color: white;">Quanto mais você le, mais você voa</label>
+                <label style="color: white;">2025 - TCC ETEC</label>
+            </div>
+        </form>
+    </footer>
 </body>
 
 </html>

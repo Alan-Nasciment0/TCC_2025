@@ -1,23 +1,20 @@
 * {
     font-family: Arial;
 }
-.titulo {
-    color: white;
-    font-size: 32px;
-    margin-top: 73px;
-    margin-left: 570px;
-}
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: auto;   
+    height: auto;
     background-color: #1E1E1E;
 }
+
 header {
     width: 100%;
 }
+
 .containerPrincipal {
     width: 100%;
     height: auto;
@@ -25,64 +22,80 @@ header {
     flex-direction: column;
     align-items: center;
 }
-.containerFavorito {
+
+.containerFavoritos {
     width: 100%;
     height: auto;
     display: flex;
+    justify-content: space-around;
     margin-top: 73px;
 }
-.containerPesquisa {
-    margin-left: 600px;
+
+.titulo {
+    color: white;
+    font-size: 20px;
 }
+
+.containerAlinhamento {
+    display: flex;
+    height: 1.87rem;
+}
+
+.containerPesquisa {
+    height: 1.87rem;
+    display: flex;
+    gap: 0.5rem;
+
+    input {
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+        outline: none;
+        box-shadow: none;
+        font: inherit;
+        color: inherit;
+        width: auto;
+        font-size: 20px;
+        color: #fff;
+    }
+}
+
 .containerFiltro .dropdown {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-top: 73px;
-    margin-left: 500px;
     color: white;
-    font-size: 32px;
+    font-size: 20px;
 }
-.containerAviso {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh; 
-    text-align: center; 
-    gap: 15px;
-}
-input[type=submit] {
-    width: 150px;
-    height: 46px;
-    font-size: 16px;
-    border-radius: 10px;
-    padding: 0px;
-    border: none;
-    font-family: Arial, Regular;
-    background-color: #000;
-    color: #fff;
-}
+
 .imgPesquisa {
     width: 1.61rem;
     height: 1.61rem;
 }
+
 .imgFiltro {
     width: 1.61rem;
     height: 1.61rem;
 }
+
 .imgFavorito {
     width: 2.6rem;
     height: 2.6rem;
 }
-.botao input {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    background-color: white;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
+.containerLivrosFavoritos {
+    display: flex;
+    flex-wrap: wrap;
+    width: 78rem;
+    height: auto;
+    gap: 1rem;
+    margin-top: 2rem;
 }
-.botao input:hover {
-    background-color: white;
+.containerHistoricoData {
+    margin-top: 2rem;
+}
+.alinhamentoDataHora {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
 }

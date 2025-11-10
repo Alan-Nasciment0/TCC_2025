@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include('../BuscaLivros/buscaLivros.php');
 
 ?>
@@ -11,7 +11,7 @@ include('../BuscaLivros/buscaLivros.php');
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ranking de Livros</title>
-
+  
   <link rel="stylesheet" href="../css_js/css/styleRanking.css">
   <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
   <link rel="stylesheet" href="../css_js/css/styleRodape.css">
@@ -22,11 +22,11 @@ include('../BuscaLivros/buscaLivros.php');
 
 <body>
   <header>
-    <?php
-        include('../componentes/componentesPaginas_tcc/pgCabecalhoPaginas.php');
+        <?php
+        include('../componentes/componentesIndex/pgCabecalhoIndex.php');
         
         ?>
-  </header>
+    </header>
   <div class="tela">
     <!-- Barra superior -->
 
