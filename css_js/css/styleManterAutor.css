@@ -5,11 +5,20 @@ body {
 header {
     width: 100%;
 }
-.container {
+.containerManterAutor {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.containerTitulo {
+    width: 100%;
+    max-width: 1000px;
+}
+.titulo {
+    font-size: 2rem;
+    color: #fff;
+    margin: 2rem 0 2rem 0;
 }
 .containerManter {
     width: 69.68rem;
@@ -48,6 +57,14 @@ custom-file-label {
     cursor: pointer;
     text-align: center;
     }
+#fotoAutor {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #D9D9D9;
+    border-radius: 0.62rem;
+    padding: 0.5rem;
+    width: 250px;
+}
 .informacoesLivro {
     display: flex;
     flex-direction: column;

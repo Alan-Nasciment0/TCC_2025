@@ -14,6 +14,8 @@ include('../BuscaLivros/buscaLivros.php');
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css_js/css/styleManterAutor.css">
+    <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
+    <link rel="stylesheet" href="../css_js/css/styleRodape.css">
 </head>
 
 <body>
@@ -23,8 +25,30 @@ include('../BuscaLivros/buscaLivros.php');
         
         ?>
     </header>
-    <div class="container">
-        <h1>Manter Autor</h1>
+    <?php
+    if (isset($_SESSION['autorAdicionado'])){?>
+    <div id="modalCategoria" class="modal-overlay">
+            <div class="modal-content">
+                <?php include('../componentes/componentesPaginas_tcc/avisoInfoSalvaAutor.php'); ?>
+            </div>
+        </div>
+        <script>
+            // Fechar o modal ao clicar fora dele
+            document.addEventListener('click', function (event) {
+                const modal = document.getElementById('modalCategoria');
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    
+                }
+            });
+        </script>
+        <?php unset($_SESSION['autorAdicionado']); ?>
+        <?php
+    }?>
+    <div class="containerManterAutor">
+        <div class="containerTitulo">
+            <h1 class="titulo">Manter Autor</h1>
+        </div>
         <div class="containerManter">
             <search class="containerPesquisa">
                 <form>
@@ -33,63 +57,70 @@ include('../BuscaLivros/buscaLivros.php');
                 </form>
             </search>
 
-            <div class="containerInformacoesLivro">
-                <div style="display: flex; gap: 8.31rem; margin-top: 6.56rem;">
-                    <div class="adicionarCapaLivro">
-                        <label for="file-upload" class="custom-file-label"><img src="../img/nuvem.png"></label>
-                        <label for="file-upload" class="custom-file-label">Adicionar Foto do Autor</label>
-                        <input type="file" id="file-upload" style="display: none;">
+            <form action="../acoes/adicionar_editar_Autor.php" method="post">
+                <div class="containerInformacoesLivro">
+                    <div style="display: flex; gap: 8.31rem; margin-top: 6.56rem;">
+
+                        <div class="adicionarCapaLivro">
+                            <label class="custom-file-label"><img src="../img/nuvem.png"></label>
+                            <label class="custom-file-label">Adicionar Foto do Autor</label>
+                            <input type="text" id="fotoAutor" placeholder="Digite o link da foto do Autor" class="text-body-secondary" name="fotoAutor">
+                        </div>
+                        <div class="informacoesLivro">
+                            <div class="containerCampoPreencher">
+                                <label>Nome do Autor</label>
+                                <div class="campoPreencher">
+                                    <input class="placeHolder" type="text" id="nomeAutor" name="nomeAutor"
+                                        placeholder="Digite o nome do Autor" class="text-body-secondary">
+                                </div>
+                            </div>
+
+                            <div class="containerCampoPreencher">
+                                <label>Data de Nascimento</label>
+                                <div class="campoPreencherData">
+                                    <input type="date" class="placeHolder" type="text" id="dataNascimentoAutor"
+                                        name="dataNascimentoAutor" class="text-body-secondary">
+                                </div>
+                            </div>
+
+                            <div class="containerCampoPreencher">
+                                <label>Data de Falecimento</label>
+                                <div class="campoPreencherData">
+                                    <input type="date" class="placeHolder" type="text" id="dataFalecimentoAutor"
+                                        name="dataFalecimentoAutor" class="text-body-secondary">
+                                </div>
+                            </div>
+
+                            <div class="containerCampoPreencher">
+                                <label>Movimento Literário</label>
+                                <div class="campoPreencher">
+                                    <input class="placeHolder" type="text" id="movimentoLiterario" name="movimentoLiterario"
+                                        placeholder="Digite o movimento literario do autor" class="text-body-secondary">
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="informacoesLivro">
-                        <div class="containerCampoPreencher">
-                            <label>Nome do Autor</label>
-                            <div class="campoPreencher">
-                                <input class="placeHolder" type="text" id="nomeAutor" name="nomeAutor"
-                                    placeholder="Digite o nome do Autor" class="text-body-secondary">
-                            </div>
-                        </div>
 
-                        <div class="containerCampoPreencher">
-                            <label>Data de Nascimento</label>
-                            <div class="campoPreencherData">
-                                <input type="date" class="placeHolder" type="text" id="dataNascimentoAutor"
-                                    name="dataNascimentoAutor" class="text-body-secondary">
-                            </div>
+                    <div style="margin-top: 1.87rem;">
+                        <label>Biografia do Autor</label>
+                        <div class="campoDescricao">
+                            <input class="placeHolder" type="text" id="descricao" name="biografia"
+                                placeholder="Digite uma breve biografia do autor" size="400" style="width: 59.68rem;">
                         </div>
-
-                        <div class="containerCampoPreencher">
-                            <label>Gênero do livro</label>
-                            <div class="campoPreencher">
-                                <input class="placeHolder" type="text" id="genero" name="genero"
-                                    placeholder="Digite o gênero" class="text-body-secondary">
-                            </div>
+                        <div class="containerBotoes">
+                            <button type="button" class="btn btn-dark" style="display: none;">Deasativar Autor</button>
+                            <input type="submit" class="btn btn-dark" name="adicionarAutor">Adicionar Autor</button>
                         </div>
-
-                        <div class="containerCampoPreencher">
-                            <label>Ano de publicação</label>
-                            <div class="campoPreencherData">
-                                <input class="placeHolder" type="date" id="anoPubli" name="anoPubli"
-                                    class="text-body-secondary">
-                            </div>
-                        </div>
-
                     </div>
+
                 </div>
-
-                <div style="margin-top: 1.87rem;">
-                    <label>Descrição do Autor</label>
-                    <div class="campoDescricao">
-                        <input class="placeHolder" type="text" id="descricao" name="descricao"
-                            placeholder="Digite a descrição do autor" size="400" style="width: 59.68rem;">
-                    </div>
-                    <div class="containerBotoes">
-                        <button type="button" class="btn btn-dark" style="display: none;">Deasativar Autor</button>
-                        <button type="button" class="btn btn-dark">Adicionar Autor</button>
-                    </div>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
+    <?php
+        include('../componentes/componentesPaginas_tcc/rodape.php');
+    ?>
 </body>
 
 </html>

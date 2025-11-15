@@ -14,6 +14,8 @@ include('../BuscaLivros/buscaLivros.php');
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css_js/css/styleManterLivro.css">
+    <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
+    <link rel="stylesheet" href="../css_js/css/styleRodape.css">
 </head>
 
 <body>
@@ -97,6 +99,9 @@ include('../BuscaLivros/buscaLivros.php');
             </div>
         </div>
     </div>
+    <?php
+        include('../componentes/componentesPaginas_tcc/rodape.php');
+    ?>
 </body>
 
 </html>
