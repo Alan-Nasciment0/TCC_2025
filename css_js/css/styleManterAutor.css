@@ -11,6 +11,18 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    input {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    box-shadow: none;
+    font: inherit;
+    color: inherit;
+    width: auto;
+}
 }
 
 .containerTitulo {
@@ -145,17 +157,7 @@ custom-file-label {
     justify-content: center;
 }
 
-input {
-    border: none;
-    background: none;
-    padding: 0;
-    margin: 0;
-    outline: none;
-    box-shadow: none;
-    font: inherit;
-    color: inherit;
-    width: auto;
-}
+
 
 .campoDescricao {
     height: 13.46rem;

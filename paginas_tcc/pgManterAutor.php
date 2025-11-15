@@ -10,7 +10,7 @@ include('../BuscaLivros/buscaLivros.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manter Livro</title>
+    <title>Manter Autor</title>
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../css_js/css/styleManterAutor.css">
@@ -136,7 +136,6 @@ include('../BuscaLivros/buscaLivros.php');
                 // Delegação de clique para itens carregados dinamicamente
                 resultado.addEventListener('click', function (e) {
                     const item = e.target.closest('.resultado-item');
-                    console.log('Clique detectado', item);
                     if (item) {
                         const idAutor = item.getAttribute('data-id');
                         carregarAutor(idAutor);
