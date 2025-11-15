@@ -28,22 +28,22 @@ include('../BuscaLivros/buscaLivros.php');
     <?php
     if (isset($_SESSION['autorAdicionado'])){?>
     <div id="modalCategoria" class="modal-overlay">
-            <div class="modal-content">
-                <?php include('../componentes/componentesPaginas_tcc/avisoInfoSalvaAutor.php'); ?>
-            </div>
+        <div class="modal-content">
+            <?php include('../componentes/componentesPaginas_tcc/avisoInfoSalvaAutor.php'); ?>
         </div>
-        <script>
-            // Fechar o modal ao clicar fora dele
-            document.addEventListener('click', function (event) {
-                const modal = document.getElementById('modalCategoria');
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                    
-                }
-            });
-        </script>
-        <?php unset($_SESSION['autorAdicionado']); ?>
-        <?php
+    </div>
+    <script>
+        // Fechar o modal ao clicar fora dele
+        document.addEventListener('click', function (event) {
+            const modal = document.getElementById('modalCategoria');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+
+            }
+        });
+    </script>
+    <?php unset($_SESSION['autorAdicionado']); ?>
+    <?php
     }?>
     <div class="containerManterAutor">
         <div class="containerTitulo">
@@ -64,7 +64,8 @@ include('../BuscaLivros/buscaLivros.php');
                         <div class="adicionarCapaLivro">
                             <label class="custom-file-label"><img src="../img/nuvem.png"></label>
                             <label class="custom-file-label">Adicionar Foto do Autor</label>
-                            <input type="text" id="fotoAutor" placeholder="Digite o link da foto do Autor" class="text-body-secondary" name="fotoAutor">
+                            <input type="text" id="fotoAutor" placeholder="Digite o link da foto do Autor"
+                                class="text-body-secondary" name="fotoAutor">
                         </div>
                         <div class="informacoesLivro">
                             <div class="containerCampoPreencher">
@@ -94,8 +95,9 @@ include('../BuscaLivros/buscaLivros.php');
                             <div class="containerCampoPreencher">
                                 <label>Movimento Literário</label>
                                 <div class="campoPreencher">
-                                    <input class="placeHolder" type="text" id="movimentoLiterario" name="movimentoLiterario"
-                                        placeholder="Digite o movimento literario do autor" class="text-body-secondary">
+                                    <input class="placeHolder" type="text" id="movimentoLiterario"
+                                        name="movimentoLiterario" placeholder="Digite o movimento literario do autor"
+                                        class="text-body-secondary">
                                 </div>
                             </div>
 
@@ -105,12 +107,12 @@ include('../BuscaLivros/buscaLivros.php');
                     <div style="margin-top: 1.87rem;">
                         <label>Biografia do Autor</label>
                         <div class="campoDescricao">
-                            <input class="placeHolder" type="text" id="descricao" name="biografia"
-                                placeholder="Digite uma breve biografia do autor" size="400" style="width: 59.68rem;">
+                            <textarea class="form-control" placeholder="Digite uma breve biografia do autor." id="biografia"
+                                style="height: 11.46rem;"></textarea>
                         </div>
                         <div class="containerBotoes">
                             <button type="button" class="btn btn-dark" style="display: none;">Deasativar Autor</button>
-                            <input type="submit" class="btn btn-dark" name="adicionarAutor">Adicionar Autor</button>
+                            <button type="submit" class="btn btn-dark" name="adicionarAutor">Adicionar Autor</button>
                         </div>
                     </div>
 
