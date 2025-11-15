@@ -19,7 +19,8 @@ CREATE TABLE Autor (
     autor_data_falecimento DATE,
     autor_movimento_literario VARCHAR(30),
     autor_biografia VARCHAR(200),
-    autor_link_foto text
+    autor_link_foto text,
+    autor_ativo bool default true
 );
 
 CREATE TABLE Categoria (
@@ -46,7 +47,8 @@ CREATE TABLE Livros (
     livro_ano DATE,
     livro_editora VARCHAR(50),
     livro_descricao TEXT,
-    livro_capa_link TEXT
+    livro_capa_link TEXT,
+    livro_ativo bool default TRUE
 );
 
 CREATE TABLE LivroGenero (

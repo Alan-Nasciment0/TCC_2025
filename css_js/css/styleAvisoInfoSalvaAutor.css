@@ -42,7 +42,9 @@
     font-weight: bold;
     cursor: pointer;
 }
-.modal-overlay {
+.modal-overlay-InfoSalva,
+.modal-overlay-InfoAlterado,
+.modal-overlay-InfoDesativado {
     position: fixed;
     top: 0;
     left: 0;
@@ -55,7 +57,10 @@
     justify-content: center;
 }
 
-.modal-content {    
+.modal-content-InfoSalva,
+.modal-content-InfoAlterado,
+.modal-content-InfoDesativado
+ {    
     border-radius: 10px;
     max-width: 600px;
     width: 12.5rem !important;    

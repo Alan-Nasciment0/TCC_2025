@@ -14,7 +14,7 @@
     <div class="containerAvisoInfoSalvaAutor">
         <div class="containerAvisoInfoAutor">
             <img class="imgAvisoConfirmAutor" src="../img/OK_Aviso.png">
-            <h2 class="tituloAvisoInfoAutor">Informações do autor adicionadas com sucesso.</h2>
+            <h2 class="tituloAvisoInfoAutor">Informações do autor desativadas com sucesso.</h2>
             <div class="botaoOKAvisoInfoAutor">
                 <input type="submit" name="fecharAviso" class="botaoTitulo" value="OK">
             </div>
@@ -23,7 +23,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const botaoFechar = document.querySelector('input[name="fecharAviso"]');
-            const modal = document.getElementById('modalAvisoInfoSalvaAutor');
+            const modal = document.getElementById('modalAvisoInfoDesativadoAutor');
 
             botaoFechar.addEventListener("click", function () {
                 modal.style.display = 'none';

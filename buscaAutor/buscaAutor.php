@@ -9,7 +9,7 @@ $options = [
 try {
 
   // Consulta todos os autores
-  $stmt = $pdo->query("SELECT * FROM autor");
+  $stmt = $pdo->query("SELECT * FROM autor where autor_ativo = 1");
   $autores = $stmt->fetchAll();
 
 } catch (PDOException $e) {
