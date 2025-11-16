@@ -11,7 +11,7 @@ if ($termoPesquisa !== '') {
 
     if ($livros) {
         foreach ($livros as $livro) {
-            echo '<div class="resultado-item" data-id="' . $livro['livro_cod'] . '" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">';
+            echo '<div class="resultado-item-livro" data-id="' . $livro['livro_cod'] . '" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">';
             echo '<img src="' . htmlspecialchars($livro['livro_capa_link']) . '" alt="Capa do Livro" style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;">';
             echo '<span class="textoLista">' . htmlspecialchars($livro['livro_titulo']) . '</span>';
             echo '</div>';

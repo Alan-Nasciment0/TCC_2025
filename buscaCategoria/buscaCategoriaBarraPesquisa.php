@@ -6,7 +6,7 @@ $stmt = $pdo->query($sql);
 $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($categorias as $categoria) {
-    echo '<div class="resultado-item" data-id="' . $categoria['categoria_cod'] . '" style="padding: 5px; cursor: pointer;">';
+    echo '<div class="resultado-item-categoria" data-id="' . $categoria['categoria_cod'] . '" style="padding: 5px; cursor: pointer;">';
     echo htmlspecialchars($categoria['categoria_nome']);
     echo '</div>';
 }

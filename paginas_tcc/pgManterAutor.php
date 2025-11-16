@@ -135,7 +135,7 @@ include('../BuscaLivros/buscaLivros.php');
 
                 // Delegação de clique para itens carregados dinamicamente
                 resultado.addEventListener('click', function (e) {
-                    const item = e.target.closest('.resultado-item');
+                    const item = e.target.closest('.resultado-item-autor');
                     if (item) {
                         const idAutor = item.getAttribute('data-id');
                         carregarAutor(idAutor);

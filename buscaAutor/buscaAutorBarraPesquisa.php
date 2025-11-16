@@ -11,7 +11,7 @@ if ($termoPesquisa !== '') {
 
     if ($autores) {
         foreach ($autores as $autor) {
-            echo '<div class="resultado-item" data-id="' . $autor['autor_cod'] . '" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">';
+            echo '<div class="resultado-item-autor" data-id="' . $autor['autor_cod'] . '" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">';
             echo '<img src="' . htmlspecialchars($autor['autor_link_foto']) . '" alt="Foto do autor" style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;">';
             echo '<span>' . htmlspecialchars($autor['autor_nome']) . '</span>';
             echo '</div>';

@@ -24,7 +24,63 @@ include('../BuscaLivros/buscaLivros.php');
         include('../componentes/componentesPaginas_tcc/pgCabecalhoPaginas.php');
         
         ?>
-    </header>
+    </header><?php
+    if (isset($_SESSION['livroAdicionado'])){?>
+    <div id="modalAvisoInfoSalvaLivro" class="modal-overlay-InfoSalva">
+        <div class="modal-content-InfoSalva">
+            <?php include('../componentes/componentesPaginas_tcc/avisoInfoSalvaLivro.php'); ?>
+        </div>
+    </div>
+    <script>
+        // Fechar o modal ao clicar fora dele
+        document.addEventListener('click', function (event) {
+            const modal = document.getElementById('modalAvisoInfoSalvaLivro');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+
+            }
+        });
+    </script>
+    <?php unset($_SESSION['livroAdicionado']); ?>
+    <?php
+    }else if (isset($_SESSION['livroAlterado'])){?>
+    <div id="modalAvisoInfoAlteradoLivro" class="modal-overlay-InfoAlterado">
+        <div class="modal-content-InfoAlterado">
+            <?php include('../componentes/componentesPaginas_tcc/avisoInfoAlteradaLivro.php'); ?>
+        </div>
+    </div>
+    <script>
+        // Fechar o modal ao clicar fora dele
+        document.addEventListener('click', function (event) {
+            const modal = document.getElementById('modalAvisoInfoAlteradoLivro');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+
+            }
+        });
+    </script>
+    <?php unset($_SESSION['livroAlterado']); ?>
+    <?php
+    }else if (isset($_SESSION['livroDesativado'])){?>
+    <div id="modalAvisoInfoDesativadoLivro" class="modal-overlay-InfoDesativado">
+        <div class="modal-content-InfoDesativado">
+            <?php include('../componentes/componentesPaginas_tcc/avisoInfoDesativadaLivro.php'); ?>
+        </div>
+    </div>
+    <script>
+        // Fechar o modal ao clicar fora dele
+        document.addEventListener('click', function (event) {
+            const modal = document.getElementById('modalAvisoInfoDesativadoLivro');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+
+            }
+        });
+    </script>
+    <?php unset($_SESSION['autorDesativado']); ?>
+    <?php
+    }?>
+
     <div class="containerManterLivro">
         <div class="containerTitulo">
             <h1 class="titulo">Manter Livro</h1>
@@ -47,8 +103,10 @@ include('../BuscaLivros/buscaLivros.php');
                             document.getElementById('livro_cod').value = data.livro_cod;
                             document.getElementById('pesquisaAutor').value = data.autor_nome;
                             document.getElementById('livro_titulo').value = data.livro_titulo;
-                            document.getElementById('livro_genero').value = data.genero_nome;
+                            document.getElementById('pesquisaGenero').value = data.genero_nome;
+                            document.getElementById('genero_cod').value = data.genero_cod;
                             document.getElementById('pesquisaCategoria').value = data.categoria_nome;
+                            document.getElementById('categoria_cod').value = data.categoria_cod;
                             document.getElementById('livro_ano').value = data.livro_ano;
                             document.getElementById('livro_editora').value = data.livro_editora;
                             document.getElementById('livro_descricao').value = data.livro_descricao;
@@ -80,7 +138,7 @@ include('../BuscaLivros/buscaLivros.php');
 
                 // Delegação de clique para itens carregados dinamicamente
                 resultado.addEventListener('click', function (e) {
-                    const item = e.target.closest('.resultado-item');
+                    const item = e.target.closest('.resultado-item-livro');
                     if (item) {
                         const id = item.getAttribute('data-id');
                         carregarLivro(id);
@@ -91,7 +149,7 @@ include('../BuscaLivros/buscaLivros.php');
                     }
                 });
             </script>
-            <form>
+            <form action="../acoes/adicionar_editar_desativar_Livro.php" method="post">
                 <div class="containerInformacoesLivro">
                     <div style="display: flex; gap: 8.31rem; margin-top: 6.56rem;">
                         <input type="hidden" name="livro_cod" id="livro_cod"></input>
@@ -127,7 +185,7 @@ include('../BuscaLivros/buscaLivros.php');
                                         fetch(`../buscaAutor/carregarInfoAutorManterAutor.php?id=${id}`)
                                             .then(response => response.json())
                                             .then(data => {
-                                                // Preenche o formulário com os dados do autor
+                                                
                                                 document.getElementById('autor_cod').value = data.autor_cod;
                                                 document.getElementById('pesquisaAutor').value = data.autor_nome;
                                             });
@@ -150,7 +208,7 @@ include('../BuscaLivros/buscaLivros.php');
 
                                     // Delegação de clique para itens carregados dinamicamente
                                     resultadoAutor.addEventListener('click', function (e) {
-                                        const item = e.target.closest('.resultado-item');
+                                        const item = e.target.closest('.resultado-item-autor');
                                         if (item) {
                                             const idAutor = item.getAttribute('data-id');
                                             carregarAutor(idAutor);
@@ -184,6 +242,10 @@ include('../BuscaLivros/buscaLivros.php');
 
                                                     document.getElementById('categoria_cod').value = data.categoria_cod;
                                                     document.getElementById('pesquisaCategoria').value = data.categoria_nome;
+
+                                                    document.getElementById('genero_cod').value = "";
+                                                    document.getElementById('pesquisaGenero').value = "";
+                                                    document.getElementById('resultadoPesquisaGenero').innerHTML = "";
                                                 });
                                         }
 
@@ -217,9 +279,8 @@ include('../BuscaLivros/buscaLivros.php');
                                             }
                                         });
 
-                                        // Selecionar categoria
                                         resultadoCategoria.addEventListener('click', function (e) {
-                                            const item = e.target.closest('.resultado-item');
+                                            const item = e.target.closest('.resultado-item-categoria');
                                             if (item) {
                                                 const idCategoria = item.getAttribute('data-id');
                                                 carregarCategoria(idCategoria);
@@ -240,11 +301,11 @@ include('../BuscaLivros/buscaLivros.php');
                                         <div id="resultadoPesquisaGenero" class="resultado-lista-genero"></div>
                                     </div>
                                     <script>
-                                        const inputGenero = document.getElementById('pesquisaCategoria');
+                                        const inputGenero = document.getElementById('pesquisaGenero');
                                         const resultadoGenero = document.getElementById('resultadoPesquisaGenero');
 
                                         function carregarGenero(id) {
-                                            fetch(`../buscaCategoria/carregarInfoCategoria.php?id=${id}`)
+                                            fetch(`../buscaGenero/carregarInfoGenero.php?id=${id}`)
                                                 .then(response => response.json())
                                                 .then(data => {
 
@@ -253,45 +314,31 @@ include('../BuscaLivros/buscaLivros.php');
                                                 });
                                         }
 
-                                        inputGenero.addEventListener('focus', function () {
-                                            fetch('../buscaCategoria/buscaCategoriaBarraPesquisa.php')
+                                        inputGenero.addEventListener('input', function () {
+                                            const termoPesquisaGenero = this.value.trim();
+                                            const categoriaCod = document.getElementById('categoria_cod').value;
+
+                                            if (!categoriaCod) {
+                                                alert("Selecione uma categoria antes de buscar o gênero.");
+                                                this.value = "";
+                                                return;
+                                            }
+
+                                            fetch(`../buscaGenero/buscaGeneroBarraPesquisa.php?categoria=${categoriaCod}&pesquisaGenero=${encodeURIComponent(termoPesquisaGenero)}`)
                                                 .then(response => response.text())
                                                 .then(html => {
-                                                    resultadoCategoria.innerHTML = html;
-                                                    resultadoCategoria.style.display = 'block';
+                                                    resultadoGenero.innerHTML = html;
+                                                    resultadoGenero.style.display = 'block';
                                                 });
                                         });
 
-
-                                        inputCategoria.addEventListener('input', function () {
-                                            const termoPesquisaCategoria = this.value.trim();
-                                            if (termoPesquisaCategoria.length > 0) {
-                                                fetch(`../buscaCategoria/buscaCategoriaBarraPesquisa.php?pesquisaCategoria=${encodeURIComponent(termoPesquisaCategoria)}`)
-                                                    .then(response => response.text())
-                                                    .then(html => {
-                                                        resultadoCategoria.innerHTML = html;
-                                                        resultadoCategoria.style.display = 'block';
-                                                    });
-                                            } else {
-
-                                                fetch('../buscaCategoria/buscaCategoriaBarraPesquisa.php')
-                                                    .then(response => response.text())
-                                                    .then(html => {
-                                                        resultadoCategoria.innerHTML = html;
-                                                        resultadoCategoria.style.display = 'block';
-                                                    });
-                                            }
-                                        });
-
-                                        // Selecionar categoria
-                                        resultadoCategoria.addEventListener('click', function (e) {
-                                            const item = e.target.closest('.resultado-item');
+                                        resultadoGenero.addEventListener('click', function (e) {
+                                            const item = e.target.closest('.resultado-item-genero');
                                             if (item) {
-                                                const idCategoria = item.getAttribute('data-id');
-                                                carregarCategoria(idCategoria);
-
-                                                resultadoCategoria.innerHTML = '';
-                                                resultadoCategoria.style.display = 'none';
+                                                console.log("GENERO CLICADO ID:", item.getAttribute('data-id'));
+                                                carregarGenero(item.getAttribute('data-id'));
+                                                resultadoGenero.innerHTML = "";
+                                                resultadoGenero.style.display = "none";
                                             }
                                         });
 
