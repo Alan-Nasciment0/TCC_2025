@@ -77,7 +77,7 @@ include('../BuscaLivros/buscaLivros.php');
             }
         });
     </script>
-    <?php unset($_SESSION['autorDesativado']); ?>
+    <?php unset($_SESSION['livroDesativado']); ?>
     <?php
     }?>
 
