@@ -2,6 +2,13 @@
 session_start();
 include('../BuscaLivros/buscaLivros.php');
 
+$usuario_cod = $_SESSION['usuario_cod'] ?? null;
+
+if (!$usuario_cod) {
+    header('Location:pglogin.php');
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>

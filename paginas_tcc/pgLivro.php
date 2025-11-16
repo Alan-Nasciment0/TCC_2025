@@ -19,6 +19,13 @@ $stmt->bindParam(':usuario_cod', $usuarioCod, PDO::PARAM_INT);
 $stmt->bindParam(':livro_cod', $livro_cod, PDO::PARAM_INT);
 $stmt->execute();
 
+$usuario_cod = $_SESSION['usuario_cod'] ?? null;
+
+if (!$usuario_cod) {
+    header('Location:pglogin.php');
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>

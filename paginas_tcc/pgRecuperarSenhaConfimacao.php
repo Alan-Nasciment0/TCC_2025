@@ -1,5 +1,15 @@
+<?php
+
+$usuario_cod = $_SESSION['usuario_cod'] ?? null;
+
+if (!$usuario_cod) {
+    header('Location:pglogin.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <link rel="stylesheet" href="../css_js/css/styleRecuperarSenhaConfirmacao.css">

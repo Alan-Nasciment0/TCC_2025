@@ -11,6 +11,12 @@ $autor_movimento_literario =  $_POST['autor_movimento_literario_selecionado'];
 $autor_biografia =  $_POST['autor_biografia_selecionado'];
 $autor_link_foto =  $_POST['autor_link_foto_selecionado'];
 
+$usuario_cod = $_SESSION['usuario_cod'] ?? null;
+
+if (!$usuario_cod) {
+    header('Location:pglogin.php');
+    exit;
+}
 
 ?>
 <!DOCTYPE html>
