@@ -11,26 +11,68 @@ if (isset($_POST['Criar_conta'])) {
     // Limpar os dados
     $nome = trim($_POST['nome']);
     $email = trim($_POST['email']);
-    $senha = isset($_POST['senha']) ? password_hash(trim($_POST['senha']), PASSWORD_DEFAULT) : '';
+    $senha = trim($_POST['senha']);
+    $confirmaSenha = trim($_POST['confirmaSenha']);
+
+    if($nome == ""){
+        $_SESSION['nomeVazio'] = true;
+        header('Location: paginas_tcc/pgCadastro.php');
+        exit;
+    }
+
+    if($email == ""){
+        $_SESSION['emailVazio'] = true;
+        header('Location: paginas_tcc/pgCadastro.php');
+        exit;
+    }
+
+    if($senha == ""){
+        $_SESSION['senhaVazia'] = true;
+        header('Location: paginas_tcc/pgCadastro.php');
+        exit;
+    }
+
+    if($confirmaSenha == $senha){
+    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+    }else {
+        $_SESSION['senhaDiferentes'] = true;
+        header('Location: paginas_tcc/pgCadastro.php');
+        exit;
+    }
+    
+    $sql = "SELECT usuario_email FROM usuario WHERE usuario_email = :email";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+    $emailVerificacao = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if($emailVerificacao) {    
+    $_SESSION['emailExistente'] = true;
+    header("Location: paginas_tcc/pgCadastro.php");
+    exit;
+    }
 
     try {
-        $sql = "INSERT INTO usuario (usuario_nome, usuario_email, usuario_senha) VALUES (:nome, :email, :senha)";
+    $sql = "INSERT INTO usuario (usuario_nome, usuario_email, usuario_senha) VALUES (:nome, :email, :senha)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':senha', $senha);
+        $stmt->bindParam(':senha', $senhaHash);
 
         if ($stmt->execute()) {
             $_SESSION['mensagem'] = 'Usuário criado com sucesso.';
+            $_SESSION['contaCadastrada'] = true;
+            header("Location: paginas_tcc/pgCadastro.php");
         } else {
             $_SESSION['mensagem'] = 'Não foi possível criar o usuário.';
         }
-
     } catch (PDOException $e) {
+        $pdo->rollBack();
+        $_SESSION['contaCadastrada'] = true;
         $_SESSION['mensagem'] = "Erro no banco: " . $e->getMessage();
     }
 
-    header('Location: paginas_tcc/pgLogin.php');
+    header('Location: paginas_tcc/pgCadastro.php');
     exit;
 }
 
