@@ -342,7 +342,7 @@ if (!$usuario_cod) {
             <h4>Livros Recomendados</h4>
             <div class="containerLivroRecomendado">
                 <?php
-                include('../componentes/componentesPaginas_tcc/livrosRecomendados.php');
+                include('../componentes/componentesPaginas_tcc/livrosRecomendadosAutorGeneroCategoria.php');
                 ?>
             </div>
         </div>    
