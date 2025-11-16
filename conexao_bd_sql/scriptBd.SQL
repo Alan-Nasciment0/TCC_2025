@@ -127,6 +127,14 @@ CREATE TABLE Categoria_preferida_usuario (
     constraint fk_categoria_cod_1 foreign key(categoria_cod) references categoria (categoria_cod)
 );
 
+CREATE TABLE LivroCategoria (
+    livro_cod INTEGER,
+    categoria_cod INTEGER,
+    PRIMARY KEY (livro_cod, categoria_cod),
+    CONSTRAINT fk_livro_cod_7 FOREIGN KEY (livro_cod) REFERENCES Livros (livro_cod),
+    CONSTRAINT fk_categoria_cod_2 FOREIGN KEY (categoria_cod) REFERENCES categoria (categoria_cod)
+);
+
 CREATE TABLE Avaliacoes (
  avaliacao_cod INTEGER PRIMARY KEY AUTO_INCREMENT,
     usuario_cod INTEGER,

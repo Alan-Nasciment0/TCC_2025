@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,6 +16,80 @@
 </head>
 
 <body>
+    <?php
+    if (isset($_SESSION['emailVazio'])){?>
+    <div id="modalAvisoEmailVazio" class="modal-overlay-InfoAlterado">
+        <div class="modal-content-InfoAlterado">
+            <?php include('../componentes/componentesPaginas_tcc/avisoEmailVazio.php'); ?>
+        </div>
+    </div>
+    <script>
+        // Fechar o modal ao clicar fora dele
+        document.addEventListener('click', function (event) {
+            const modal = document.getElementById('modalAvisoEmailVazio');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+
+            }
+        });
+    </script>
+    <?php unset($_SESSION['emailVazio']); ?>
+    <?php
+    }else if (isset($_SESSION['senhaVazia'])){?>
+    <div id="modalAvisoSenhaVazia" class="modal-overlay-InfoAlterado">
+        <div class="modal-content-InfoAlterado">
+            <?php include('../componentes/componentesPaginas_tcc/avisoSenhaVazia.php'); ?>
+        </div>
+    </div>
+    <script>
+        // Fechar o modal ao clicar fora dele
+        document.addEventListener('click', function (event) {
+            const modal = document.getElementById('modalAvisoSenhaVazia');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+
+            }
+        });
+    </script>
+    <?php unset($_SESSION['senhaVazia']); ?>
+    <?php
+    }else if (isset($_SESSION['emailErrado'])){?>
+    <div id="modalAvisoEmailErrado" class="modal-overlay-InfoSalva">
+        <div class="modal-content-InfoSalva">
+            <?php include('../componentes/componentesPaginas_tcc/avisoEmailErrado.php'); ?>
+        </div>
+    </div>
+    <script>
+        // Fechar o modal ao clicar fora dele
+        document.addEventListener('click', function (event) {
+            const modal = document.getElementById('modalAvisoEmailErrado');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+
+            }
+        });
+    </script>
+    <?php unset($_SESSION['emailErrado']); ?>
+    <?php
+    }else if (isset($_SESSION['senhaErrada'])){?>
+    <div id="modalAvisoSenhaErrada" class="modal-overlay-InfoSalva">
+        <div class="modal-content-InfoSalva">
+            <?php include('../componentes/componentesPaginas_tcc/avisoSenhaErrada.php'); ?>
+        </div>
+    </div>
+    <script>
+        // Fechar o modal ao clicar fora dele
+        document.addEventListener('click', function (event) {
+            const modal = document.getElementById('modalAvisoSenhaErrada');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+
+            }
+        });
+    </script>
+    <?php unset($_SESSION['senhaErrada']); ?>
+    <?php
+    }?>
     <div class="containerPrincipal">
         <div class="containerLogin">
             <div class="containerLogo">

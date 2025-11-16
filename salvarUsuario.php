@@ -81,6 +81,30 @@ if (isset($_POST['login'])) {
     $email = trim($_POST['email']);
     $senha = trim($_POST['senha']);
 
+    if($email == ""){
+        $_SESSION['emailVazio'] = true;
+        header('Location: paginas_tcc/pgLogin.php');
+        exit;
+    }
+
+    if($senha == ""){
+        $_SESSION['senhaVazia'] = true;
+        header('Location: paginas_tcc/pgLogin.php');
+        exit;
+    }
+
+    $sql = "SELECT usuario_email FROM usuario WHERE usuario_email = :email";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+    $emailVerificacao = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if(!$emailVerificacao) {    
+    $_SESSION['emailErrado'] = true;
+    header('Location: paginas_tcc/pgLogin.php');
+    exit;
+    }
+
     try {
         $sql = "SELECT usuario_cod, usuario_nome, usuario_email, usuario_senha, nivel_acesso, primeiro_acesso 
                 FROM usuario 
@@ -105,6 +129,7 @@ if (isset($_POST['login'])) {
                 exit;
             } else {
                 $_SESSION['mensagem'] = "Senha incorreta.";
+                $_SESSION['senhaErrada'] = true;
                 header('Location: paginas_tcc/pgLogin.php');
                 exit;
             }
