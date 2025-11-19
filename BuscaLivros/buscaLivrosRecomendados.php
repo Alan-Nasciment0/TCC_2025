@@ -75,7 +75,7 @@ ORDER BY
   COALESCE(p.popularity, 0) DESC,       
   l.livro_ano DESC,                     
   RAND()                                
-LIMIT 20;
+LIMIT 12;
 
 ";
   $stmt = $pdo->prepare($sql);
