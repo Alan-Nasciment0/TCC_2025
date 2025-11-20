@@ -1,10 +1,23 @@
 <?php if (count($informacoes_livros) > 0): ?>
 <?php foreach ($informacoes_livros as $info_livro): ?>
 
+<?php
+        // Verifica se o livro já está nos favoritos
+        $sql = "SELECT 1 FROM Favoritos WHERE usuario_cod = :usuario_cod AND livro_cod = :livro_cod";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            ':usuario_cod' => $usuario_cod,
+            ':livro_cod' => $info_livro['livro_cod']
+        ]);
+        $favorito = $stmt->fetchColumn() ? true : false;
+        ?>
+
 <div class="livro">
     <img src="<?= htmlspecialchars($info_livro['livro_capa_link']) ?>" class="imgLivro">
     <div class="gradiente"></div>
-    <a class="marcador"><img src="../img/salvar_livro.png" class="imgMarcador"></a>
+    <button class="marcador" data-livro-cod="<?= $info_livro['livro_cod'] ?>">
+        <img src="<?= $favorito ? '../img/bookmark_preenchido.png' : '../img/salvar_livro.png' ?>" class="imgMarcador">
+    </button>
     <h6 class="nomeLivro">
         <?= htmlspecialchars($info_livro['livro_titulo']) ?>
     </h6>
@@ -30,3 +43,4 @@
 
 <?php endforeach; ?>
 <?php endif; ?>
+

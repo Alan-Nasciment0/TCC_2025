@@ -34,7 +34,8 @@ if (!$usuario_cod) {
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
-<body style="width: 100%;height: auto; display: flex; flex-direction: column; align-items: center; background-color: #1E1E1E;">
+<body
+    style="width: 100%;height: auto; display: flex; flex-direction: column; align-items: center; background-color: #1E1E1E;">
 
     <header>
         <?php
@@ -50,22 +51,30 @@ if (!$usuario_cod) {
             <div class="containerInformacoesAutor">
                 <div class="containerNome">
                     <h4>Autor</h4>
-                    <p><?php echo $autor_nome; ?></p>
+                    <p>
+                        <?php echo $autor_nome; ?>
+                    </p>
                 </div>
 
                 <div class="containerAlinhamento">
 
                     <div class="containerMovimentoLiterário">
                         <h4>Movimento Literário</h4>
-                        <p><?php echo $autor_movimento_literario; ?></p>
+                        <p>
+                            <?php echo $autor_movimento_literario; ?>
+                        </p>
                     </div>
                     <div class="containerNascimento">
                         <h4>Nascimento</h4>
-                        <p><?php echo $autor_data_nascimento; ?></p>
+                        <p>
+                            <?php echo $autor_data_nascimento; ?>
+                        </p>
                     </div>
                     <div class="containerFalecimento">
                         <h4>Falecimento</h4>
-                        <p><?php echo $autor_data_falecimento; ?></p>
+                        <p>
+                            <?php echo $autor_data_falecimento; ?>
+                        </p>
                     </div>
 
                 </div>
@@ -73,7 +82,9 @@ if (!$usuario_cod) {
                 <div class="containerBiografia">
 
                     <h4>Biografia</h4>
-                    <p><?php echo $autor_biografia; ?></p>
+                    <p>
+                        <?php echo $autor_biografia; ?>
+                    </p>
 
                 </div>
 
@@ -87,11 +98,41 @@ if (!$usuario_cod) {
              include('../componentes/componentesPaginas_tcc/livrosRecomendados.php');
             ?>
             </div>
-        </div> 
+        </div>
     </div>
     <?php
         include('../componentes/componentesPaginas_tcc/rodape.php');
         ?>
+
+    <script>
+        document.querySelectorAll('.marcador').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const livroCod = this.getAttribute('data-livro-cod');
+                const img = this.querySelector('img');
+
+                fetch('../acoes/adicionarLivrosFavoritos.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: 'livro_cod=' + encodeURIComponent(livroCod)
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        alert(data);
+
+                        if (data.includes("✅")) {
+                            img.src = '../img/bookmark_preenchido.png';
+                        } else if (data.includes("❎")) {
+                            img.src = '../img/salvar_livro.png';
+                        }
+                    })
+                    .catch(error => {
+                        alert("Erro ao adicionar livro aos favoritos.");
+                        console.error(error);
+                    });
+            });
+        });
+    </script>
+
 </body>
 
 </html>

@@ -22,10 +22,22 @@ foreach ($historico_visualizacao_usuario as $livro) {
 </div>
 <div class='alinhamentoDataHora'>
     <?php foreach ($livrosDoDia as $livro_visualizado): ?>
+        <?php
+        // Verifica se o livro já está nos favoritos
+        $sql = "SELECT 1 FROM Favoritos WHERE usuario_cod = :usuario_cod AND livro_cod = :livro_cod";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            ':usuario_cod' => $usuario_cod,
+            ':livro_cod' => $livro_visualizado['livro_cod']
+        ]);
+        $favorito = $stmt->fetchColumn() ? true : false;
+        ?>
     <div class="livro">
         <img src="<?= htmlspecialchars($livro_visualizado['livro_capa_link']) ?>" class="imgLivro">
         <div class="gradiente"></div>
-        <a class="marcador"><img src="../img/salvar_livro.png" class="imgMarcador"></a>
+        <button class="marcador" data-livro-cod="<?= $livro_visualizado['livro_cod'] ?>">
+        <img src="<?= $favorito ? '../img/bookmark_preenchido.png' : '../img/salvar_livro.png' ?>" class="imgMarcador">
+    </button>
         <h6 class="nomeLivro">
             <?= htmlspecialchars($livro_visualizado['livro_titulo']) ?>
         </h6>
@@ -54,3 +66,4 @@ foreach ($historico_visualizacao_usuario as $livro) {
 </div>
 <?php endforeach; ?>
 <?php endif; ?>
+

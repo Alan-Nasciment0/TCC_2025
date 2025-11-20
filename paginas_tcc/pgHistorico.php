@@ -42,18 +42,48 @@ if (!$usuario_cod) {
             <div class="containerTitulo">
                 <h2 class="titulo">Historico</h2>
             </div>
-         
+
         </div>
         <div class="containerLivrosHistoricoVisualizacao">
             <?php
              include('../componentes/componentesPaginas_tcc/livrosHistoricoVisualizacao.php');
             ?>
-        </div>        
+        </div>
     </div>
 
     <?php
         include('../componentes/componentesPaginas_tcc/rodape.php');
         ?>
+
+    <script>
+        document.querySelectorAll('.marcador').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const livroCod = this.getAttribute('data-livro-cod');
+                const img = this.querySelector('img');
+
+                fetch('../acoes/adicionarLivrosFavoritos.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: 'livro_cod=' + encodeURIComponent(livroCod)
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        alert(data);
+
+                        if (data.includes("✅")) {
+                            img.src = '../img/bookmark_preenchido.png';
+                        } else if (data.includes("❎")) {
+                            img.src = '../img/salvar_livro.png';
+                        }
+                    })
+                    .catch(error => {
+                        alert("Erro ao adicionar livro aos favoritos.");
+                        console.error(error);
+                    });
+            });
+        });
+    </script>
+
 </body>
 
 </html>

@@ -81,10 +81,14 @@ if (!$usuario_cod) {
                                 <img src="../img/star.png" class="imgAvaliacao">
                                 <div style="margin-left: 1.5rem; height: 3.25rem;">
                                     <div style="display: flex; height: 1.75rem;">
-                                        <p><?php echo number_format($mediaAvaliacao['media'], 1); ?></p>
+                                        <p>
+                                            <?php echo number_format($mediaAvaliacao['media'], 1); ?>
+                                        </p>
                                         <p style="opacity: 20%;">/5</p>
                                     </div>
-                                    <p style="height: 1.75rem;"><?php echo htmlspecialchars($mediaAvaliacao['total_avaliacoes']); ?> avaliações</p>
+                                    <p style="height: 1.75rem;">
+                                        <?php echo htmlspecialchars($mediaAvaliacao['total_avaliacoes']); ?> avaliações
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -402,6 +406,36 @@ if (!$usuario_cod) {
     <?php
         include('../componentes/componentesPaginas_tcc/rodape.php');
     ?>
+
+    <script>
+        document.querySelectorAll('.marcador').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const livroCod = this.getAttribute('data-livro-cod');
+                const img = this.querySelector('img');
+
+                fetch('../acoes/adicionarLivrosFavoritos.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: 'livro_cod=' + encodeURIComponent(livroCod)
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        alert(data);
+
+                        if (data.includes("✅")) {
+                            img.src = '../img/bookmark_preenchido.png';
+                        } else if (data.includes("❎")) {
+                            img.src = '../img/salvar_livro.png';
+                        }
+                    })
+                    .catch(error => {
+                        alert("Erro ao adicionar livro aos favoritos.");
+                        console.error(error);
+                    });
+            });
+        });
+    </script>
+
 
 </body>
 
