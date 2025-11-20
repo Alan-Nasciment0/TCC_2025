@@ -1,15 +1,31 @@
 <?php
 
 include('../BuscaLivros/buscaLivros.php');
+include('../BuscaMediaAvaliacao/buscaMediaAvaliacao.php');
 
-$livro_cod =  $_POST['cod_livro_selecionado']; 
-$livro_titulo =  $_POST['livro_titulo_selecionado'];
-$livro_capa = $_POST['livro_capa_selecionado'];
-$livro_editora = $_POST['livro_editora_selecionado'];
-$livro_descricao =  $_POST['livro_descricao_selecionado'];
-$livro_autor =  $_POST['autor_nome_selecionado'];
-$livro_genero =  $_POST['genero_nome_selecionado'];
-$livro_ano =  $_POST['livro_ano_selecionado'];
+$livro_cod = $_GET['livro_cod'] ?? null;
+$sql = "SELECT 
+    l.livro_cod,
+    l.livro_titulo,
+    l.livro_capa_link,
+    l.livro_editora,
+    l.livro_ano,
+    l.livro_descricao,
+    GROUP_CONCAT(DISTINCT a.autor_nome ORDER BY a.autor_nome SEPARATOR ', ') AS autor,
+    GROUP_CONCAT(DISTINCT g.genero_nome ORDER BY g.genero_nome SEPARATOR ', ') AS genero,
+    GROUP_CONCAT(DISTINCT c.categoria_nome ORDER BY c.categoria_nome SEPARATOR ', ') AS categoria
+FROM livros l
+LEFT JOIN autorLivro al ON l.livro_cod = al.livro_cod
+LEFT JOIN autor a ON al.autor_cod = a.autor_cod
+LEFT JOIN livroGenero lg ON l.livro_cod = lg.livro_cod
+LEFT JOIN genero g ON lg.genero_cod = g.genero_cod
+LEFT JOIN categoria c ON g.categoria_cod = c.categoria_cod
+WHERE l.livro_cod = :livro_cod
+GROUP BY l.livro_cod";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':livro_cod', $livro_cod);
+$stmt->execute();
+$livro = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -39,7 +55,7 @@ $livro_ano =  $_POST['livro_ano_selecionado'];
     </header>
     <div class="container">
         <div class="containerLivroCapa">
-            <img class="imgLivroCapa" src="<?php echo $livro_capa; ?>">
+            <img class="imgLivroCapa" src="<?php echo $livro['livro_capa_link'] ?>">
             <div>
                 <div class="containerInformacoesLivro">
                     <div class="containerAlinhamentoLadoEsquerdo">
@@ -49,23 +65,23 @@ $livro_ano =  $_POST['livro_ano_selecionado'];
                                 <img src="../img/star.png" class="imgAvaliacao">
                                 <div style="margin-left: 1.5rem; height: 3.25rem;">
                                     <div style="display: flex; height: 1.75rem;">
-                                        <p>echo</p>
+                                        <p><?php echo number_format($mediaAvaliacao['media'], 1); ?></p>
                                         <p style="opacity: 20%;">/5</p>
                                     </div>
-                                    <p style="height: 1.75rem;">100 mil</p>
+                                    <p style="height: 1.75rem;"><?php echo htmlspecialchars($mediaAvaliacao['total_avaliacoes']); ?> avaliações</p>
                                 </div>
                             </div>
                         </div>
                         <div>
                             <h4>Autor</h4>
                             <p>
-                                <?php echo $livro_autor; ?>
+                                <?php echo $livro['autor']; ?>
                             </p>
                         </div>
                         <div>
                             <h4>Ano de Publicação</h4>
                             <p>
-                                <?php echo $livro_ano; ?>
+                                <?php echo $livro['livro_ano']; ?>
                             </p>
                         </div>
                     </div>
@@ -106,13 +122,13 @@ $livro_ano =  $_POST['livro_ano_selecionado'];
                         <div>
                             <h4>Gênero da Obra</h4>
                             <p>
-                                <?php echo $livro_genero; ?>
+                                <?php echo $livro['genero']; ?>
                             </p>
                         </div>
                         <div>
                             <h4>Editora</h4>
                             <p>
-                                <?php echo $livro_editora; ?>
+                                <?php echo $livro['livro_editora']; ?>
                             </p>
                         </div>
                     </div>
@@ -121,7 +137,7 @@ $livro_ano =  $_POST['livro_ano_selecionado'];
                 <div class="containerDescricao">
                     <h4>Descrição</h4>
                     <p>
-                        <?php echo $livro_descricao; ?>
+                        <?php echo $livro['livro_descricao']; ?>
                     </p>
 
                     <button id="btn-favoritos" class="btn btn-warning" style="width: 16.31rem; height: 3.28rem;">
@@ -155,6 +171,15 @@ $livro_ano =  $_POST['livro_ano_selecionado'];
     <?php
         include('../componentes/componentesPaginas_tcc/rodape.php');
     ?>
+    
+    <script>
+    document.querySelectorAll('.marcador').forEach(btn => {
+        btn.addEventListener('click', function () {
+            alert("Você precisa estar logado para adicionar aos favoritos.");
+            return;
+        });
+    });
+    </script>
 
 </body>
 

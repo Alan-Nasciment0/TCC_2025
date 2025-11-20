@@ -28,27 +28,7 @@
         <div class="containerFavoritos">
             <div class="containerTitulo">
                 <h2 class="titulo">Favoritos</h2>
-            </div>
-            <div class="containerAlinhamento">
-                <div class="containerPesquisa">
-                    <img src="../img/pesquisarBranco.png" class="imgPesquisa" alt="Pesquisar">
-                    <input name="pesquisa" placeholder="Pesquisa de livro">
-                </div>
-
-                <div class="containerFiltro">
-                    <div class="dropdown">
-                        <img src="../img/filtro.png" class="imgFiltro" alt="Filtro">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Filtro
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Mais antigos</a></li>
-                            <li><a class="dropdown-item" href="#">Mais novos</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            </div>            
         </div>
         
         <form style="width: 240px; height: 220px; margin-top: 10rem;">
@@ -56,9 +36,9 @@
                 <label style="color: white;">Quer salvar seus livros favorito?</label>
                 <img src="../img/bookmark.png" class="imgFavorito" alt="Favorito">
                 <label style="color: white;">Faça login para salvar seus livros</label>
-                <div class="botao">
-                    <input type="submit" name="Criar conta" value="Fazer login">
-                </div>
+                <div class="botaoFazerLogin">
+                <button type="submit" name="Criar conta" class="btn btn-light" value="Fazer login">Fazer Login</button>
+            </div>
             </div>
         </form>
     </div>
@@ -66,6 +46,13 @@
     <?php
         include('../componentes/componentesPaginas_tcc/rodape.php');
     ?>
+<script>
+    document.querySelectorAll('.btn-light').forEach(btn => {
+        btn.addEventListener('click', function () {
+             window.location.href = '../paginas_tcc/pgLogin.php';
+        });
+    });
+</script>
 
 </body>
 
