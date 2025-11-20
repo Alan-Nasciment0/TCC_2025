@@ -144,6 +144,7 @@ if (isset($_POST['login'])) {
                 // Login bem-sucedido
                 $_SESSION['usuario_cod'] = $usuario['usuario_cod'];
                 $_SESSION['usuario_nome'] = $usuario['usuario_nome'];
+                $_SESSION['usuario_email'] = $usuario['usuario_email'];
                 $_SESSION['logado'] = true;
                 $_SESSION['nivel_acesso'] = $usuario['nivel_acesso'];
                 $_SESSION['primeiro_acesso'] = $usuario['primeiro_acesso'];
@@ -170,4 +171,83 @@ if (isset($_POST['login'])) {
     header('Location: paginas_tcc/pgHome.php');
     exit;
 }
+
+if (isset($_POST['AtualizarPerfil'])) {
+    session_start();
+    
+    // Limpar os dados enviados
+    $nome = trim($_POST['nome']);
+    $email = trim($_POST['email']);
+    $senha = trim($_POST['senha']);
+    $confirmaSenha = trim($_POST['confirmaSenha']);
+    $usuario_cod = $_SESSION['usuario_cod']; // garante que é o usuário logado
+
+    // Atualizar foto se enviada
+    if (!empty($_FILES['txt_foto']['name'])) {
+        $extensao_foto = strtolower(pathinfo($_FILES['txt_foto']['name'], PATHINFO_EXTENSION));
+        $novo_nome_img = preg_replace('/\s+/', '_', $nome) . "_" . rand(0, 999) . "." . $extensao_foto;
+        $diretorio = "img/foto_perfil_usuario/";
+        move_uploaded_file($_FILES['txt_foto']['tmp_name'], $diretorio . $novo_nome_img);
+    } else {
+        $novo_nome_img = $_SESSION['foto_perfil_usuario']; // mantém a foto atual
+    }
+
+    $_SESSION['foto_perfil_usuario'] = $novo_nome_img;
+
+    // Validações básicas
+    if ($nome == "") {
+        $_SESSION['nomeVazio'] = true;
+        header('Location: paginas_tcc/pgPerfil.php');
+        exit;
+    }
+
+    if ($email == "") {
+        $_SESSION['emailVazio'] = true;
+        header('Location: paginas_tcc/pgPerfil.php');
+        exit;
+    }
+
+    if ($senha != "") {
+        if ($senha === $confirmaSenha) {
+            $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+        } else {
+            $_SESSION['senhaDiferentes'] = true;
+            header('Location: paginas_tcc/pgPerfil.php');
+            exit;
+        }
+    }
+
+    try {
+        // Atualiza os dados do usuário
+        $sql = "UPDATE usuario SET usuario_nome = :nome, usuario_email = :email, foto_perfil_usuario = :novo_nome_img";
+
+        if (!empty($senha)) {
+            $sql .= ", usuario_senha = :senha";
+        }
+
+        $sql .= " WHERE usuario_cod = :usuario_cod";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':novo_nome_img', $novo_nome_img);
+        $stmt->bindParam(':usuario_cod', $usuario_cod);
+
+        if (!empty($senha)) {
+            $stmt->bindParam(':senha', $senhaHash);
+        }
+
+        if ($stmt->execute()) {
+            $_SESSION['perfilAtualizado'] = true;
+        } else {
+            $_SESSION['mensagem'] = 'Não foi possível atualizar os dados.';
+        }
+    } catch (PDOException $e) {
+        $_SESSION['mensagem'] = "Erro no banco: " . $e->getMessage();
+    }
+
+    header('Location: paginas_tcc/pgHome.php');
+    exit;
+}
+
 ?>

@@ -7,6 +7,7 @@ include('../buscaAutor/buscaAutor.php');
 
 $usuario_cod = $_SESSION['usuario_cod'] ?? null;
 
+
 if (!$usuario_cod) {
     header('Location:pglogin.php');
     exit;
@@ -31,6 +32,26 @@ if (!$usuario_cod) {
 </head>
 
 <body>
+    <?php
+    if (isset($_SESSION['perfilAtualizado'])){?>
+    <div id="modalAvisoInfoAlteradoUsuario" class="modal-overlay-InfoSalva">
+        <div class="modal-content-InfoAlterada">
+            <?php include('../componentes/componentesPaginas_tcc/avisoInfoAlteradaUsuario.php'); ?>
+        </div>
+    </div>
+    <script>
+        // Fechar o modal ao clicar fora dele
+        document.addEventListener('click', function (event) {
+            const modal = document.getElementById('modalAvisoInfoAlteradoUsuario');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+
+            }
+        });
+    </script>
+    <?php unset($_SESSION['perfilAtualizado']); ?>
+    <?php
+    }?>
 
     <header>
 
