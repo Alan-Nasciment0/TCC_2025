@@ -2,6 +2,7 @@
 session_start();
 include('../conexao_bd_sql/conexao_bd_mysql.php');
 include('../BuscaLivros/buscaLivros.php');
+include('../BuscaMediaAvaliacao/buscaMediaAvaliacao.php');
 
 $usuario_cod = $_SESSION['usuario_cod'] ?? null;
 $foto_perfil_usuario = $_SESSION['foto_perfil_usuario'] ?? '../img/userPadrao.png';
@@ -80,10 +81,10 @@ if (!$usuario_cod) {
                                 <img src="../img/star.png" class="imgAvaliacao">
                                 <div style="margin-left: 1.5rem; height: 3.25rem;">
                                     <div style="display: flex; height: 1.75rem;">
-                                        <p>echo</p>
+                                        <p><?php echo number_format($mediaAvaliacao['media'], 1); ?></p>
                                         <p style="opacity: 20%;">/5</p>
                                     </div>
-                                    <p style="height: 1.75rem;">100 mil</p>
+                                    <p style="height: 1.75rem;"><?php echo htmlspecialchars($mediaAvaliacao['total_avaliacoes']); ?> avaliações</p>
                                 </div>
                             </div>
                         </div>

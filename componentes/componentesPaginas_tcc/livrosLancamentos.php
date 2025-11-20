@@ -11,9 +11,16 @@
     <h6 class="nomeAutor">
         <?= htmlspecialchars($info_livro['autor_nome']) ?>
     </h6>
+    <?php
+    $sql = "SELECT AVG(nota) AS media, COUNT(*) AS total_avaliacoes FROM Avaliacoes WHERE livro_cod = :livro_cod";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':livro_cod', $info_livro['livro_cod'], PDO::PARAM_INT);
+    $stmt->execute();
+    $mediaAvaliacao = $stmt->fetch(PDO::FETCH_ASSOC);
+    ?>
     <div class="avaliacoes">
         <img src="../img/star.png" class="imgEstrela">
-        <h6 class="mediaAvaliacao">4,1</h6>
+        <h6 class="mediaAvaliacao"><?php echo number_format($mediaAvaliacao['media'], 1); ?></h6>
     </div>
     <form name="form_pgLivro" action="pgLivro.php" method="get">
         <input type="hidden" name="livro_cod" value="<?= htmlspecialchars($info_livro['livro_cod']) ?>">        

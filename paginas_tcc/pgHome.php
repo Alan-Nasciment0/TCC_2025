@@ -4,6 +4,7 @@ session_start();
 include('../BuscaLivros/buscaLivros.php');
 include('../buscaAutor/buscaAutor.php');
 
+
 $usuario_cod = $_SESSION['usuario_cod'] ?? null;
 
 if (!$usuario_cod) {
@@ -84,9 +85,7 @@ if (!$usuario_cod) {
                 }
             });
         </script>
-
-
-        <?php unset($_SESSION['primeiro_acesso']); ?>
+    
         <?php } ?>
 
     </header>
