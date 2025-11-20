@@ -15,15 +15,8 @@
         <img src="../img/star.png" class="imgEstrela">
         <h6 class="mediaAvaliacao">4,1</h6>
     </div>
-    <form name="form_pgLivro" action="pgLivro.php" method="post">
-        <input type="hidden" name="cod_livro_selecionado" value="<?= htmlspecialchars($info_livro['livro_cod']) ?>">
-        <input type="hidden" name="livro_titulo_selecionado" value="<?= htmlspecialchars($info_livro['livro_titulo']) ?>">
-        <input type="hidden" name="livro_capa_selecionado" value="<?= htmlspecialchars($info_livro['livro_capa_link']) ?>">
-        <input type="hidden" name="livro_editora_selecionado" value="<?= htmlspecialchars($info_livro['livro_editora']) ?>">
-        <input type="hidden" name="livro_descricao_selecionado" value="<?= htmlspecialchars($info_livro['livro_descricao']) ?>">
-        <input type="hidden" name="autor_nome_selecionado" value="<?= htmlspecialchars($info_livro['autor_nome']) ?>">
-        <input type="hidden" name="genero_nome_selecionado" value="<?= htmlspecialchars($info_livro['genero_nome']) ?>">
-        <input type="hidden" name="livro_ano_selecionado" value="<?= htmlspecialchars($info_livro['livro_ano']) ?>">
+    <form name="form_pgLivro" action="pgLivro.php" method="get">
+        <input type="hidden" name="livro_cod" value="<?= htmlspecialchars($info_livro['livro_cod']) ?>">        
         <input type="submit" class="botaoLivroSelecionado" name="livro_selecionado" value="">
     </form>
 </div>

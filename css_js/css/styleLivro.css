@@ -1,22 +1,25 @@
-*{
+* {
     color: white;
-    font-family: Arial;    
+    font-family: Arial;
 }
-header{
+
+header {
     width: 100%;
 }
 
 p {
-    font-size: 1rem;  
-    text-align: justify;  
+    font-size: 1rem;
+    text-align: justify;
     margin: 0px;
 }
+
 .containerLivroCapa {
     width: 75rem;
     display: flex;
     margin-top: 50px;
-    
+
 }
+
 .imgLivroCapa {
     height: 33rem;
     width: 25rem;
@@ -27,11 +30,13 @@ p {
     border-color: black;
     box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 25);
 }
+
 .containerInformacoesLivro {
-    display: flex;    
+    display: flex;
     margin-left: 4rem;
     height: 16.62rem;
 }
+
 .containerAlinhamentoLadoEsquerdo {
     width: 21.93rem;
     height: 16.62rem;
@@ -39,6 +44,7 @@ p {
     flex-direction: column;
     gap: 1.56rem;
 }
+
 .containerAlinhamentoLadoDireito {
     width: 19.5rem;
     height: 16.62rem;
@@ -46,20 +52,46 @@ p {
     flex-direction: column;
     gap: 2rem;
 }
+
 .subContainerAlinhamento {
     height: 4.8rem;
 }
+
 #mensagem-avaliacao {
     color: #0A58CA;
     margin-top: 0.2rem;
     height: 1.5rem;
 }
-.imgAvaliacao{
+
+.imgAvaliacao {
     width: 1.62rem;
     height: 1.43rem;
 }
+
 .containerDescricao {
     margin-left: 4rem;
     margin-top: 1.56rem;
 }
 
+.containerComentarios {
+    margin-top: 2rem;
+
+    textarea {
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+        outline: none;
+        box-shadow: none;
+        text-decoration: underline;
+        color: #fff;
+        width: 55rem;
+        border: none;
+        resize: none;
+    }
+}
+
+.containerAddComentario {
+    display: flex;
+    gap: 2rem;
+}
