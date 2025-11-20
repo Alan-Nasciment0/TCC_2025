@@ -21,6 +21,7 @@
     scroll-behavior: smooth;
     anchor-name: --containerLivroRecomendado;
     scroll-snap-type: x mandatory;
+    margin-top: 2rem;
 }
 .containerLivroPopular {
     anchor-name: --containerLivroPopular;

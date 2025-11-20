@@ -91,17 +91,18 @@ if (!$usuario_cod) {
     </header>
     <div class="container">
         <div class="carousel-container">
-
             <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="bannerIMG" src="../img/banner.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
+                <div class="bannerGradiente">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="bannerIMG" src="../img/banner.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
+                        </div>
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
