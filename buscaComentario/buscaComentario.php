@@ -6,13 +6,15 @@ $livro_cod = $_GET['livro_cod'] ?? null;
 
 $sql = "
     SELECT 
-    c.*,
-    u.usuario_nome,
-    u.foto_perfil_usuario
-FROM comentario c
-JOIN Usuario u ON c.usuario_cod = u.usuario_cod
-WHERE c.livro_cod = :livro_cod
-ORDER BY (c.usuario_cod = :usuario_cod) DESC, c.comentario_cod DESC";
+        c.*,
+        u.usuario_nome,
+        u.foto_perfil_usuario,
+        a.nota
+    FROM comentario c
+    JOIN usuario u ON c.usuario_cod = u.usuario_cod
+    LEFT JOIN avaliacoes a ON c.usuario_cod = a.usuario_cod AND c.livro_cod = a.livro_cod
+    WHERE c.livro_cod = :livro_cod
+    ORDER BY (c.usuario_cod = :usuario_cod) DESC, c.comentario_cod DESC ";
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':livro_cod', $livro_cod);

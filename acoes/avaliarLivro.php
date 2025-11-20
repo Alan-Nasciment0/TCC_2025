@@ -13,15 +13,7 @@ $usuario_cod = $_SESSION['usuario_cod'];
 $livro_cod = isset($_POST['livro_cod']) ? (int) $_POST['livro_cod'] : null;
 $nota = isset($_POST['nota']) ? (int) $_POST['nota'] : null;
 
-if (!$livro_cod || !$nota) {
-    echo "❌ Dados incompletos.";
-    exit;
-}
 
-if ($nota < 1 || $nota > 5) {
-    echo "❌ Nota inválida.";
-    exit;
-}
 
 try {
      // Verifica se o usuário já avaliou o livro
@@ -31,6 +23,18 @@ try {
         ':usuario_cod' => $usuario_cod,
         ':livro_cod' => $livro_cod
     ]);
+
+    if ($nota === 0) {
+    $sql = "DELETE FROM avaliacoes WHERE usuario_cod = :usuario_cod AND livro_cod = :livro_cod";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':usuario_cod' => $usuario_cod,
+        ':livro_cod' => $livro_cod
+    ]);
+    echo "🗑️ Avaliação removida!";
+    exit;
+}
+
 
     $avaliacaoExistente = $stmtCheck->fetch(PDO::FETCH_ASSOC);
 

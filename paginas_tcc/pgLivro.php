@@ -130,6 +130,11 @@ if (!$usuario_cod) {
                             const notaSalva = <?= $notaUsuario ?>; // vinda do PHP
                             document.addEventListener("DOMContentLoaded", () => {
                                 const estrelas = document.querySelectorAll(".estrela");
+                                const mensagem = document.getElementById("mensagem-avaliacao");
+                                const livroCod = document.getElementById("livro_cod").value;
+
+                                let notaSalvaAtual = <?= $notaUsuario ?>;
+
                                 // Função para preencher as estrelas até a nota selecionada
                                 function preencherEstrelas(nota) {
                                     estrelas.forEach(e => {
@@ -138,16 +143,20 @@ if (!$usuario_cod) {
                                     });
                                 }
                                 // Quando a página carregar, marca as estrelas salvas
-                                if (notaSalva > 0) {
-                                    preencherEstrelas(notaSalva);
+                                if (notaSalvaAtual > 0) {
+                                    preencherEstrelas(notaSalvaAtual);
                                 }
                                 // Evento de clique para nova avaliação
                                 estrelas.forEach(estrela => {
                                     estrela.addEventListener("click", () => {
-                                        const novaNota = parseInt(estrela.dataset.nota);
+                                        let novaNota = parseInt(estrela.dataset.nota);
                                         preencherEstrelas(novaNota);
-                                        // Enviar nova avaliação via AJAX
-                                        const livroCod = document.getElementById("livro_cod").value;
+
+                                        if (notaSalvaAtual === novaNota) {
+                                            novaNota = 0;
+                                        }
+
+                                        // Enviar nova avaliação via AJAX                                        
                                         fetch("../acoes/avaliarLivro.php", {
                                             method: "POST",
                                             headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -155,7 +164,10 @@ if (!$usuario_cod) {
                                         })
                                             .then(resp => resp.text())
                                             .then(msg => {
-                                                document.getElementById("mensagem-avaliacao").textContent = msg;
+                                                mensagem.textContent = msg;
+
+                                                notaSalvaAtual = novaNota;
+                                                preencherEstrelas(notaSalvaAtual);
                                             });
                                     });
                                 });
@@ -334,8 +346,10 @@ if (!$usuario_cod) {
                     <textarea class="txtComentario" id="txtComentario" name="txtComentario"
                         placeholder="Adicionar Comentario"></textarea>
                     <div class="botoesComentario">
-                        <button class="botaoComentarioCancelar" name="btnCancelar" type="reset" value="Cancelar">Cancelar</button>
-                        <button class="botaoComentario" name="btnComentar" type="submit" value="Comentar">Comentar</button>
+                        <button class="botaoComentarioCancelar" name="btnCancelar" type="reset"
+                            value="Cancelar">Cancelar</button>
+                        <button class="botaoComentario" name="btnComentar" type="submit"
+                            value="Comentar">Comentar</button>
                     </div>
                 </form>
             </div>
@@ -351,7 +365,7 @@ if (!$usuario_cod) {
                     const dados = await resposta.json();
                     return dados.total > 0;
                 }
-                
+
                 btnCancelar.disabled = true;
                 btnComentar.disabled = true;
 

@@ -10,20 +10,27 @@ include('../buscaComentario/buscaComentario.php');
         src="../img/foto_perfil_usuario/<?= htmlspecialchars($comentario['foto_perfil_usuario']) ?>">
     <div class="containerComentarioTexto">
         <div>
-            <h6 class="nomeUsuario">@
-                <?= htmlspecialchars($comentario['usuario_nome']) ?>
-            </h6>
-            <div>
-                <textarea class="txtComentario" id="txtComentario" name="txtComentario"
-                    placeholder="Adicionar Comentario" disabled>
-            <?= htmlspecialchars($comentario['comentario_texto']) ?>
-        </textarea>
+            <div class="containerNomeAvaliacao">
+                <h6 class="nomeUsuario">@
+                    <?= htmlspecialchars($comentario['usuario_nome']) ?>
+                </h6>
+                <?php 
+                $notaComentario = isset($comentario['nota']) ? (int)$comentario['nota'] : 0;
+                for ($i = 1; $i <= 5; $i++): 
+                ?>
+                <img src="<?= $i <= $notaComentario ? '../img/star.png' : '../img/starAvaliacao.png' ?>"
+                    style="width: 20px; height: 20px; cursor: default;">
+                <?php endfor; ?>
             </div>
+            <textarea class="txtComentario" id="txtComentario" name="txtComentario" placeholder="Adicionar Comentario"
+                disabled><?= htmlspecialchars($comentario['comentario_texto']) ?>
+            </textarea>
         </div>
-        <button class="botaoDenuncia">
-            <img class="denuncia" src="../img/menuDenuncia.png">
-        </button>
     </div>
+    <button class="botaoDenuncia">
+        <img class="denuncia" src="../img/menuDenuncia.png">
+    </button>
+</div>
 </div>
 
 <?php endforeach; ?>
