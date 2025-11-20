@@ -329,16 +329,50 @@ if (!$usuario_cod) {
 
             <div class="containerAddComentario">
                 <img class="fotoUsuario" src="../img/foto_perfil_usuario/<?= htmlspecialchars($foto_perfil_usuario) ?>">
-                <form action="../acoes/adicionarComentario.php" method="post">
-                    <input type="hidden" name="livro_cod" value="<?= $livro['livro_cod'] ?>">                    
+                <form action="../acoes/adicionarComentario.php" method="post" class="formComentario">
+                    <input type="hidden" name="livro_cod" value="<?= $livro['livro_cod'] ?>">
                     <textarea class="txtComentario" id="txtComentario" name="txtComentario"
                         placeholder="Adicionar Comentario"></textarea>
                     <div class="botoesComentario">
-                        <button class="botaoComentario" type="submit" value="Cancelar"></button>
-                        <button class="botaoComentario" name="btnComentar" type="submit" value="Comentar"></button>
+                        <button class="botaoComentarioCancelar" name="btnCancelar" type="reset" value="Cancelar">Cancelar</button>
+                        <button class="botaoComentario" name="btnComentar" type="submit" value="Comentar">Comentar</button>
                     </div>
                 </form>
             </div>
+
+            <script>
+                const usuario_cod = <?= $_SESSION["usuario_cod"] ?>;
+                const textarea = document.getElementById('txtComentario');
+                const btnCancelar = document.querySelector('button[value="Cancelar"]');
+                const btnComentar = document.querySelector('button[value="Comentar"]');
+
+                async function usuarioAvaliou(usuario_cod, livro_cod) {
+                    const resposta = await fetch(`../buscaAvaliacao/buscaAvaliacao.php?usuario_cod=${usuario_cod}&livro_cod=${livro_cod}`);
+                    const dados = await resposta.json();
+                    return dados.total > 0;
+                }
+                
+                btnCancelar.disabled = true;
+                btnComentar.disabled = true;
+
+                textarea.addEventListener('focus', async function (event) {
+                    const livro_cod = <?= $livro['livro_cod'] ?>;
+
+                    const avaliou = await usuarioAvaliou(usuario_cod, livro_cod);
+
+                    if (!avaliou) {
+                        alert("Você ainda não avaliou este livro.");
+
+                        textarea.blur();
+
+                    } else {
+                        textarea.disabled = false;
+                        btnCancelar.disabled = false;
+                        btnComentar.disabled = false;
+                    }
+                });
+
+            </script>
 
             <div class="containerComentarioRealizados">
                 <?php

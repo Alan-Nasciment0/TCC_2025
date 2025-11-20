@@ -153,7 +153,7 @@ session_start();
                 document.getElementById("txt_foto_selecionada").addEventListener("change", Trocar_Foto, false);
 
 
-                function limpar_foto() { document.getElementById("img_selecionada").src = "../img/userPadrao.png"; }
+                function limpar_foto() { document.getElementById("img_selecionada").src = "userPadrao.png"; }
 
             </script>
 

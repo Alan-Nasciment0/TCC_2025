@@ -2,8 +2,15 @@
 session_start();
 require __DIR__ . '/../conexao_bd_sql/conexao_bd_mysql.php';
 
+$sql = "SELECT COUNT(*) AS total FROM avaliacoes WHERE usuario_cod = :usuario_cod and livro_cod = :livro_cod";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':livro_cod', $livro_cod, PDO::PARAM_INT);
+            $stmt->bindParam(':usuario_cod', $usuario_cod, PDO::PARAM_INT);
+            $stmt->execute();
+            $avaliacaoLivro = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (isset($_POST['btnComentar'])) {
+    
     // Verifica se há um usuário logado
     if (!isset($_SESSION['usuario_cod'])) {
         echo "Usuário não logado.";
@@ -12,7 +19,7 @@ if (isset($_POST['btnComentar'])) {
 
     $usuario_cod = $_SESSION['usuario_cod'];
     $livro_cod = $_POST['livro_cod'] ?? null;
-    $txtComentario =$_POST['txtComentario'];
+    $txtComentario =$_POST['txtComentario']; 
 
     if (!$livro_cod) {
         echo "Livro não informado.";
