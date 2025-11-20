@@ -1,0 +1,73 @@
+.containerAvisoInfoSalvaAutor {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: space-around !important;
+    width: 12.5rem;
+    height: 9.37rem;
+    background-color: #fff;
+    border-radius: 0.62rem;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 99999;
+}
+
+.containerAvisoInfoAutor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgAvisoConfirmAutor {
+    width: 1.87rem;
+    height: 1.87rem;
+}
+
+.tituloAvisoInfoAutor {
+    width: 9.5rem;
+    text-align: center;
+}
+
+.tituloAvisoInfoAutor,
+.botaoTitulo {
+    font-size: 1rem;
+}
+
+.botaoTitulo,
+.botaoTituloFazerLogin {
+    width: 3.93rem;
+    height: 1.87rem;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+}
+
+.botaoTituloFazerLogin{
+    width: 7.5rem;
+}
+.modal-overlay-usuarioModerador {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content-InfoSalva,
+.modal-content-InfoAlterado,
+.modal-content-InfoDesativado
+ {    
+    border-radius: 10px;
+    max-width: 600px;
+    width: 12.5rem !important;    
+    align-items: center;
+}

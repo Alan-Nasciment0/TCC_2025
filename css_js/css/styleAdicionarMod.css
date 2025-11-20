@@ -1,6 +1,11 @@
 * {
     font-family: Arial;
 }
+
+header {
+    width: 100%;
+}
+
 .titulo {
     font-size: 32px;
     margin-top: 93px;
@@ -12,12 +17,14 @@
     display: flex;
     justify-content: center;
 }
+
 body {
     background-color: #1E1E1E;
     display: flex;
     flex-direction: column;
     align-items: center;
-} 
+}
+
 .containerPrincipal {
     width: 100vw;
     height: 100vh;
@@ -26,17 +33,43 @@ body {
     align-items: center;
     background-color: #1E1E1E;
 }
+
 .containerPesquisa {
     margin-top: 20px;
-    display: flex;
-    justify-content: center;
+
+    input {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    box-shadow: none;
+    font: inherit;
+    color: inherit;
+    
 }
+}
+
+.resultado-lista {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    background-color: #fff;
+    border-radius: 0.62rem;
+    padding: 1rem;
+    box-shadow: 0px 4px 20px rgb(0 0 0 / 71%);
+}
+
 .containerAdicionarMode {
     width: 1115px;
     height: 324px;
     border-radius: 38px;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 .containerCampo {
     width: 1015px;
     height: 126px;
@@ -48,6 +81,7 @@ body {
     display: flex;
     align-items: center;
 }
+
 .campoPreencher {
     height: 40px;
     width: 300px;
@@ -57,9 +91,11 @@ body {
     display: flex;
     align-items: center;
 }
+
 .containerPreencher1 {
     margin-left: 23px;
 }
+
 .containerFoto {
     width: 110px;
     height: 137px;
@@ -67,45 +103,49 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .containerLinha {
     height: 126px;
     margin-left: 50px;
     border-left: 2px solid;
-    color: #fff; 
+    color: #fff;
 }
-.fotousuario img {
+
+input {
+    border: none;    
+    padding: 0;
+    margin: 0;
+    outline: none;    
+    width: auto;
+    padding: 1rem;
+}
+
+.fotousuario {
     width: 68px;
     height: 68px;
     border-radius: 50px;
 }
+
 .imgPesquisa {
     width: 24px;
     height: 24px;
 }
+
 label {
     color: white;
     font-size: 16px;
 }
-input {
-    border: none;
-    background: none;
-    padding: 0;
-    margin: 0;
-    outline: none;
-    box-shadow: none;
-    font: inherit;
-    color: inherit;
-    width: auto;
-}
+
 .placeHolder {
     width: 300px;
     height: 40px;
     border-radius: 10px;
     background-color: #fff;
 }
+
 .placeHolder1 {
     width: 274px;
     height: 24px;
     text-decoration: underline;
-    
+
 }
