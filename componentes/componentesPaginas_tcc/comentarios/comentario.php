@@ -31,7 +31,7 @@ include('../buscaComentario/buscaComentario.php');
         <img class="denuncia" src="../img/menuDenuncia.png">
     </button>
 </div>
-</div>
+
 
 <?php endforeach; ?>
 <?php }else {?>
