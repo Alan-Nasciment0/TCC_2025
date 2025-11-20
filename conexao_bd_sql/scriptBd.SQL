@@ -9,6 +9,7 @@ CREATE TABLE Usuario (
     usuario_tempo_banimento VARCHAR(50),
     nivel_acesso INTEGER default 1,
     primeiro_acesso bool default 0,
+    foto_perfil_usuario text,
     UNIQUE (usuario_email)
 );
 
@@ -79,14 +80,14 @@ CREATE TABLE Historico_Visualizacao (
 CREATE TABLE Comentario (
     comentario_cod INTEGER PRIMARY KEY AUTO_INCREMENT,
     usuario_cod INTEGER,
-    comentario_data_hora DATETIME,
+    comentario_data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
     comentario_texto VARCHAR(200),
     constraint fk_usuario_cod_2 foreign key(usuario_cod) references usuario (usuario_cod)
 );
  
 CREATE TABLE Denuncia (
     denuncia_cod INTEGER PRIMARY KEY AUTO_INCREMENT,
-    denuncia_data_hora DATETIME,
+    denuncia_data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
     denuncia_tipo VARCHAR(30),
     denuncia_descricao VARCHAR(200),
     comentario_cod integer,

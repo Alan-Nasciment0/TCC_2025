@@ -19,7 +19,7 @@ if($_SESSION['nivel_acesso'] == 1) {?>
             <li class="containerItem">
                 <div class="dropDown">
                     <button class="dropDownBotao" onclick="toggleAparecerMenu()"><img class="fotoUsuario"
-                            src="../img/autor.jpg"></button>
+                            src="../img/foto_perfil_usuario/<?= htmlspecialchars($foto_perfil_usuario) ?>"></button>
                     <nav id="menuDropDown" class="containerMenu">
                         <ul class="containerItens">
                             <li class="containerItem">
@@ -69,7 +69,7 @@ if($_SESSION['nivel_acesso'] == 1) {?>
             <li class="containerItem">
                 <div class="dropDown">
                     <button class="dropDownBotao" onclick="toggleAparecerMenu()"><img class="fotoUsuario"
-                            src="../img/img.teste.webp"></button>
+                            src="../img/foto_perfil_usuario/<?= htmlspecialchars($foto_perfil_usuario) ?>"></button>
                     <nav id="menuDropDown" class="containerMenu">
                         <ul class="containerItens">
                             <li class="containerItem">
@@ -132,7 +132,7 @@ if($_SESSION['nivel_acesso'] == 1) {?>
             <li class="containerItem">
                 <div class="dropDown">
                     <button class="dropDownBotao" onclick="toggleAparecerMenu()"><img class="fotoUsuario"
-                            src="../img/img.teste.webp"></button>
+                            src="../img/foto_perfil_usuario/<?= htmlspecialchars($foto_perfil_usuario) ?>"></button>
                     <nav id="menuDropDown" class="containerMenu">
                         <ul class="containerItens">
                             <li class="containerItem">

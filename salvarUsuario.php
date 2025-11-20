@@ -13,6 +13,28 @@ if (isset($_POST['Criar_conta'])) {
     $email = trim($_POST['email']);
     $senha = trim($_POST['senha']);
     $confirmaSenha = trim($_POST['confirmaSenha']);
+    $extensao_foto = substr($_FILES['txt_foto']['name'], -4);
+
+    
+if($extensao_foto != "")
+{
+    //Captura a extensão da foto
+    $extensao_foto = strtolower(pathinfo($_FILES['txt_foto']['name'], PATHINFO_EXTENSION));
+
+    /* Código para define um número aleatório para a foto
+     (Função RAND do PHP: Gera um número randômico) */
+    $novo_nome_img = preg_replace('/\s+/', '_', $nome). "_" . rand(0, 999) . "." . $extensao_foto; 
+ 
+    //Local do diretório de todas as fotos dos alunos
+    $diretorio = "img/foto_perfil_usuario/"; 
+
+    // Código para mover a foto para o novo dirtório
+    move_uploaded_file($_FILES['txt_foto']['tmp_name'], $diretorio . $novo_nome_img ); 
+}
+else
+{ $novo_nome_img = "foto_aluno_padrao.png"; }
+
+$_SESSION['foto_perfil_usuario'] = $novo_nome_img;
 
     if($nome == ""){
         $_SESSION['nomeVazio'] = true;
@@ -53,11 +75,12 @@ if (isset($_POST['Criar_conta'])) {
     }
 
     try {
-    $sql = "INSERT INTO usuario (usuario_nome, usuario_email, usuario_senha) VALUES (:nome, :email, :senha)";
+    $sql = "INSERT INTO usuario (usuario_nome, usuario_email, usuario_senha, foto_perfil_usuario) VALUES (:nome, :email, :senha, :novo_nome_img)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':senha', $senhaHash);
+        $stmt->bindParam(':novo_nome_img', $novo_nome_img);
 
         if ($stmt->execute()) {
             $_SESSION['mensagem'] = 'Usuário criado com sucesso.';
@@ -106,7 +129,7 @@ if (isset($_POST['login'])) {
     }
 
     try {
-        $sql = "SELECT usuario_cod, usuario_nome, usuario_email, usuario_senha, nivel_acesso, primeiro_acesso 
+        $sql = "SELECT usuario_cod, usuario_nome, usuario_email, usuario_senha, nivel_acesso, primeiro_acesso, foto_perfil_usuario 
                 FROM usuario 
                 WHERE usuario_email = :email";
 
@@ -124,6 +147,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['logado'] = true;
                 $_SESSION['nivel_acesso'] = $usuario['nivel_acesso'];
                 $_SESSION['primeiro_acesso'] = $usuario['primeiro_acesso'];
+                $_SESSION['foto_perfil_usuario'] = $usuario['foto_perfil_usuario'];
 
                 header('Location: area_restrita.php');
                 exit;

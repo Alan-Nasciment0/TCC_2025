@@ -3,6 +3,10 @@ session_start();
 include('../conexao_bd_sql/conexao_bd_mysql.php');
 include('../BuscaLivros/buscaLivros.php');
 
+$usuario_cod = $_SESSION['usuario_cod'] ?? null;
+$foto_perfil_usuario = $_SESSION['foto_perfil_usuario'] ?? '../img/userPadrao.png';
+
+
 $livro_cod = $_GET['livro_cod'] ?? null;
 $sql = "SELECT 
     l.livro_cod,
@@ -27,16 +31,11 @@ $stmt->bindParam(':livro_cod', $livro_cod);
 $stmt->execute();
 $livro = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$usuarioCod =  $_SESSION['usuario_cod'];
-
-
 $sql = "INSERT INTO historico_visualizacao (usuario_cod, livro_cod) VALUES (:usuario_cod, :livro_cod);";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':usuario_cod', $usuarioCod, PDO::PARAM_INT);
 $stmt->bindParam(':livro_cod', $livro['livro_cod'], PDO::PARAM_INT);
 $stmt->execute();
-
-$usuario_cod = $_SESSION['usuario_cod'] ?? null;
 
 if (!$usuario_cod) {
     header('Location:pglogin.php');
@@ -59,47 +58,6 @@ if (!$usuario_cod) {
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const estrelas = document.querySelectorAll('.estrela');
-        const livroCodEl = document.getElementById('livro_cod');
-        const msg = document.getElementById('mensagem-avaliacao');
-
-        if (!livroCodEl) return;
-
-        const livroCod = livroCodEl.value;
-
-        estrelas.forEach(star => {
-            star.addEventListener('click', function () {
-                const nota = this.getAttribute('data-nota');
-
-                fetch('../acoes/avaliarLivro.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: 'livro_cod=' + encodeURIComponent(livroCod) + '&nota=' + encodeURIComponent(nota)
-                })
-                    .then(response => response.text())
-                    .then(data => {
-                        msg.innerText = data;
-
-                        // atualiza o visual das estrelas
-                        estrelas.forEach(st => {
-                            if (parseInt(st.getAttribute('data-nota')) <= parseInt(nota)) {
-                                st.src = '../img/star.png'; // estrela cheia
-                            } else {
-                                st.src = '../img/starAvaliacao.png'; // estrela vazia
-                            }
-                        });
-                    })
-                    .catch(error => {
-                        alert("Erro ao enviar avaliação! Veja console.");
-                        console.error(error);
-                    });
-            });
-        });
-    });
-</script>
-
 
 <body
     style="width: 100%;height: auto; display: flex; flex-direction: column; align-items: center; background-color: #1E1E1E;">
@@ -190,7 +148,7 @@ if (!$usuario_cod) {
                                         preencherEstrelas(novaNota);
                                         // Enviar nova avaliação via AJAX
                                         const livroCod = document.getElementById("livro_cod").value;
-                                        fetch("salvar_avaliacao.php", {
+                                        fetch("../acoes/avaliarLivro.php", {
                                             method: "POST",
                                             headers: { "Content-Type": "application/x-www-form-urlencoded" },
                                             body: `livro_cod=${livroCod}&nota=${novaNota}`
@@ -370,7 +328,7 @@ if (!$usuario_cod) {
             </div>
 
             <div class="containerAddComentario">
-                <img class="fotoUsuario" src="">
+                <img class="fotoUsuario" src="../img/foto_perfil_usuario/<?= htmlspecialchars($foto_perfil_usuario) ?>">
                 <form action="../acoes/adicionarComentario.php" method="post">
                     <input type="hidden" name="livro_cod" value="<?= $livro['livro_cod'] ?>">                    
                     <textarea class="txtComentario" id="txtComentario" name="txtComentario"
