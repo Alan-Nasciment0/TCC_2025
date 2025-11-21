@@ -12,6 +12,45 @@ if (!$usuario_cod) {
     header('Location:pglogin.php');
     exit;
 }
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $id = $_POST['id'];
+    $acao = $_POST['acao'];
+
+    if ($acao == "desativar") {
+        $stmt = $pdo->prepare("UPDATE Noticias SET status = 0 WHERE noticia_cod = ?");
+        $stmt->execute([$id]);
+    }
+
+    if ($acao == "ativar") {
+        $stmt = $pdo->prepare("UPDATE Noticias SET status = 1 WHERE noticia_cod = ?");
+        $stmt->execute([$id]);
+    }
+
+    if ($acao == "novo_banner") {
+        $titulo = $_POST['titulo'];
+        $link = $_POST['link'];
+
+        // Upload da imagem
+        $ext = pathinfo($_FILES["banner_imagem"]["name"], PATHINFO_EXTENSION);
+        $nomeArquivo = time() . "_" . uniqid() . "." . $ext;
+
+        $destino = "../img/banners/" . $nomeArquivo;
+        move_uploaded_file($_FILES["banner_imagem"]["tmp_name"], $destino);
+
+        // Inserir no banco
+        $stmt = $pdo->prepare(
+            "INSERT INTO Noticias (titulo, banner_imagem, link ) VALUES (?, ?, ?)"
+        );
+        $stmt->execute([$titulo, $nomeArquivo, $link]);
+    }
+
+    // atualiza a página
+    header("Location: ".$_SERVER['REQUEST_URI']);
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -110,20 +149,96 @@ if (!$usuario_cod) {
         <?php } ?>
 
     </header>
+    <?php
+    if($_SESSION['nivel_acesso'] == 3) {
+        $sql = "SELECT * FROM noticias ORDER BY noticia_cod DESC";
+        $stmt = $pdo->query($sql);
+        $banners_ativos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        ?>
+    <div class="containerAddBanner">
+        <button id="btnManterBanner" class="btn btn-dark">Manter Banner</button>
+    </div>
+
+
+    <div id="modalManterBanner" class="modalBanner" style="display:none;">
+        <div class="modal-content">
+            <span id="fecharModal"
+                style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 20px;">&times;</span>
+            <h3>Manter Banner</h3>
+            <div class="containerBanners">
+                <?php foreach ($banners_ativos as $banner): ?>
+                <div class="containerTituloBanner">
+                    <p>
+                        <?= htmlspecialchars($banner['titulo']) ?>
+                    </p>
+
+                    <form method="POST">
+                        <input type="hidden" name="id" value="<?= $banner['noticia_cod'] ?>">
+
+                        <?php if ($banner['status'] == 1): ?>
+                        <button type="submit" name="acao" value="desativar" class="btn btn-danger">
+                            Desativar
+                        </button>
+                        <?php else: ?>
+                        <button type="submit" name="acao" value="ativar" class="btn btn-success">
+                            Ativar
+                        </button>
+                        <?php endif; ?>
+                    </form>
+                </div>
+                <?php endforeach; ?>
+            </div>
+
+            <h4>Adicionar Novo Banner</h4>
+
+            <form method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="acao" value="novo_banner">
+
+                <label>Título:</label>
+                <input type="text" name="titulo" class="form-control" required>
+
+                <label>Link:</label>
+                <input type="text" name="link" class="form-control" required>
+
+                <label>Imagem do Banner:</label>
+                <input type="file" name="banner_imagem" class="form-control" accept="image/*" required>
+
+                <br>
+                <button type="submit" class="btn btn-primary">Adicionar Banner</button>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        const btnManterBanner = document.getElementById('btnManterBanner');
+        const modalManterBanner = document.getElementById('modalManterBanner');
+        const fecharModal = document.getElementById('fecharModal');
+
+        btnManterBanner.addEventListener('click', () => {
+            modalManterBanner.style.display = 'flex';
+        });
+
+        fecharModal.addEventListener('click', () => {
+            modalManterBanner.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modalManterBanner) {
+                modalManterBanner.style.display = 'none';
+            }
+        });
+    </script>
+    <?php
+    } ?>
     <div class="container">
         <div class="carousel-container">
             <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
                 <div class="bannerGradiente">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="bannerIMG" src="../img/banner.png" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
-                        </div>
+                        <?php
+                        include('../componentes/componentesPaginas_tcc/buscaBanner.php');
+                        ?>                        
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
@@ -159,7 +274,6 @@ if (!$usuario_cod) {
     </div>
 
     <div class="containerAutores" style="margin-top: 80px;">
-        <!--Autores em destaque-->
         <h4>Autores</h4>
         <div class="containerAutor">
             <?php
