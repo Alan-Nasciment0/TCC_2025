@@ -1,36 +1,50 @@
 <?php
 include('../BuscaLivros/buscaLivrosMesmoAutorGeneroCategoria.php');
+$usuario_cod = $_SESSION['usuario_cod'];
 ?>
 
 <?php if (count($livros_recomendadosAutorGeneroCategoria) > 0): ?>
-<?php foreach ($livros_recomendadosAutorGeneroCategoria as $livro_recomendadosAutorGeneroCategoria): ?>
+    <?php foreach ($livros_recomendadosAutorGeneroCategoria as $livro): ?>
 
-<div class="livro">
-    <img src="<?= htmlspecialchars($livro_recomendadosAutorGeneroCategoria['livro_capa_link']) ?>" class="imgLivro">
-    <div class="gradiente"></div>
-    <a class="marcador"><img src="../img/salvar_livro.png" class="imgMarcador"></a>
-    <h6 class="nomeLivro">
-        <?= htmlspecialchars($livro_recomendadosAutorGeneroCategoria['livro_titulo']) ?>
-    </h6>
-    <h6 class="nomeAutor">
-        <?= htmlspecialchars($livro_recomendadosAutorGeneroCategoria['autor_nome']) ?>
-    </h6>
-    <div class="avaliacoes">
-        <img src="../img/star.png" class="imgEstrela">
-        <h6 class="mediaAvaliacao">4,1</h6>
-    </div>
-    <form name="form_pgLivro" action="pgLivro.php" method="post">
-        <input type="hidden" name="cod_livro_selecionado" value="<?= htmlspecialchars($livro_recomendadosAutorGeneroCategoria['livro_cod']) ?>">
-        <input type="hidden" name="livro_titulo_selecionado" value="<?= htmlspecialchars($livro_recomendadosAutorGeneroCategoria['livro_titulo']) ?>">
-        <input type="hidden" name="livro_capa_selecionado" value="<?= htmlspecialchars($livro_recomendadosAutorGeneroCategoria['livro_capa_link']) ?>">
-        <input type="hidden" name="livro_editora_selecionado" value="<?= htmlspecialchars($livro_recomendadosAutorGeneroCategoria['livro_editora']) ?>">
-        <input type="hidden" name="livro_descricao_selecionado" value="<?= htmlspecialchars($livro_recomendadosAutorGeneroCategoria['livro_descricao']) ?>">
-        <input type="hidden" name="autor_nome_selecionado" value="<?= htmlspecialchars($livro_recomendadosAutorGeneroCategoria['autor_nome']) ?>">
-        <input type="hidden" name="genero_nome_selecionado" value="<?= htmlspecialchars($livro_recomendadosAutorGeneroCategoria['genero_nome']) ?>">
-        <input type="hidden" name="livro_ano_selecionado" value="<?= htmlspecialchars($livro_recomendadosAutorGeneroCategoria['livro_ano']) ?>">
-        <input type="submit" class="botaoLivroSelecionado" name="livro_selecionado" value="">
-    </form>
-</div>
+        <?php
+        // Verifica se o livro já está nos favoritos
+        $sql = "SELECT 1 FROM Favoritos WHERE usuario_cod = :usuario_cod AND livro_cod = :livro_cod";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            ':usuario_cod' => $usuario_cod,
+            ':livro_cod' => $livro['livro_cod']
+        ]);
+        $favorito = $stmt->fetchColumn() ? true : false;
+        ?>
 
-<?php endforeach; ?>
+        <div class="livro">
+            <img src="<?= htmlspecialchars($livro['livro_capa_link']) ?>" class="imgLivro">
+            <div class="gradiente"></div>
+            <button class="marcador" data-livro-cod="<?= $livro['livro_cod'] ?>">
+                <img src="<?= $favorito ? '../img/bookmark_preenchido.png' : '../img/salvar_livro.png' ?>" class="imgMarcador">
+            </button>
+
+            <h6 class="nomeLivro"><?= htmlspecialchars($livro['livro_titulo']) ?></h6>
+            <h6 class="nomeAutor"><?= htmlspecialchars($livro['autor_nome']) ?></h6>
+
+            <?php
+            $sql = "SELECT AVG(nota) AS media, COUNT(*) AS total_avaliacoes FROM Avaliacoes WHERE livro_cod = :livro_cod";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':livro_cod', $livro['livro_cod'], PDO::PARAM_INT);
+            $stmt->execute();
+            $mediaAvaliacao = $stmt->fetch(PDO::FETCH_ASSOC);
+            ?>
+            <div class="avaliacoes">
+                <img src="../img/star.png" class="imgEstrela">
+                <h6 class="mediaAvaliacao"><?= number_format($mediaAvaliacao['media'], 1) ?></h6>
+            </div>
+
+            <form name="form_pgLivro" action="pgLivro.php" method="get">
+                <input type="hidden" name="livro_cod" value="<?= htmlspecialchars($livro['livro_cod']) ?>">
+                <input type="submit" class="botaoLivroSelecionado" name="livro_selecionado" value="">
+            </form>
+        </div>
+
+    <?php endforeach; ?>
 <?php endif; ?>
+

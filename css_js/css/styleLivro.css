@@ -1,22 +1,25 @@
-*{
+* {
     color: white;
-    font-family: Arial;    
+    font-family: Arial;
 }
-header{
+
+header {
     width: 100%;
 }
 
 p {
-    font-size: 1rem;  
-    text-align: justify;  
+    font-size: 1rem;
+    text-align: justify;
     margin: 0px;
 }
+
 .containerLivroCapa {
     width: 75rem;
     display: flex;
     margin-top: 50px;
-    
+
 }
+
 .imgLivroCapa {
     height: 33rem;
     width: 25rem;
@@ -27,11 +30,13 @@ p {
     border-color: black;
     box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 25);
 }
+
 .containerInformacoesLivro {
-    display: flex;    
+    display: flex;
     margin-left: 4rem;
     height: 16.62rem;
 }
+
 .containerAlinhamentoLadoEsquerdo {
     width: 21.93rem;
     height: 16.62rem;
@@ -39,6 +44,7 @@ p {
     flex-direction: column;
     gap: 1.56rem;
 }
+
 .containerAlinhamentoLadoDireito {
     width: 19.5rem;
     height: 16.62rem;
@@ -46,20 +52,107 @@ p {
     flex-direction: column;
     gap: 2rem;
 }
+
 .subContainerAlinhamento {
     height: 4.8rem;
 }
+
 #mensagem-avaliacao {
     color: #0A58CA;
     margin-top: 0.2rem;
     height: 1.5rem;
 }
-.imgAvaliacao{
+
+.imgAvaliacao {
     width: 1.62rem;
     height: 1.43rem;
 }
+
 .containerDescricao {
     margin-left: 4rem;
     margin-top: 1.56rem;
 }
 
+.formComentario {
+    width: 69.75rem;
+}
+
+.containerComentarios {
+    margin-top: 2rem;
+
+    textarea {
+        border: none;
+        background: none;
+        padding: 0 0 0 2rem;
+        margin: 0;
+        outline: none;
+        box-shadow: none;        
+        color: #fff;
+        width: 55rem;
+        border: none;
+        resize: none;
+    }
+}
+
+.containerAddComentario {
+    display: flex;
+    gap: 2rem;
+}
+
+.containerNomeAvaliacao {
+    display: flex;
+    gap: 2rem;
+    margin-left: 2rem;
+}
+
+.botoesComentario {
+    float: right;
+}
+
+.botaoComentario,
+.botaoComentarioCancelar {
+    width: 110px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+.botaoComentarioCancelar {
+    background-color: #00000017;
+    border: none;
+}
+
+.botaoComentario {
+    background-color: #000000b6;
+    border: none;
+}
+
+.containerComentarioRealizados {
+    margin-top: 3rem;
+}
+
+.containerComentarioFeito {
+    display: flex;
+    margin-top: 4rem;
+}
+
+.estrelaComentarioFeito {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.containerComentarioTexto {
+    display: flex;
+}
+
+.botaoDenuncia {
+    background-color: #ffffff00;
+    border: none;
+    height: 1.87rem;
+    width: 1.87rem;
+    padding: 0;
+}
+
+.denuncia {
+    width: 1.87rem;
+    height: 1.87rem;
+}

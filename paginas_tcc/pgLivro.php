@@ -2,24 +2,41 @@
 session_start();
 include('../conexao_bd_sql/conexao_bd_mysql.php');
 include('../BuscaLivros/buscaLivros.php');
+include('../BuscaMediaAvaliacao/buscaMediaAvaliacao.php');
 
-$livro_cod =  $_POST['cod_livro_selecionado']; 
-$livro_titulo =  $_POST['livro_titulo_selecionado'];
-$livro_capa = $_POST['livro_capa_selecionado'];
-$livro_editora = $_POST['livro_editora_selecionado'];
-$livro_descricao =  $_POST['livro_descricao_selecionado'];
-$livro_autor =  $_POST['autor_nome_selecionado'];
-$livro_genero =  $_POST['genero_nome_selecionado'];
-$livro_ano =  $_POST['livro_ano_selecionado'];
-$usuarioCod =  $_SESSION['usuario_cod'];
+$usuario_cod = $_SESSION['usuario_cod'] ?? null;
+$foto_perfil_usuario = $_SESSION['foto_perfil_usuario'] ?? '../img/userPadrao.png';
+
+
+$livro_cod = $_GET['livro_cod'] ?? null;
+$sql = "SELECT 
+    l.livro_cod,
+    l.livro_titulo,
+    l.livro_capa_link,
+    l.livro_editora,
+    l.livro_ano,
+    l.livro_descricao,
+    GROUP_CONCAT(DISTINCT a.autor_nome ORDER BY a.autor_nome SEPARATOR ', ') AS autor,
+    GROUP_CONCAT(DISTINCT g.genero_nome ORDER BY g.genero_nome SEPARATOR ', ') AS genero,
+    GROUP_CONCAT(DISTINCT c.categoria_nome ORDER BY c.categoria_nome SEPARATOR ', ') AS categoria
+FROM livros l
+LEFT JOIN autorLivro al ON l.livro_cod = al.livro_cod
+LEFT JOIN autor a ON al.autor_cod = a.autor_cod
+LEFT JOIN livroGenero lg ON l.livro_cod = lg.livro_cod
+LEFT JOIN genero g ON lg.genero_cod = g.genero_cod
+LEFT JOIN categoria c ON g.categoria_cod = c.categoria_cod
+WHERE l.livro_cod = :livro_cod
+GROUP BY l.livro_cod";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':livro_cod', $livro_cod);
+$stmt->execute();
+$livro = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $sql = "INSERT INTO historico_visualizacao (usuario_cod, livro_cod) VALUES (:usuario_cod, :livro_cod);";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':usuario_cod', $usuarioCod, PDO::PARAM_INT);
-$stmt->bindParam(':livro_cod', $livro_cod, PDO::PARAM_INT);
+$stmt->bindParam(':livro_cod', $livro['livro_cod'], PDO::PARAM_INT);
 $stmt->execute();
-
-$usuario_cod = $_SESSION['usuario_cod'] ?? null;
 
 if (!$usuario_cod) {
     header('Location:pglogin.php');
@@ -42,47 +59,6 @@ if (!$usuario_cod) {
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
 </head>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const estrelas = document.querySelectorAll('.estrela');
-        const livroCodEl = document.getElementById('livro_cod');
-        const msg = document.getElementById('mensagem-avaliacao');
-
-        if (!livroCodEl) return;
-
-        const livroCod = livroCodEl.value;
-
-        estrelas.forEach(star => {
-            star.addEventListener('click', function () {
-                const nota = this.getAttribute('data-nota');
-
-                fetch('../acoes/avaliarLivro.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: 'livro_cod=' + encodeURIComponent(livroCod) + '&nota=' + encodeURIComponent(nota)
-                })
-                    .then(response => response.text())
-                    .then(data => {
-                        msg.innerText = data;
-
-                        // atualiza o visual das estrelas
-                        estrelas.forEach(st => {
-                            if (parseInt(st.getAttribute('data-nota')) <= parseInt(nota)) {
-                                st.src = '../img/star.png'; // estrela cheia
-                            } else {
-                                st.src = '../img/starAvaliacao.png'; // estrela vazia
-                            }
-                        });
-                    })
-                    .catch(error => {
-                        alert("Erro ao enviar avaliação! Veja console.");
-                        console.error(error);
-                    });
-            });
-        });
-    });
-</script>
-
 
 <body
     style="width: 100%;height: auto; display: flex; flex-direction: column; align-items: center; background-color: #1E1E1E;">
@@ -95,7 +71,7 @@ if (!$usuario_cod) {
     </header>
     <div class="container">
         <div class="containerLivroCapa">
-            <img class="imgLivroCapa" src="<?php echo $livro_capa; ?>">
+            <img class="imgLivroCapa" src="<?php echo $livro['livro_capa_link'] ?>">
             <div>
                 <div class="containerInformacoesLivro">
                     <div class="containerAlinhamentoLadoEsquerdo">
@@ -105,23 +81,27 @@ if (!$usuario_cod) {
                                 <img src="../img/star.png" class="imgAvaliacao">
                                 <div style="margin-left: 1.5rem; height: 3.25rem;">
                                     <div style="display: flex; height: 1.75rem;">
-                                        <p>echo</p>
+                                        <p>
+                                            <?php echo number_format($mediaAvaliacao['media'], 1); ?>
+                                        </p>
                                         <p style="opacity: 20%;">/5</p>
                                     </div>
-                                    <p style="height: 1.75rem;">100 mil</p>
+                                    <p style="height: 1.75rem;">
+                                        <?php echo htmlspecialchars($mediaAvaliacao['total_avaliacoes']); ?> avaliações
+                                    </p>
                                 </div>
                             </div>
                         </div>
                         <div>
                             <h4>Autor</h4>
                             <p>
-                                <?php echo $livro_autor; ?>
+                                <?php echo $livro['autor']; ?>
                             </p>
                         </div>
                         <div>
                             <h4>Ano de Publicação</h4>
                             <p>
-                                <?php echo $livro_ano; ?>
+                                <?php echo $livro['livro_ano']; ?>
                             </p>
                         </div>
                     </div>
@@ -131,7 +111,7 @@ if (!$usuario_cod) {
                             <form id="form-avaliacao" style="margin-top: 1.37rem;">
                                 <div style="display: flex; gap: 8px;">
                                     <input type="hidden" id="livro_cod"
-                                        value="<?php echo htmlspecialchars($livro_cod); ?>">
+                                        value="<?php echo htmlspecialchars($livro['livro_cod']); ?>">
                                     <?php for ($i = 1; $i <= 5; $i++): ?>
                                     <img src="../img/starAvaliacao.png" class="estrela" data-nota="<?php echo $i; ?>"
                                         style="width: 32px; height: 32px; cursor: pointer;">
@@ -146,7 +126,7 @@ if (!$usuario_cod) {
                         $sql = "SELECT nota FROM avaliacoes WHERE usuario_cod = :usuario_cod AND livro_cod = :livro_cod";
                         $stmt = $pdo->prepare($sql);
                         $stmt->bindParam(':usuario_cod', $usuarioCod, PDO::PARAM_INT);
-                        $stmt->bindParam(':livro_cod', $livro_cod, PDO::PARAM_INT);
+                        $stmt->bindParam(':livro_cod', $livro['livro_cod'], PDO::PARAM_INT);
                         $stmt->execute();
                         $avaliacao = $stmt->fetch(PDO::FETCH_ASSOC);
                         $notaUsuario = $avaliacao ? (int)$avaliacao['nota'] : 0;
@@ -155,6 +135,11 @@ if (!$usuario_cod) {
                             const notaSalva = <?= $notaUsuario ?>; // vinda do PHP
                             document.addEventListener("DOMContentLoaded", () => {
                                 const estrelas = document.querySelectorAll(".estrela");
+                                const mensagem = document.getElementById("mensagem-avaliacao");
+                                const livroCod = document.getElementById("livro_cod").value;
+
+                                let notaSalvaAtual = <?= $notaUsuario ?>;
+
                                 // Função para preencher as estrelas até a nota selecionada
                                 function preencherEstrelas(nota) {
                                     estrelas.forEach(e => {
@@ -163,24 +148,31 @@ if (!$usuario_cod) {
                                     });
                                 }
                                 // Quando a página carregar, marca as estrelas salvas
-                                if (notaSalva > 0) {
-                                    preencherEstrelas(notaSalva);
+                                if (notaSalvaAtual > 0) {
+                                    preencherEstrelas(notaSalvaAtual);
                                 }
                                 // Evento de clique para nova avaliação
                                 estrelas.forEach(estrela => {
                                     estrela.addEventListener("click", () => {
-                                        const novaNota = parseInt(estrela.dataset.nota);
+                                        let novaNota = parseInt(estrela.dataset.nota);
                                         preencherEstrelas(novaNota);
-                                        // Enviar nova avaliação via AJAX
-                                        const livroCod = document.getElementById("livro_cod").value;
-                                        fetch("salvar_avaliacao.php", {
+
+                                        if (notaSalvaAtual === novaNota) {
+                                            novaNota = 0;
+                                        }
+
+                                        // Enviar nova avaliação via AJAX                                        
+                                        fetch("../acoes/avaliarLivro.php", {
                                             method: "POST",
                                             headers: { "Content-Type": "application/x-www-form-urlencoded" },
                                             body: `livro_cod=${livroCod}&nota=${novaNota}`
                                         })
                                             .then(resp => resp.text())
                                             .then(msg => {
-                                                document.getElementById("mensagem-avaliacao").textContent = msg;
+                                                mensagem.textContent = msg;
+
+                                                notaSalvaAtual = novaNota;
+                                                preencherEstrelas(notaSalvaAtual);
                                             });
                                     });
                                 });
@@ -193,13 +185,13 @@ if (!$usuario_cod) {
                         <div>
                             <h4>Gênero da Obra</h4>
                             <p>
-                                <?php echo $livro_genero; ?>
+                                <?php echo $livro['genero']; ?>
                             </p>
                         </div>
                         <div>
                             <h4>Editora</h4>
                             <p>
-                                <?php echo $livro_editora; ?>
+                                <?php echo $livro['livro_editora']; ?>
                             </p>
                         </div>
                     </div>
@@ -208,7 +200,7 @@ if (!$usuario_cod) {
                 <div class="containerDescricao">
                     <h4>Descrição</h4>
                     <p>
-                        <?php echo $livro_descricao; ?>
+                        <?php echo $livro['livro_descricao']; ?>
                     </p>
 
                     <button id="btn-favoritos" class="btn btn-warning" style="width: 16.31rem; height: 3.28rem;">
@@ -223,7 +215,7 @@ if (!$usuario_cod) {
                     $sql = "SELECT * FROM Favoritos WHERE usuario_cod = :usuario_cod AND livro_cod = :livro_cod";
                     $stmt = $pdo->prepare($sql);
                     $stmt->bindParam(':usuario_cod', $usuario_cod, PDO::PARAM_INT);
-                    $stmt->bindParam(':livro_cod', $livro_cod, PDO::PARAM_INT);
+                    $stmt->bindParam(':livro_cod', $livro['livro_cod'], PDO::PARAM_INT);
                     $stmt->execute();
                     $favorito = $stmt->fetch(PDO::FETCH_ASSOC);
                                     
@@ -241,7 +233,7 @@ if (!$usuario_cod) {
 
                     <script>
                         document.getElementById('btn-favoritos').addEventListener('click', function () {
-                            const livroCod = "<?php echo $livro_cod; ?>";
+                            const livroCod = "<?php echo $livro['livro_cod']; ?>";
                             const btnFav = document.getElementById('btn-favoritos');
 
                             fetch('../acoes/adicionarLivrosFavoritos.php', {
@@ -285,7 +277,7 @@ if (!$usuario_cod) {
                         $sql = "select * from livros_lidos where usuario_cod = :usuario_cod and livro_cod = :livro_cod";
                         $stmt = $pdo->prepare($sql);
                         $stmt->bindParam(':usuario_cod', $usuarioCod, PDO::PARAM_INT);
-                        $stmt->bindParam(':livro_cod', $livro_cod, PDO::PARAM_INT);
+                        $stmt->bindParam(':livro_cod', $livro['livro_cod'], PDO::PARAM_INT);
                         $stmt->execute();
                         $livro_lido = $stmt->fetch(PDO::FETCH_ASSOC); 
 
@@ -303,7 +295,7 @@ if (!$usuario_cod) {
 
                     <script>
                         document.getElementById('btn-lido').addEventListener('click', function () {
-                            const livroCod = "<?php echo $livro_cod; ?>";
+                            const livroCod = "<?php echo $livro['livro_cod']; ?>";
                             const btn = document.getElementById('btn-lido');
 
                             fetch('../acoes/marcarLivroLido.php', {
@@ -345,13 +337,105 @@ if (!$usuario_cod) {
                 include('../componentes/componentesPaginas_tcc/livrosRecomendadosAutorGeneroCategoria.php');
                 ?>
             </div>
-        </div>    
+        </div>
+
+        <div class="containerComentarios">
+            <div class="titulo">
+                <h4>Comentários</h4>
+            </div>
+
+            <div class="containerAddComentario">
+                <img class="fotoUsuario" src="../img/foto_perfil_usuario/<?= htmlspecialchars($foto_perfil_usuario) ?>">
+                <form action="../acoes/adicionarComentario.php" method="post" class="formComentario">
+                    <input type="hidden" name="livro_cod" value="<?= $livro['livro_cod'] ?>">
+                    <textarea class="txtComentario" id="txtComentario" name="txtComentario"
+                        placeholder="Adicionar Comentario"></textarea>
+                    <div class="botoesComentario">
+                        <button class="botaoComentarioCancelar" name="btnCancelar" type="reset"
+                            value="Cancelar">Cancelar</button>
+                        <button class="botaoComentario" name="btnComentar" type="submit"
+                            value="Comentar">Comentar</button>
+                    </div>
+                </form>
+            </div>
+
+            <script>
+                const usuario_cod = <?= $_SESSION["usuario_cod"] ?>;
+                const textarea = document.getElementById('txtComentario');
+                const btnCancelar = document.querySelector('button[value="Cancelar"]');
+                const btnComentar = document.querySelector('button[value="Comentar"]');
+
+                async function usuarioAvaliou(usuario_cod, livro_cod) {
+                    const resposta = await fetch(`../buscaAvaliacao/buscaAvaliacao.php?usuario_cod=${usuario_cod}&livro_cod=${livro_cod}`);
+                    const dados = await resposta.json();
+                    return dados.total > 0;
+                }
+
+                btnCancelar.disabled = true;
+                btnComentar.disabled = true;
+
+                textarea.addEventListener('focus', async function (event) {
+                    const livro_cod = <?= $livro['livro_cod'] ?>;
+
+                    const avaliou = await usuarioAvaliou(usuario_cod, livro_cod);
+
+                    if (!avaliou) {
+                        alert("Você ainda não avaliou este livro.");
+
+                        textarea.blur();
+
+                    } else {
+                        textarea.disabled = false;
+                        btnCancelar.disabled = false;
+                        btnComentar.disabled = false;
+                    }
+                });
+
+            </script>
+
+            <div class="containerComentarioRealizados">
+                <?php
+                include('../componentes/componentesPaginas_tcc/comentarios/comentario.php');
+                ?>
+            </div>
+
+        </div>
 
     </div>
 
     <?php
         include('../componentes/componentesPaginas_tcc/rodape.php');
     ?>
+
+    <script>
+        document.querySelectorAll('.marcador').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const livroCod = this.getAttribute('data-livro-cod');
+                const img = this.querySelector('img');
+
+                fetch('../acoes/adicionarLivrosFavoritos.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: 'livro_cod=' + encodeURIComponent(livroCod)
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        alert(data);
+
+                        if (data.includes("✅")) {
+                            img.src = '../img/bookmark_preenchido.png';
+                        } else if (data.includes("❎")) {
+                            img.src = '../img/salvar_livro.png';
+                        }
+                    })
+                    .catch(error => {
+                        alert("Erro ao adicionar livro aos favoritos.");
+                        console.error(error);
+                    });
+            });
+        });
+    </script>
+
 
 </body>
 

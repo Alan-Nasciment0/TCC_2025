@@ -21,6 +21,7 @@
     scroll-behavior: smooth;
     anchor-name: --containerLivroRecomendado;
     scroll-snap-type: x mandatory;
+    margin-top: 2rem;
 }
 .containerLivroPopular {
     anchor-name: --containerLivroPopular;
@@ -108,10 +109,15 @@
     position: absolute;
     top: 0.37rem;
     right: 0.12rem;
+    background-color: #ffffff00;
+    border: none;
+    padding: 0;
+    z-index: 9999;
+    cursor: pointer;
 }
 .imgMarcador {
     width: 3.12rem;
-    height: 3.12rem;
+    height: 3.12rem;    
 }
 
 .avaliacoes {

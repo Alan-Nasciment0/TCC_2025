@@ -4,7 +4,9 @@ session_start();
 include('../BuscaLivros/buscaLivros.php');
 include('../buscaAutor/buscaAutor.php');
 
+
 $usuario_cod = $_SESSION['usuario_cod'] ?? null;
+
 
 if (!$usuario_cod) {
     header('Location:pglogin.php');
@@ -30,6 +32,26 @@ if (!$usuario_cod) {
 </head>
 
 <body>
+    <?php
+    if (isset($_SESSION['perfilAtualizado'])){?>
+    <div id="modalAvisoInfoAlteradoUsuario" class="modal-overlay-InfoSalva">
+        <div class="modal-content-InfoAlterada">
+            <?php include('../componentes/componentesPaginas_tcc/avisoInfoAlteradaUsuario.php'); ?>
+        </div>
+    </div>
+    <script>
+        // Fechar o modal ao clicar fora dele
+        document.addEventListener('click', function (event) {
+            const modal = document.getElementById('modalAvisoInfoAlteradoUsuario');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+
+            }
+        });
+    </script>
+    <?php unset($_SESSION['perfilAtualizado']); ?>
+    <?php
+    }?>
 
     <header>
 
@@ -85,24 +107,23 @@ if (!$usuario_cod) {
             });
         </script>
 
-
-        <?php unset($_SESSION['primeiro_acesso']); ?>
         <?php } ?>
 
     </header>
     <div class="container">
         <div class="carousel-container">
-
             <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="bannerIMG" src="../img/banner.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
+                <div class="bannerGradiente">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="bannerIMG" src="../img/banner.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
+                        </div>
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
@@ -169,6 +190,35 @@ if (!$usuario_cod) {
     <?php
         include('../componentes/componentesPaginas_tcc/rodape.php');
     ?>
+    <script>
+        document.querySelectorAll('.marcador').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const livroCod = this.getAttribute('data-livro-cod');
+                const img = this.querySelector('img');
+
+                fetch('../acoes/adicionarLivrosFavoritos.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: 'livro_cod=' + encodeURIComponent(livroCod)
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        alert(data);
+
+                        if (data.includes("✅")) {
+                            img.src = '../img/bookmark_preenchido.png';
+                        } else if (data.includes("❎")) {
+                            img.src = '../img/salvar_livro.png';
+                        }
+                    })
+                    .catch(error => {
+                        alert("Erro ao adicionar livro aos favoritos.");
+                        console.error(error);
+                    });
+            });
+        });
+    </script>
+
 </body>
 
 </html>

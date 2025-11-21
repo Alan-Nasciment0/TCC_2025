@@ -2,7 +2,7 @@
 session_start();
 include('../conexao_bd_sql/conexao_bd_mysql.php');
 
-$livro_cod = intval($_POST['livro_cod']);
+$livro_cod = ($_POST['livro_cod']);
 $livro_capa_link =  $_POST['livro_capa_link']; 
 $autor_nome =  $_POST['autor_nome'];
 $autor_cod =  $_POST['autor_cod'];
@@ -18,6 +18,7 @@ $livro_descricao =  $_POST['livro_descricao'];
 if (isset($_POST['adicionarLivro'])) {
 
     try {
+        
         $pdo->beginTransaction();
         
         $sqlLivro = "INSERT INTO livros (livro_titulo, livro_ano, livro_editora, livro_descricao, livro_capa_link)
@@ -31,23 +32,28 @@ if (isset($_POST['adicionarLivro'])) {
             ':livro_capa_link' => $livro_capa_link
         ]);
 
-        
         $livro_cod = $pdo->lastInsertId();
 
-        
+       
         $sqlAutorLivro = "INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (:livro_cod, :autor_cod)";
         $stmtAutorLivro = $pdo->prepare($sqlAutorLivro);
+        if ($autor_cod) {
         $stmtAutorLivro->execute([
             ':livro_cod' => $livro_cod,
-            ':autor_cod' => $autor_cod 
+            ':autor_cod' => $autor_cod
         ]);
+        }
+
+        
 
         $sqlGeneroLivro = "INSERT INTO livroGenero (livro_cod, genero_cod) VALUES (:livro_cod, :genero_cod)";
         $stmtGeneroLivro = $pdo->prepare($sqlGeneroLivro);
+        if ($genero_cod) {
         $stmtGeneroLivro->execute([
             ':livro_cod' => $livro_cod,
             ':genero_cod' => $genero_cod
         ]);
+        }       
 
         $pdo->commit();
         $_SESSION['livroAdicionado'] = true;

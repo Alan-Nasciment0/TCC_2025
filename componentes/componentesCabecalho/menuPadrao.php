@@ -1,3 +1,6 @@
+<?php
+$foto_perfil_usuario = $_SESSION['foto_perfil_usuario'] ?? 'foto_aluno_padrao.png';
+?>
 <div class="barra">
         <img src="../img/Quanto_mais_você_lê_mais_você_voa__2_-removebg-preview.png" alt="Logo" class="logo">
         <div class="menu-superior">

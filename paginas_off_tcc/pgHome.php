@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('../BuscaLivros/buscaLivros.php');
 include('../buscaAutor/buscaAutor.php');
 
@@ -32,17 +31,18 @@ include('../buscaAutor/buscaAutor.php');
     </header>
     <div class="container">
         <div class="carousel-container">
-
             <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
+                <div class="bannerGradiente">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="bannerIMG" src="../img/banner.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
+                        </div>
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
@@ -102,8 +102,8 @@ include('../buscaAutor/buscaAutor.php');
             <label style="color: white;">Quer salvar seus livros favorito?</label>
             <img src="../img/bookmark.png" class="imgFavorito" alt="Favorito">
             <label style="color: white;">Faça login para salvar seus livros</label>
-            <div class="botao">
-                <input type="submit" name="Criar conta" value="Fazer login">
+            <div class="botaoFazerLogin">
+                <button type="submit" name="Criar conta" class="btn btn-light" value="Fazer login">Fazer Login</button>
             </div>
         </div>
 
@@ -119,6 +119,22 @@ include('../buscaAutor/buscaAutor.php');
             </div>
         </form>
     </footer>
+
+    <script>
+    document.querySelectorAll('.marcador').forEach(btn => {
+        btn.addEventListener('click', function () {
+            alert("Você precisa estar logado para adicionar aos favoritos.");
+            return;
+        });
+    });
+
+    document.querySelectorAll('.btn-light').forEach(btn => {
+        btn.addEventListener('click', function () {
+             window.location.href = '../paginas_tcc/pgLogin.php';
+        });
+    });
+</script>
+
 </body>
 
 </html>
