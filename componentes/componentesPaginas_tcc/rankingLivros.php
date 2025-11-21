@@ -11,6 +11,10 @@
         <div class="autor"><?= htmlspecialchars($livro_ranking['autor_nome']) ?></div>
         <div class="avaliacao">⭐ <?= htmlspecialchars($livro_ranking['media_notas']) ?> (<?= htmlspecialchars($livro_ranking['total_avaliacoes']) ?> avaliações)</div>
     </div>
+    <form name="form_pgLivro" action="pgLivro.php" method="get">
+        <input type="hidden" name="livro_cod" value="<?= htmlspecialchars($livro_ranking['livro_cod']) ?>">
+        <input type="submit" class="botaoLivroSelecionado" name="livro_selecionado" value="">
+    </form>
 </div>
 <?php $rank++; ?>
 <?php endforeach; ?>

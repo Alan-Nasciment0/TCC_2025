@@ -14,6 +14,18 @@ header {
 .tela {
   width: 100%;
   background-color: #1E1E1E;
+
+  .botaoLivroSelecionado {
+    all: unset;
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    width: 172px;
+    height: 272px;
+    border-radius: 1rem;
+    top: 30px;
+    left: 20px;
+}
 }
 
 .containerTitulo {
@@ -122,6 +134,7 @@ header {
   box-sizing: border-box;
   color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  position: relative;
 }
 
 .imagem-capa {

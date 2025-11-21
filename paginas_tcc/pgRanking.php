@@ -19,8 +19,8 @@ if (!$usuario_cod) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ranking de Livros</title>
 
-  <link rel="stylesheet" href="../css_js/css/styleRanking.css">
   <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
+  <link rel="stylesheet" href="../css_js/css/styleRanking.css">
   <link rel="stylesheet" href="../css_js/css/styleRodape.css">
   <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
   <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
