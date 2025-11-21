@@ -15,7 +15,7 @@
 <body>
     <div class="containerPrincipal">
         <div class="containerTitulo">
-            <h2 class="titulo">Adicionar Moderador</h2>
+            <h2 class="titulo">Lista de Banido</h2>
         </div>
         <div class="containerListaBanidos">
             <div class="containerPesquisa">
