@@ -27,8 +27,11 @@ header {
     width: 100%;
     height: auto;
     display: flex;
-    justify-content: space-around;
     margin-top: 73px;
+}
+
+.containerTitulo {
+    margin-left: 15%;
 }
 
 .titulo {

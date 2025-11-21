@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../BuscaLivros/buscaLivros.php');
+include('../BuscaLivros/buscaLivrosRanking.php');
 
 $usuario_cod = $_SESSION['usuario_cod'] ?? null;
 
@@ -35,50 +35,14 @@ if (!$usuario_cod) {
         ?>
   </header>
   <div class="tela">
-    <!-- Barra superior -->
-
-    <!-- Filtros -->
-    <div class="filtros">
-      <ul>
-        <li><a href="#">Melhores avaliados ></a></li>
-        <li><a href="#">Piores avaliados ></a></li>
-      </ul>
+    <div class="containerTitulo">
+      <h1 class="titulo">Melhores Livros já avaliados</h1>
+      <h4 class="subTitulo">Confira a lista dos livros mais bem avaliados</h4>
     </div>
-
-    <!-- Conteúdo -->
     <div class="conteudo">
-      <div class="cartao">
-        <div class="capa">
-          <img src="../img/Reinações_de_Narizinho.webp" class="imagem-capa">
-        </div>
-        <div class="informacoes">
-          <div class="titulo">1. A droga da obediência</div>
-          <div class="autor">Pedro Bandeira</div>
-          <div class="avaliacao">⭐ 4.5 (100 avaliações)</div>
-        </div>
-      </div>
-
-      <div class="cartao">
-        <div class="capa">
-          <img src="../img/Reinações_de_Narizinho.webp" class="imagem-capa">
-        </div>
-        <div class="informacoes">
-          <div class="titulo">2. O Senhor dos Anéis</div>
-          <div class="autor">J.R.R. Tolkien</div>
-          <div class="avaliacao">⭐ 5.0 (200 avaliações)</div>
-        </div>
-      </div>
-
-      <div class="cartao">
-        <div class="capa">
-          <img src="../img/Reinações_de_Narizinho.webp" class="imagem-capa">
-        </div>
-        <div class="informacoes">
-          <div class="titulo">3. Dom Casmurro</div>
-          <div class="autor">Machado de Assis</div>
-          <div class="avaliacao">⭐ 4.8 (150 avaliações)</div>
-        </div>
-      </div>
+      <?php
+        include('../componentes/componentesPaginas_tcc/rankingLivros.php');
+    ?>
     </div>
   </div>
   <?php

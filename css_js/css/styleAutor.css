@@ -28,6 +28,7 @@ p {
     justify-content: space-between;
 }
 .imgAutor {
+    object-fit: cover;
     height: 33rem;
     width: 25rem;
     float: left;
