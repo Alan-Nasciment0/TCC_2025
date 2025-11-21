@@ -2,6 +2,45 @@
 include('../BuscaLivros/buscaLivros.php');
 include('../buscaAutor/buscaAutor.php');
 
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $id = $_POST['id'];
+    $acao = $_POST['acao'];
+
+    if ($acao == "desativar") {
+        $stmt = $pdo->prepare("UPDATE Noticias SET status = 0 WHERE noticia_cod = ?");
+        $stmt->execute([$id]);
+    }
+
+    if ($acao == "ativar") {
+        $stmt = $pdo->prepare("UPDATE Noticias SET status = 1 WHERE noticia_cod = ?");
+        $stmt->execute([$id]);
+    }
+
+    if ($acao == "novo_banner") {
+        $titulo = $_POST['titulo'];
+        $link = $_POST['link'];
+
+        // Upload da imagem
+        $ext = pathinfo($_FILES["banner_imagem"]["name"], PATHINFO_EXTENSION);
+        $nomeArquivo = time() . "_" . uniqid() . "." . $ext;
+
+        $destino = "../img/banners/" . $nomeArquivo;
+        move_uploaded_file($_FILES["banner_imagem"]["tmp_name"], $destino);
+
+        // Inserir no banco
+        $stmt = $pdo->prepare(
+            "INSERT INTO Noticias (titulo, banner_imagem, link ) VALUES (?, ?, ?)"
+        );
+        $stmt->execute([$titulo, $nomeArquivo, $link]);
+    }
+
+    // atualiza a página
+    header("Location: ".$_SERVER['REQUEST_URI']);
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -34,15 +73,9 @@ include('../buscaAutor/buscaAutor.php');
             <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
                 <div class="bannerGradiente">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="bannerIMG" src="../img/banner.png" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="bannerIMG" src="../img/img.teste.webp" class="d-block w-100" alt="...">
-                        </div>
+                        <?php
+                        include('../componentes/componentesPaginas_tcc/buscaBanner.php');
+                        ?>  
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
