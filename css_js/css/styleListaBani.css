@@ -33,21 +33,33 @@ body {
     align-items: center;
     background-color: #1E1E1E;
 }
+
 .containerPesquisa {
     margin-top: 20px;
 
     input {
-    border: none;
-    background: none;
-    padding: 0;
-    margin: 0;
-    outline: none;
-    box-shadow: none;
-    font: inherit;
-    color: inherit;
-    
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+        outline: none;
+        box-shadow: none;
+        font: inherit;
+        color: inherit;
+
+    }
 }
+
+.resultado-lista {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    background-color: #fff;
+    border-radius: 0.62rem;
+    padding: 1rem;
+    box-shadow: 0px 4px 20px rgb(0 0 0 / 71%);
 }
+
 .containerListaBanidos {
     width: 1153px;
     height: 960px;
@@ -57,6 +69,7 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
 .containerBarra {
     width: 1015px;
     height: 90px;
@@ -67,6 +80,7 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
 .containerCampo {
     width: 1015px;
     height: 57px;
@@ -77,43 +91,52 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
 form {
     width: 1015px;
     height: 550px;
 }
+
 .usu {
     color: white;
     margin-left: 30px;
     margin-bottom: 0px;
 }
+
 .exp {
     color: white;
     margin-bottom: 0px;
 }
+
 .acoe {
     color: white;
     margin-right: 30px;
     margin-bottom: 0px;
 }
+
 .nome_usu {
     color: white;
     margin-left: 30px;
     margin-bottom: 0px;
 }
+
 .tem_bam {
     color: white;
     margin-right: 80px;
     margin-bottom: 0px;
 }
+
 .imgAcoes {
     width: 24px;
     height: 24px;
     margin-right: 55px;
 }
+
 .imgPesquisa {
     width: 24px;
     height: 24px;
 }
+
 .placeHolder1 {
     width: 274px;
     height: 24px;

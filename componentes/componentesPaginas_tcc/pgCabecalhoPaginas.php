@@ -91,7 +91,7 @@ if($_SESSION['nivel_acesso'] == 1) {?>
                             </li>
 
                             <li class="containerItem">
-                                <a class="itemMenu" href="pgBanidos.php">
+                                <a class="itemMenu" href="pgListaBanidos.php">
                                     <img class="imgMenu" src="../img/banIcone.png">Banidos
                                 </a>
                             </li>
@@ -154,7 +154,7 @@ if($_SESSION['nivel_acesso'] == 1) {?>
                             </li>
 
                             <li class="containerItem">
-                                <a class="itemMenu" href="pgBanidos.php">
+                                <a class="itemMenu" href="pgListaBanidos.php">
                                     <img class="imgMenu" src="../img/banIcone.png">Banidos
                                 </a>
                             </li>
