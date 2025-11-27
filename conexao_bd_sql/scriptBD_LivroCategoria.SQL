@@ -113,6 +113,32 @@ INSERT INTO LivroCategoria (livro_cod, categoria_cod) VALUES
 (60, 3),
 (48, 3),
 (58, 3);
+(132, 3),
+(133, 3),
+(134, 3),
+(135, 3),
+(136, 3),
+(137, 3),
+(138, 3),
+(139, 3),
+(140, 3),
+(141, 3),
+(142, 3),
+(143, 3),
+(144, 3),
+(145, 3),
+(146, 3),
+(147, 3),
+(148, 3),
+(149, 3),
+(150, 3),
+(151, 3),
+(152, 3),
+(153, 3),
+(154, 3),
+(155, 3),
+(156, 3),
+
 
 /*CategoriaLivro Infatil/Juvenil*/
 INSERT INTO LivroCategoria (livro_cod, categoria_cod) VALUES
