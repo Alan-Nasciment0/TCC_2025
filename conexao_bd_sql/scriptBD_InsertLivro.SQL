@@ -151,7 +151,11 @@ INSERT INTO Livros (livro_titulo, livro_ano, livro_editora, livro_descricao, liv
 ('O Amor Natural', '2014-05-28', 'Companhia das Letras', 'Coletânea de 40 poemas eróticos de Carlos Drummond de Andrade que exploram intimidade, desejo e sensualidade.', 'https://m.media-amazon.com/images/I/81b9n5mEv9S._AC_UF1000,1000_QL80_.jpg'),
 ('Poesia Gay Brasileira', '2017-01-01', 'Amarelo-Grão / Machado', 'Antologia que reúne 130 poemas de 44 autores brasileiros LGBTQ+, incluindo Carlos Drummond de Andrade, Hilda Hilst e Caio Fernando Abreu.', 'https://m.media-amazon.com/images/I/51XXC2MKfXL._AC_UF1000,1000_QL80_.jpg'),
 ('Poesia Travessia', '2024-06-01', 'Editora do Brasil', 'Livro de poemas curtos da poeta Roseana Murray sobre temas como mudanças, medos e amores, com tom íntimo e reflexivo.', 'https://m.media-amazon.com/images/I/41qSQnVgUsL._SY342_.jpg'),
+<<<<<<< HEAD
 ('Anjo dos Abismos', '1943-01-01', 'Editora Rio de Janeiro', 'Primeiro livro de Ruy (Rui) Barata, com poemas sombrios e trabalhados entre 1939 e 1942, refletindo angústia existencial.', 'https://in-libris.com/cdn/shop/products/20297_A.jpg?v=1603944273'),
+=======
+('Anjo dos Abismos', '1943-06-01', 'Editora Rio de Janeiro', 'Primeiro livro de Ruy (Rui) Barata, com poemas sombrios e trabalhados entre 1939 e 1942, refletindo angústia existencial.', 'https://in-libris.com/cdn/shop/products/20297_A.jpg?v=1603944273'),
+>>>>>>> 14ba6a0f26b619940e97922ff6680e11dea4b594
 ('Em Alguma Parte Alguma', '2013-06-06', 'José Olympio', 'Coleção de 58 poemas de Ferreira Gullar, organizados como memórias do autor em relação à leitura de grandes poetas, como Drummond e Cabral.', 'https://m.media-amazon.com/images/I/4176g3s5rjL._AC_UF1000,1000_QL80_.jpg'),
 ('Leaves of Grass: The Original 1855 Edition','2017-08-01', 'American Renaissance Books', 'Coletânea selecionada dos poemas de Walt Whitman, celebrando a natureza, a democracia, o corpo e a alma humana.', 'https://m.media-amazon.com/images/I/71ZUAQQ-9IL._AC_UF1000,1000_QL80_.jpg'),
 ('Poeminha em Língua de Brincar', '2019-05-20', 'Companhia das Letrinhas', 'Obra de Manoel de Barros que celebra o lúdico, a invenção e a simplicidade poética.', 'https://m.media-amazon.com/images/I/91+EbTgmswL.jpg'),
