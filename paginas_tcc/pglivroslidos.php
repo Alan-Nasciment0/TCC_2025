@@ -44,7 +44,7 @@ if (!$usuario_cod) {
         </div>
         <div class="containerLivrosFavoritos">
             <?php
-             include('../componentes/componentesPaginas_tcc/livrosFavoritos.php');
+             include('../componentes/componentesPaginas_tcc/livroslidos.php');
             ?>
         </div>
     </div>
