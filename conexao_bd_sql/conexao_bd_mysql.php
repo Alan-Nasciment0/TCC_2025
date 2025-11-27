@@ -2,7 +2,7 @@
 
 $local_servidor = "localhost:3306";
 $usuario = "root";
-$senha = "root";
+$senha = "";
 
 $bd_procurado = "bd_TCC";
 
