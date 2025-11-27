@@ -18,8 +18,8 @@ CREATE TABLE Autor (
     autor_nome VARCHAR(50),
     autor_data_nascimento DATE,
     autor_data_falecimento DATE,
-    autor_movimento_literario VARCHAR(30),
-    autor_biografia VARCHAR(200),
+    autor_movimento_literario VARCHAR(200),
+    autor_biografia text,
     autor_link_foto text,
     autor_ativo bool default true
 );
@@ -154,10 +154,3 @@ CREATE TABLE Noticias (
     status BOOLEAN DEFAULT TRUE        
 );
 
-delimiter $$
-create procedure sp_adicionar_usuario (in $usu_nome varchar (50), in $usu_email varchar(100), $usu_senha varchar (50))
-begin
- insert into usuario( usuario_nome, usuario_email, usuario_senha)
- values (usu_nome, usu_email, usu_senha);
- end $$
- 
