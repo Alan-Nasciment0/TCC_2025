@@ -93,7 +93,7 @@ session_start();
     <div class="containerPrincipal">
         <div class="containerLogin">
             <div class="containerLogo">
-                <a class="logo" href=""><img src="../img/img.teste.webp"></a>
+                <a class="logo" href=""><img src="../img/Quanto_mais_você_lê_mais_você_voa__2_-removebg-preview.png"></a>
             </div>
             <h2 class="titulo">Fazer login</h2>
             <form action="../salvarUsuario.php" method="post">

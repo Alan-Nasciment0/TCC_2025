@@ -11,3 +11,4 @@ $sql = "SELECT COUNT(*) AS total FROM avaliacoes WHERE usuario_cod = :usuario_co
             $stmt->execute();
 
 echo json_encode($stmt->fetch(PDO::FETCH_ASSOC));
+?>

@@ -43,16 +43,6 @@ header {
   font-size: 16px;
 }
 
-.barra {
-  width: 100vh;
-  height: 77px;
-  background: #3a3a3a;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  color: white;
-}
 
 .logo {
   height: 60px;

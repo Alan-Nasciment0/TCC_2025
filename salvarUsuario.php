@@ -32,7 +32,7 @@ if($extensao_foto != "")
     move_uploaded_file($_FILES['txt_foto']['tmp_name'], $diretorio . $novo_nome_img ); 
 }
 else
-{ $novo_nome_img = "foto_aluno_padrao.png"; }
+{ $novo_nome_img = "userPadrao.png"; }
 
 $_SESSION['foto_perfil_usuario'] = $novo_nome_img;
 
