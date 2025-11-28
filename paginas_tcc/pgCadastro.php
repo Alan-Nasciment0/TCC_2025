@@ -134,7 +134,7 @@ session_start();
                         <input type="file" name="txt_foto" accept="image/png, image/gif, image/jpeg"
                             id="txt_foto_selecionada" style="display: none;">
                         <hr>
-                        <label for="txt_foto_selecionada" class="labelIMG"><img class="logo" src="../img/img.teste.webp"
+                        <label for="txt_foto_selecionada" class="labelIMG"><img class="logo" src="../img/userPadrao.png"
                                 id="img_selecionada"></label>
                         <label for="txt_foto_selecionada" class="labelIMG"><img src="../img/lapis.png" class="imgModificar"></label>
                     </div>
