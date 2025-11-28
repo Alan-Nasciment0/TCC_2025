@@ -40,6 +40,11 @@ if($_SESSION['nivel_acesso'] == 1) {?>
                                 </a>
                             </li>
                             
+                            <li class="containerItem">
+                                <a class="itemMenu" href="">
+                                    <img class="imgMenu" src="../img/preferencias.png">Preferencias
+                                </a>
+                            </li>
                             
                             <li class="containerItem">
                                 <a class="itemMenu" href="../index.php">
@@ -109,6 +114,11 @@ if($_SESSION['nivel_acesso'] == 1) {?>
                                 </a>
                             </li>
                             
+                            <li class="containerItem">
+                                <a class="itemMenu" href="">
+                                    <img class="imgMenu" src="../img/preferencias.png">Preferencias
+                                </a>
+                            </li>
                             
                             <li class="containerItem">
                                 <a class="itemMenu" href="../index.php">
@@ -197,6 +207,12 @@ if($_SESSION['nivel_acesso'] == 1) {?>
                                 </a>
                             </li>
 
+                            <li class="containerItem">
+                                <a class="itemMenu" href="">
+                                    <img class="imgMenu" src="../img/preferencias.png">Preferencias
+                                </a>
+                            </li>
+                           
                             <li class="containerItem">
                                 <a class="itemMenu" href="../index.php">
                                     <img class="imgMenu" src="../img/desconectar 1.png">Desconectar
