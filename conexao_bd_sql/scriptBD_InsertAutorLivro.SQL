@@ -71,6 +71,31 @@ INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (63, 58);
 INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (64, 59);
 INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (65, 60);
 INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (66, 61);
+(133, 47),
+(134, 115),
+(135, 116),
+(136, 42),
+(137, 117),
+(138, 119),
+(139, 120),
+(140, 121),
+(141, 122),
+(142, 44),
+(143, 123),
+(144, 48),
+(145, 48),
+(146, 124),
+(147, 117),
+(148, 48),
+(149, 125),
+(150, 46),
+(151, 126),
+(152, 127),
+(153, 128),
+(154, 129),
+(155, 130),
+(156, 48);
+
 
 /* Insert autor/livro da categoria FICÇÃO*/
 

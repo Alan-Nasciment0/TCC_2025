@@ -7,8 +7,14 @@ include('../BuscaMediaAvaliacao/buscaMediaAvaliacao.php');
 $usuario_cod = $_SESSION['usuario_cod'] ?? null;
 $foto_perfil_usuario = $_SESSION['foto_perfil_usuario'] ?? '../img/userPadrao.png';
 
+// Se não estiver logado, manda para login ANTES de tudo
+if (!$usuario_cod) {
+    header('Location: pglogin.php');
+    exit;
+}
 
 $livro_cod = $_GET['livro_cod'] ?? null;
+
 $sql = "SELECT 
     l.livro_cod,
     l.livro_titulo,
@@ -16,7 +22,7 @@ $sql = "SELECT
     l.livro_editora,
     l.livro_ano,
     l.livro_descricao,
-    GROUP_CONCAT(DISTINCT a.autor_nome ORDER BY a.autor_nome SEPARATOR ', ') AS autor,
+    GROUP_CONCAT(DISTINCT CONCAT(a.autor_cod, '::', a.autor_nome) SEPARATOR '||') AS autores,
     GROUP_CONCAT(DISTINCT g.genero_nome ORDER BY g.genero_nome SEPARATOR ', ') AS genero,
     GROUP_CONCAT(DISTINCT c.categoria_nome ORDER BY c.categoria_nome SEPARATOR ', ') AS categoria
 FROM livros l
@@ -27,16 +33,20 @@ LEFT JOIN genero g ON lg.genero_cod = g.genero_cod
 LEFT JOIN categoria c ON g.categoria_cod = c.categoria_cod
 WHERE l.livro_cod = :livro_cod
 GROUP BY l.livro_cod";
+
 $stmt = $pdo->prepare($sql);
-$stmt->bindParam(':livro_cod', $livro_cod);
+$stmt->bindParam(':livro_cod', $livro_cod, PDO::PARAM_INT);
 $stmt->execute();
 $livro = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$sql = "INSERT INTO historico_visualizacao (usuario_cod, livro_cod) VALUES (:usuario_cod, :livro_cod);";
+// AGORA sim faz o insert no histórico
+$sql = "INSERT INTO historico_visualizacao (usuario_cod, livro_cod) 
+        VALUES (:usuario_cod, :livro_cod)";
 $stmt = $pdo->prepare($sql);
-$stmt->bindParam(':usuario_cod', $usuarioCod, PDO::PARAM_INT);
+$stmt->bindParam(':usuario_cod', $usuario_cod, PDO::PARAM_INT);
 $stmt->bindParam(':livro_cod', $livro['livro_cod'], PDO::PARAM_INT);
 $stmt->execute();
+
 
 if (!$usuario_cod) {
     header('Location:pglogin.php');
@@ -95,7 +105,20 @@ if (!$usuario_cod) {
                         <div>
                             <h4>Autor</h4>
                             <p>
-                                <?php echo $livro['autor']; ?>
+                              <p>
+                <?php
+            $autores = explode('||', $livro['autores']);
+            foreach ($autores as $autor) {
+            list($autor_cod, $autor_nome) = explode('::', $autor);
+
+            echo '<a href="pgAutor.php?autor_cod=' . $autor_cod . '" style="color: #0af;">' 
+             . htmlspecialchars($autor_nome) . 
+             '</a><br>';
+    }
+?>
+</p>
+
+                           
                             </p>
                         </div>
                         <div>

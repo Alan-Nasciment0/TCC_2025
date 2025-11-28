@@ -35,6 +35,13 @@ if($_SESSION['nivel_acesso'] == 1) {?>
                             </li>
 
                             <li class="containerItem">
+                                <a class="itemMenu" href="pglivroslidos.php">
+                                    <img class="imgMenu" src="../img/img.visto.png">Livros Lidos
+                                </a>
+                            </li>
+                            
+                            
+                            <li class="containerItem">
                                 <a class="itemMenu" href="../index.php">
                                     <img class="imgMenu" src="../img/desconectar 1.png">Desconectar
                                 </a>
@@ -96,6 +103,13 @@ if($_SESSION['nivel_acesso'] == 1) {?>
                                 </a>
                             </li>
 
+                            <li class="containerItem">
+                                <a class="itemMenu" href="pglivroslidos.php">
+                                    <img class="imgMenu" src="../img/img.visto.png">Livros Lidos
+                                </a>
+                            </li>
+                            
+                            
                             <li class="containerItem">
                                 <a class="itemMenu" href="../index.php">
                                     <img class="imgMenu" src="../img/desconectar 1.png">Desconectar
@@ -174,6 +188,12 @@ if($_SESSION['nivel_acesso'] == 1) {?>
                             <li class="containerItem">
                                 <a class="itemMenu" href="pgManterAutor.php">
                                     <img class="imgMenu" src="../img/bookAdicionarIcone.png">Manter Autor
+                                </a>
+                            </li>
+
+                            <li class="containerItem">
+                                <a class="itemMenu" href="pglivroslidos.php">
+                                    <img class="imgMenu" src="../img/img.visto.png">Livros Lidos
                                 </a>
                             </li>
 
