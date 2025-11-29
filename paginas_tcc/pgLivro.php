@@ -102,30 +102,29 @@ if (!$usuario_cod) {
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <h4>Autor</h4>
-                            <p>
-                              <p>
-                <?php
-            $autores = explode('||', $livro_pagina['autores']);
-            foreach ($autores as $autor) {
-            list($autor_cod, $autor_nome) = explode('::', $autor);
 
-            echo '<a href="pgAutor.php?autor_cod=' . $autor_cod . '" style="color: #0af;">' 
-             . htmlspecialchars($autor_nome) . 
-             '</a><br>';
-    }
-?>
-</p>
-
-                           
-                            </p>
-                        </div>
                         <div>
-                            <h4>Ano de Publicação</h4>
-                            <p>
-                                <?php echo $livro_pagina['livro_ano']; ?>
-                            </p>
+                            <div>
+                                <h4>Autor</h4>                                
+                                <p>
+                                    <?php
+                                $autores = explode('||', $livro_pagina['autores']);
+                                foreach ($autores as $autor) {
+                                list($autor_cod, $autor_nome) = explode('::', $autor);
+                                
+                                echo '<a href="pgAutor.php?autor_cod=' . $autor_cod . '" style="color: #0af;">' 
+                                 . htmlspecialchars($autor_nome) . 
+                                 '</a><br>';
+                                }
+                                ?>
+                                </p>                                
+                            </div>
+                            <div>
+                                <h4>Ano de Publicação</h4>
+                                <p>
+                                    <?php echo $livro_pagina['livro_ano']; ?>
+                                </p>
+                            </div>
                         </div>
                     </div>
 
@@ -360,7 +359,7 @@ if (!$usuario_cod) {
                 include('../componentes/componentesPaginas_tcc/livrosRecomendadosAutorGeneroCategoria.php');
                 ?>
             </div>
-        </div>        
+        </div>
 
         <div class="containerComentarios">
             <div class="titulo">
@@ -380,7 +379,7 @@ if (!$usuario_cod) {
                             value="Comentar">Comentar</button>
                     </div>
                 </form>
-            </div>            
+            </div>
 
             <script>
                 const usuario_cod = <?= $_SESSION["usuario_cod"] ?>;
