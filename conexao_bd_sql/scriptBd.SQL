@@ -64,7 +64,7 @@ CREATE TABLE AutorLivro (
     livro_cod INTEGER,
     autor_cod INTEGER,
     PRIMARY KEY (livro_cod, autor_cod),
-    CONSTRAINT fk_livro_7 FOREIGN KEY (livro_cod) REFERENCES Livros (livro_cod),
+    CONSTRAINT fk_livro_cod_9 FOREIGN KEY (livro_cod) REFERENCES Livros (livro_cod),
     CONSTRAINT fk_autor_cod_2 FOREIGN KEY (autor_cod) REFERENCES Autor (autor_cod)
 );
 
@@ -80,9 +80,11 @@ CREATE TABLE Historico_Visualizacao (
 CREATE TABLE Comentario (
     comentario_cod INTEGER PRIMARY KEY AUTO_INCREMENT,
     usuario_cod INTEGER,
+    livro_cod INTEGER,
     comentario_data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
     comentario_texto VARCHAR(200),
-    constraint fk_usuario_cod_2 foreign key(usuario_cod) references usuario (usuario_cod)
+    constraint fk_usuario_cod_2 foreign key(usuario_cod) references usuario (usuario_cod),
+    constraint fk_livro_cod_8 foreign key(usuario_cod) references usuario (usuario_cod)
 );
  
 CREATE TABLE Denuncia (

@@ -37,14 +37,14 @@ GROUP BY l.livro_cod";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':livro_cod', $livro_cod, PDO::PARAM_INT);
 $stmt->execute();
-$livro = $stmt->fetch(PDO::FETCH_ASSOC);
+$livro_pagina = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // AGORA sim faz o insert no histórico
 $sql = "INSERT INTO historico_visualizacao (usuario_cod, livro_cod) 
         VALUES (:usuario_cod, :livro_cod)";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':usuario_cod', $usuario_cod, PDO::PARAM_INT);
-$stmt->bindParam(':livro_cod', $livro['livro_cod'], PDO::PARAM_INT);
+$stmt->bindParam(':livro_cod', $livro_pagina['livro_cod'], PDO::PARAM_INT);
 $stmt->execute();
 
 
@@ -81,7 +81,7 @@ if (!$usuario_cod) {
     </header>
     <div class="container">
         <div class="containerLivroCapa">
-            <img class="imgLivroCapa" src="<?php echo $livro['livro_capa_link'] ?>">
+            <img class="imgLivroCapa" src="<?php echo $livro_pagina['livro_capa_link'] ?>">
             <div>
                 <div class="containerInformacoesLivro">
                     <div class="containerAlinhamentoLadoEsquerdo">
@@ -107,7 +107,7 @@ if (!$usuario_cod) {
                             <p>
                               <p>
                 <?php
-            $autores = explode('||', $livro['autores']);
+            $autores = explode('||', $livro_pagina['autores']);
             foreach ($autores as $autor) {
             list($autor_cod, $autor_nome) = explode('::', $autor);
 
@@ -124,7 +124,7 @@ if (!$usuario_cod) {
                         <div>
                             <h4>Ano de Publicação</h4>
                             <p>
-                                <?php echo $livro['livro_ano']; ?>
+                                <?php echo $livro_pagina['livro_ano']; ?>
                             </p>
                         </div>
                     </div>
@@ -134,7 +134,7 @@ if (!$usuario_cod) {
                             <form id="form-avaliacao" style="margin-top: 1.37rem;">
                                 <div style="display: flex; gap: 8px;">
                                     <input type="hidden" id="livro_cod"
-                                        value="<?php echo htmlspecialchars($livro['livro_cod']); ?>">
+                                        value="<?php echo htmlspecialchars($livro_pagina['livro_cod']); ?>">
                                     <?php for ($i = 1; $i <= 5; $i++): ?>
                                     <img src="../img/starAvaliacao.png" class="estrela" data-nota="<?php echo $i; ?>"
                                         style="width: 32px; height: 32px; cursor: pointer;">
@@ -149,7 +149,7 @@ if (!$usuario_cod) {
                         $sql = "SELECT nota FROM avaliacoes WHERE usuario_cod = :usuario_cod AND livro_cod = :livro_cod";
                         $stmt = $pdo->prepare($sql);
                         $stmt->bindParam(':usuario_cod', $usuarioCod, PDO::PARAM_INT);
-                        $stmt->bindParam(':livro_cod', $livro['livro_cod'], PDO::PARAM_INT);
+                        $stmt->bindParam(':livro_cod', $livro_pagina['livro_cod'], PDO::PARAM_INT);
                         $stmt->execute();
                         $avaliacao = $stmt->fetch(PDO::FETCH_ASSOC);
                         $notaUsuario = $avaliacao ? (int)$avaliacao['nota'] : 0;
@@ -208,13 +208,13 @@ if (!$usuario_cod) {
                         <div>
                             <h4>Gênero da Obra</h4>
                             <p>
-                                <?php echo $livro['genero']; ?>
+                                <?php echo $livro_pagina['genero']; ?>
                             </p>
                         </div>
                         <div>
                             <h4>Editora</h4>
                             <p>
-                                <?php echo $livro['livro_editora']; ?>
+                                <?php echo $livro_pagina['livro_editora']; ?>
                             </p>
                         </div>
                     </div>
@@ -223,7 +223,7 @@ if (!$usuario_cod) {
                 <div class="containerDescricao">
                     <h4>Descrição</h4>
                     <p>
-                        <?php echo $livro['livro_descricao']; ?>
+                        <?php echo $livro_pagina['livro_descricao']; ?>
                     </p>
 
                     <button id="btn-favoritos" class="btn btn-warning" style="width: 16.31rem; height: 3.28rem;">
@@ -238,7 +238,7 @@ if (!$usuario_cod) {
                     $sql = "SELECT * FROM Favoritos WHERE usuario_cod = :usuario_cod AND livro_cod = :livro_cod";
                     $stmt = $pdo->prepare($sql);
                     $stmt->bindParam(':usuario_cod', $usuario_cod, PDO::PARAM_INT);
-                    $stmt->bindParam(':livro_cod', $livro['livro_cod'], PDO::PARAM_INT);
+                    $stmt->bindParam(':livro_cod', $livro_pagina['livro_cod'], PDO::PARAM_INT);
                     $stmt->execute();
                     $favorito = $stmt->fetch(PDO::FETCH_ASSOC);
                                     
@@ -256,7 +256,7 @@ if (!$usuario_cod) {
 
                     <script>
                         document.getElementById('btn-favoritos').addEventListener('click', function () {
-                            const livroCod = "<?php echo $livro['livro_cod']; ?>";
+                            const livroCod = "<?php echo $livro_pagina['livro_cod']; ?>";
                             const btnFav = document.getElementById('btn-favoritos');
 
                             fetch('../acoes/adicionarLivrosFavoritos.php', {
@@ -300,7 +300,7 @@ if (!$usuario_cod) {
                         $sql = "select * from livros_lidos where usuario_cod = :usuario_cod and livro_cod = :livro_cod";
                         $stmt = $pdo->prepare($sql);
                         $stmt->bindParam(':usuario_cod', $usuarioCod, PDO::PARAM_INT);
-                        $stmt->bindParam(':livro_cod', $livro['livro_cod'], PDO::PARAM_INT);
+                        $stmt->bindParam(':livro_cod', $livro_pagina['livro_cod'], PDO::PARAM_INT);
                         $stmt->execute();
                         $livro_lido = $stmt->fetch(PDO::FETCH_ASSOC); 
 
@@ -318,7 +318,7 @@ if (!$usuario_cod) {
 
                     <script>
                         document.getElementById('btn-lido').addEventListener('click', function () {
-                            const livroCod = "<?php echo $livro['livro_cod']; ?>";
+                            const livroCod = "<?php echo $livro_pagina['livro_cod']; ?>";
                             const btn = document.getElementById('btn-lido');
 
                             fetch('../acoes/marcarLivroLido.php', {
@@ -360,7 +360,7 @@ if (!$usuario_cod) {
                 include('../componentes/componentesPaginas_tcc/livrosRecomendadosAutorGeneroCategoria.php');
                 ?>
             </div>
-        </div>
+        </div>        
 
         <div class="containerComentarios">
             <div class="titulo">
@@ -370,7 +370,7 @@ if (!$usuario_cod) {
             <div class="containerAddComentario">
                 <img class="fotoUsuario" src="../img/foto_perfil_usuario/<?= htmlspecialchars($foto_perfil_usuario) ?>">
                 <form action="../acoes/adicionarComentario.php" method="post" class="formComentario">
-                    <input type="hidden" name="livro_cod" value="<?= $livro['livro_cod'] ?>">
+                    <input type="hidden" name="livro_cod" value="<?= $livro_pagina['livro_cod'] ?>">
                     <textarea class="txtComentario" id="txtComentario" name="txtComentario"
                         placeholder="Adicionar Comentario"></textarea>
                     <div class="botoesComentario">
@@ -380,7 +380,7 @@ if (!$usuario_cod) {
                             value="Comentar">Comentar</button>
                     </div>
                 </form>
-            </div>
+            </div>            
 
             <script>
                 const usuario_cod = <?= $_SESSION["usuario_cod"] ?>;
@@ -398,7 +398,7 @@ if (!$usuario_cod) {
                 btnComentar.disabled = true;
 
                 textarea.addEventListener('focus', async function (event) {
-                    const livro_cod = <?= $livro['livro_cod'] ?>;
+                    const livro_cod = <?= $livro_pagina['livro_cod'] ?>;
 
                     const avaliou = await usuarioAvaliou(usuario_cod, livro_cod);
 

@@ -2,7 +2,7 @@
 require __DIR__ . '/../conexao_bd_sql/conexao_bd_mysql.php';
 
 $usuario_cod = $_SESSION['usuario_cod'];
-$livro_cod = $_GET['livro_cod'] ?? null;
+$livro_cod_comentario = $_GET['livro_cod'] ?? null;
 
 $sql = "
     SELECT 
@@ -17,7 +17,7 @@ $sql = "
     ORDER BY (c.usuario_cod = :usuario_cod) DESC, c.comentario_cod DESC ";
 
 $stmt = $pdo->prepare($sql);
-$stmt->bindParam(':livro_cod', $livro_cod);
+$stmt->bindParam(':livro_cod', $livro_cod_comentario);
 $stmt->bindParam(':usuario_cod', $usuario_cod);
 $stmt->execute();
 $comentarios = $stmt->fetchAll(PDO::FETCH_ASSOC);

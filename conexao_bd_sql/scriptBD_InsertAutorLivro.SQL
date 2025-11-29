@@ -70,7 +70,7 @@ INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (62, 57);
 INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (63, 58);
 INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (64, 59);
 INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (65, 60);
-INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (66, 61);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (66, 61),
 (133, 47),
 (134, 115),
 (135, 116),
