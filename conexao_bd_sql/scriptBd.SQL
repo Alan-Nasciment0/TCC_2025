@@ -6,7 +6,6 @@ CREATE TABLE Usuario (
     usuario_nome VARCHAR(50),
     usuario_email VARCHAR(100),
     usuario_senha text,
-    usuario_tempo_banimento VARCHAR(50),
     nivel_acesso INTEGER default 1,
     primeiro_acesso bool default 0,
     foto_perfil_usuario text,
@@ -155,4 +154,19 @@ CREATE TABLE Noticias (
     link text,
     status BOOLEAN DEFAULT TRUE        
 );
+
+CREATE TABLE Banimentos (
+    ban_cod INTEGER PRIMARY KEY AUTO_INCREMENT,
+    usuario_cod INTEGER NOT NULL,       -- usuário banido
+    moderador_cod INTEGER NOT NULL,     -- usuário (comum/moderador/admin) que aplicou o ban
+    motivo TEXT,
+    data_inicio DATETIME NOT NULL,
+    data_fim DATETIME,                  -- NULL = ban permanente
+    tipo VARCHAR(50) DEFAULT 'comentario', -- tipo de ban
+
+    CONSTRAINT fk_usuario_ban FOREIGN KEY (usuario_cod) REFERENCES Usuario(usuario_cod),
+    CONSTRAINT fk_moderador_ban FOREIGN KEY (moderador_cod) REFERENCES Usuario(usuario_cod)
+);
+
+
 
