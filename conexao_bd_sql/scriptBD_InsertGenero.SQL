@@ -15,7 +15,7 @@ INSERT INTO Genero (genero_nome, categoria_cod) VALUES
 ('Arte e Design', 2), 
 ('Tecnologia e Computação' , 2), 
 ('Estatística e Matemática Aplicada' , 2), 
-('Biografia' , 2); 
+('Biografia' , 2); ,,,,,,,
 
 /*Gênero da categoria Poesia*/
 INSERT INTO Genero (genero_nome, categoria_cod) VALUES 

@@ -107,14 +107,22 @@ if (!$usuario_cod) {
                             <p>
                               <p>
                 <?php
-            $autores = explode('||', $livro_pagina['autores']);
-            foreach ($autores as $autor) {
-            list($autor_cod, $autor_nome) = explode('::', $autor);
+         $autores = explode('||', $livro_pagina['autores']);
 
-            echo '<a href="pgAutor.php?autor_cod=' . $autor_cod . '" style="color: #0af;">' 
-             . htmlspecialchars($autor_nome) . 
-             '</a><br>';
+foreach ($autores as $autor) {
+
+    // Se a string estiver vazia ou não tiver ::
+    if (empty($autor) || !str_contains($autor, '::')) {
+        continue;
     }
+
+    [$autor_cod, $autor_nome] = explode('::', $autor, 2);
+
+    echo '<a href="pgAutor.php?autor_cod=' . intval($autor_cod) . '" style="color: #0af;">'
+        . htmlspecialchars($autor_nome)
+        . '</a><br>';
+}
+
 ?>
 </p>
 
