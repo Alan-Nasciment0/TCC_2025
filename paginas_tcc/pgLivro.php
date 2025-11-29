@@ -102,7 +102,6 @@ if (!$usuario_cod) {
                                 </div>
                             </div>
                         </div>
-
                         <div>
                             <div>
                                 <h4>Autor</h4>                                
