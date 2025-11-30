@@ -2,45 +2,6 @@
 include('../BuscaLivros/buscaLivros.php');
 include('../buscaAutor/buscaAutor.php');
 
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $id = $_POST['id'];
-    $acao = $_POST['acao'];
-
-    if ($acao == "desativar") {
-        $stmt = $pdo->prepare("UPDATE Noticias SET status = 0 WHERE noticia_cod = ?");
-        $stmt->execute([$id]);
-    }
-
-    if ($acao == "ativar") {
-        $stmt = $pdo->prepare("UPDATE Noticias SET status = 1 WHERE noticia_cod = ?");
-        $stmt->execute([$id]);
-    }
-
-    if ($acao == "novo_banner") {
-        $titulo = $_POST['titulo'];
-        $link = $_POST['link'];
-
-        // Upload da imagem
-        $ext = pathinfo($_FILES["banner_imagem"]["name"], PATHINFO_EXTENSION);
-        $nomeArquivo = time() . "_" . uniqid() . "." . $ext;
-
-        $destino = "../img/banners/" . $nomeArquivo;
-        move_uploaded_file($_FILES["banner_imagem"]["tmp_name"], $destino);
-
-        // Inserir no banco
-        $stmt = $pdo->prepare(
-            "INSERT INTO Noticias (titulo, banner_imagem, link ) VALUES (?, ?, ?)"
-        );
-        $stmt->execute([$titulo, $nomeArquivo, $link]);
-    }
-
-    // atualiza a página
-    header("Location: ".$_SERVER['REQUEST_URI']);
-    exit;
-}
-
 ?>
 
 <!DOCTYPE html>

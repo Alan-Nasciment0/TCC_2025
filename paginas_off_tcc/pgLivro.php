@@ -11,7 +11,7 @@ $sql = "SELECT
     l.livro_editora,
     l.livro_ano,
     l.livro_descricao,
-    GROUP_CONCAT(DISTINCT a.autor_nome ORDER BY a.autor_nome SEPARATOR ', ') AS autor,
+    GROUP_CONCAT(DISTINCT CONCAT(a.autor_cod, '::', a.autor_nome) SEPARATOR '||') AS autores,
     GROUP_CONCAT(DISTINCT g.genero_nome ORDER BY g.genero_nome SEPARATOR ', ') AS genero,
     GROUP_CONCAT(DISTINCT c.categoria_nome ORDER BY c.categoria_nome SEPARATOR ', ') AS categoria
 FROM livros l
@@ -25,7 +25,7 @@ GROUP BY l.livro_cod";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':livro_cod', $livro_cod);
 $stmt->execute();
-$livro = $stmt->fetch(PDO::FETCH_ASSOC);
+$livro_pagina = $stmt->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -55,7 +55,7 @@ $livro = $stmt->fetch(PDO::FETCH_ASSOC);
     </header>
     <div class="container">
         <div class="containerLivroCapa">
-            <img class="imgLivroCapa" src="<?php echo $livro['livro_capa_link'] ?>">
+            <img class="imgLivroCapa" src="<?php echo $livro_pagina['livro_capa_link'] ?>">
             <div>
                 <div class="containerInformacoesLivro">
                     <div class="containerAlinhamentoLadoEsquerdo">
@@ -73,16 +73,27 @@ $livro = $stmt->fetch(PDO::FETCH_ASSOC);
                             </div>
                         </div>
                         <div>
-                            <h4>Autor</h4>
-                            <p>
-                                <?php echo $livro['autor']; ?>
-                            </p>
-                        </div>
-                        <div>
-                            <h4>Ano de Publicação</h4>
-                            <p>
-                                <?php echo $livro['livro_ano']; ?>
-                            </p>
+                            <div>
+                                <h4>Autor</h4>                                
+                                <p>
+                                    <?php
+                                $autores = explode('||', $livro_pagina['autores']);
+                                foreach ($autores as $autor) {
+                                list($autor_cod, $autor_nome) = explode('::', $autor);
+                                
+                                echo '<a href="pgAutor.php?autor_cod=' . $autor_cod . '" style="color: #0af;">' 
+                                 . htmlspecialchars($autor_nome) . 
+                                 '</a><br>';
+                                }
+                                ?>
+                                </p>                                
+                            </div>
+                            <div>
+                                <h4>Ano de Publicação</h4>
+                                <p>
+                                    <?php echo $livro_pagina['livro_ano']; ?>
+                                </p>
+                            </div>
                         </div>
                     </div>
 
@@ -122,13 +133,13 @@ $livro = $stmt->fetch(PDO::FETCH_ASSOC);
                         <div>
                             <h4>Gênero da Obra</h4>
                             <p>
-                                <?php echo $livro['genero']; ?>
+                                <?php echo $livro_pagina['genero']; ?>
                             </p>
                         </div>
                         <div>
                             <h4>Editora</h4>
                             <p>
-                                <?php echo $livro['livro_editora']; ?>
+                                <?php echo $livro_pagina['livro_editora']; ?>
                             </p>
                         </div>
                     </div>
@@ -137,7 +148,7 @@ $livro = $stmt->fetch(PDO::FETCH_ASSOC);
                 <div class="containerDescricao">
                     <h4>Descrição</h4>
                     <p>
-                        <?php echo $livro['livro_descricao']; ?>
+                        <?php echo $livro_pagina['livro_descricao']; ?>
                     </p>
 
                     <button id="btn-favoritos" class="btn btn-warning" style="width: 16.31rem; height: 3.28rem;">
@@ -161,7 +172,7 @@ $livro = $stmt->fetch(PDO::FETCH_ASSOC);
             <h4>Livros Recomendados</h4>
             <div class="containerLivroRecomendado">
                 <?php
-                include('../componentes/componentesPaginas_tcc/livrosRecomendados.php');
+                include('../componentes/componentesIndex/livrosRecomendadosAutorGeneroCategoria.php');
                 ?>
             </div>
         </div>

@@ -1,13 +1,6 @@
 <?php
-session_start();
+
 include('../BuscaLivros/buscaLivrosRanking.php');
-
-$usuario_cod = $_SESSION['usuario_cod'] ?? null;
-
-if (!$usuario_cod) {
-    header('Location:pglogin.php');
-    exit;
-}
 
 ?>
 
@@ -30,7 +23,7 @@ if (!$usuario_cod) {
 <body>
   <header>
     <?php
-        include('../componentes/componentesPaginas_tcc/pgCabecalhoPaginas.php');
+        include('../componentes/componentesIndex/pgCabecalhoIndex.php');
         
         ?>
   </header>

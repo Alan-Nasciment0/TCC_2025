@@ -1,6 +1,5 @@
 <?php
 require __DIR__ . '/../conexao_bd_sql/conexao_bd_mysql.php';
-$usuarioCod = $_SESSION['usuario_cod'];
 
 $options = [
   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
