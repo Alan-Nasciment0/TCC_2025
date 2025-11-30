@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../css_js/css/styleDenunciaSelecionada.css">
-    <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../css_js/css/styleDenunciaSelecionada.css">
+    <link rel="stylesheet" href="../../../css_js/bootstrap/css/bootstrap.min.css">
 
 </head>
 
@@ -37,10 +37,10 @@
             <div style="margin-top: 1.5rem;">
                 <h6>Banir</h6>
                 <div class="containerOpcoesBanimento">
-                    <button class="btn btn-dark banBtn" data-duracao="3 Dias">3 Dias</button>
-                    <button class="btn btn-dark banBtn" data-duracao="7 Dias">7 Dias</button>
-                    <button class="btn btn-dark banBtn" data-duracao="14 Dias">14 Dias</button>
-                    <button class="btn btn-dark banBtn" data-duracao="permanente">Permanente</button>
+                    <button class="botao1" data-duracao="3 Dias">3 Dias</button>
+                    <button class="botao1" data-duracao="7 Dias">7 Dias</button>
+                    <button class="botao1" data-duracao="14 Dias">14 Dias</button>
+                    <button class="botao2" data-duracao="permanente">Permanente</button>
                 </div>
             </div>
 
