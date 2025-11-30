@@ -1,5 +1,21 @@
-* {
+
+body {
+    background-color: #1E1E1E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+.containerDenunciaPrincipal {
+    width: 300px;
+    height: 310px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1E1E1E;
+
+    * {
     font-family: Arial;
+    color: #000;
 }
 .titulo {
     font-size: 24px;
@@ -9,28 +25,14 @@
     display: flex;
     justify-content: center;
 }
-body {
-    background-color: #1E1E1E;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} 
-.containerPrincipal {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #1E1E1E;
 }
 .containerDenunciar {
     width: 300px;
     height: 310px;
-    margin: 100px;
     border-radius: 10px;
     background-color: #fff;
-}
-.form-check {
+
+    .form-check {
     font-size: 20px;
     margin-left: 20px;
 }
@@ -50,4 +52,5 @@ input[type=submit] {
     font-family: Arial, Regular;
     background-color: #000;
     color: #fff; 
+}
 }

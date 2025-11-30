@@ -11,42 +11,42 @@
 </head>
 
 <body>
-    <div class="containerPrincipal">
+    <div id="modalDenuncia" class="containerDenunciaPrincipal">
         <div class="containerDenunciar">
             <h2 class="titulo">Denunciar comentário</h2>
             <div class="form-check" style="margin-bottom: .400rem;">
-                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                <input class="form-check-input" type="radio" name="radioDefault" id="discusoOdio"  value="Discurso de ódio">
                 <label class="form-check-label" for="radioDefault1">
                     Discurso de ódio
                 </label>
             </div>
             <div class="form-check" style="margin-bottom: .400rem;">
-                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2">
+                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" value="Violência explícita">
                 <label class="form-check-label" for="radioDefault2">
                     Violencia explícita
                 </label>
             </div>
             <div class="form-check" style="margin-bottom: .400rem;">
-                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault3">
+                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault3" value="Assédio ou bullying">
                 <label class="form-check-label" for="radioDefault3">
                     Assédio ou bullying
                 </label>
             </div>
             <div class="form-check" style="margin-bottom: .400rem;">
-                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault4">
+                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault4" value="Spam">
                 <label class="form-check-label" for="radioDefault4">
                     Spam
                 </label>
             </div>
             <div class="form-check" style="margin-bottom: .400rem;">
-                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault5">
+                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault5" value="Outros">
                 <label class="form-check-label" for="radioDefault5">
                     Outros
                 </label>
             </div>
             <div class="botoes">
-                <input type="submit" name="cancelar" value="Cancelar" style="color: black; background-color: white;">
-                <input type="submit" name="pgDescrição" value="Continuar">
+                <input type="submit" name="cancelar" value="Cancelar" onclick="toggleDisplay()" style="color: black; background-color: white;">
+                <input type="submit" name="pgDescrição" onclick="abrirModal2()" value="Continuar">
             </div>
         </div>
     </div>
