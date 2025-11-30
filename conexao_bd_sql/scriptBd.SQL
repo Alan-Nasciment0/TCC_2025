@@ -88,10 +88,12 @@ CREATE TABLE Comentario (
  
 CREATE TABLE Denuncia (
     denuncia_cod INTEGER PRIMARY KEY AUTO_INCREMENT,
+    usuario_cod INTEGER,
     denuncia_data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
     denuncia_tipo VARCHAR(30),
     denuncia_descricao VARCHAR(200),
     comentario_cod integer,
+    constraint fk_usuario_cod_8 foreign key(usuario_cod) references usuario (usuario_cod),
     constraint fk_comentario_cod foreign key(comentario_cod) references comentario (comentario_cod)
 );
  

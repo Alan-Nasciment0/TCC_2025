@@ -17,7 +17,7 @@ if (!$usuario_cod) {
 <head>
     <link rel="stylesheet" href="../css_js/bootstrap/css/bootstrap.min.css">
     <script src="../css_js/bootstrap/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../css_js/css/styleListaBani.css">
+    <link rel="stylesheet" href="../css_js/css/styleListaDenuncias.css">
     <link rel="stylesheet" href="../css_js/css/styleCabecalho.css">
     <link rel="stylesheet" href="../css_js/css/styleRodape.css">
     <meta charset="UTF-8">
@@ -37,78 +37,84 @@ if (!$usuario_cod) {
             <h2 class="titulo">Lista de Denuncias</h2>
         </div>
         <div class="containerListaBanidos">
-            <div class="containerPesquisa">
-                <img src="../img/pesquisarPreto.png" class="imgPesquisa" alt="Pesquisar">
-                <input class="placeHolder1" type="text" name="pesquisaUsuario" id="pesquisaUsuario"
-                    placeholder="Pesquise o nome do usuário">
-                <div id="resultadoPesquisaUsuario" class="resultado-lista"></div>
-            </div>
-            <script>
-                const inputNomeUsuario = document.getElementById('pesquisaUsuario');
-                const resultadoUsuario = document.getElementById('resultadoPesquisaUsuario');
-
-                function carregarUsuario(id) {
-                    fetch(`../buscaUsuario/carregarInfoUsuario.php?id=${id}`)
-                        .then(response => response.json())
-                        .then(data => {
-
-                            document.getElementById('usuario_cod_pesquisado').value = data.usuario_cod_pesquisado;
-                            document.getElementById('nome_usuario_pesquisado').value = data.nome_usuario_pesquisado;
-                            document.getElementById('email_usuario_pesquisado').value = data.email_usuario_pesquisado;
-                            document.getElementById('foto_usuario_pesquisado').value = data.foto_usuario_pesquisado;
-                        });
-                }
-
-                inputNomeUsuario.addEventListener('input', function () {
-                    const termoPesquisaUsuario = this.value.trim();
-                    if (termoPesquisaUsuario.length > 0) {
-                        fetch(`../buscaUsuario/buscaUsuarioBarraPesquisa.php?pesquisaUsuario=${encodeURIComponent(termoPesquisaUsuario)}`)
-                            .then(response => response.text())
-                            .then(html => {
-                                resultadoUsuario.innerHTML = html;
-                                resultadoUsuario.style.display = 'block';
-                            });
-                    } else {
-                        resultadoUsuario.innerHTML = '';
-                        resultadoUsuario.style.display = 'none';
-                    }
-                });
-
-                // Delegação de clique para itens carregados dinamicamente
-                resultadoUsuario.addEventListener('click', function (e) {
-                    const item = e.target.closest('.resultado-item-usuario');
-                    if (item) {
-                        const idUsuario = item.getAttribute('data-id');
-                        carregarUsuario(idUsuario);
-
-                        resultadoUsuario.innerHTML = '';
-                        resultadoUsuario.style.display = 'none';
-                        inputNomeUsuario.value = '';
-                    }
-                });
-            </script>
             <div class="containerBarra">
                 <h2 class="usu">Usuário</h2>
                 <h2 class="exp">Comentário</h2>
                 <h2 class="acoe">Motivo</h2>
                 <h2 class="acoe">Ações</h2>
-                
-            
+
+
             </div>
-            <form>
-                <div data-bs-spy="scroll" data-bs-target="containerCampo" data-bs-smooth-scroll="true"
-                    class="scrollspy-example-2" tabindex="0">
-                    <div class="containerCampo">
-                        <h5 class="nome_usu">@nome_usuario</h5>
-                        <h5 class="tem_bam">tempo_bam</h5>
-                        <img src="../img/acoes.png" class="imgAcoes" alt="Acoes">
-                    </div>
-                </div>
-            </form>
+            <div class="containerDenuncias">
+                <?php
+                include('../componentes/componentesPaginas_tcc/denuncias/buscaDenuncias.php');
+                ?>
+            </div>
         </div>
         <?php
         include('../componentes/componentesPaginas_tcc/rodape.php');
         ?>
+
+        <?php
+        include('../componentes/componentesPaginas_tcc/denuncias/visualizarDenuncia.php');
+        ?>
+
+        <script>
+
+            let usuarioSelecionado = null;
+            document.addEventListener("DOMContentLoaded", function () {
+
+                document.querySelectorAll('.imgAcoes').forEach(img => {
+
+                    img.addEventListener('click', function () {
+                        
+                        usuarioSelecionado = this.dataset.usuario_cod;
+                        document.getElementById('modalNomeUsuario').innerText = '@' + this.dataset.nome;
+                        document.getElementById('modalQtdDenuncias').innerText = 'Denúncias: ' + this.dataset.qtd;
+                        document.getElementById('modalNomeLivro').innerText = this.dataset.livro;
+                        document.getElementById('modalComentario').value = this.dataset.comentario;
+
+                        if (this.dataset.foto && this.dataset.foto !== "") {
+                            document.getElementById('modalFotoUsuario').src = this.dataset.foto;
+                        }
+
+                        document.getElementById('modalDenuncia').style.display = "flex";
+                    });
+                });
+
+            });
+
+            document.querySelectorAll('.banBtn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    if (!usuarioSelecionado) return alert("Nenhum usuário selecionado.");
+
+                    const duracao = this.dataset.duracao;
+                    const motivo = "Comentário inapropriado"; // pode ser personalizado
+
+                    if (!confirm(`Deseja banir este usuário por ${duracao}?`)) return;
+
+                    // AJAX
+                    fetch('../acoes/banimento.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: `usuario_cod=${usuarioSelecionado}&duracao=${duracao}&motivo=${encodeURIComponent(motivo)}`
+                    })
+                        .then(res => res.text())
+                        .then(msg => {
+                            alert(msg);
+                            fecharModal();
+                        })
+                        .catch(err => console.error(err));
+                });
+            });
+
+            // FECHAR MODAL
+            function fecharModal() {
+                document.getElementById('modalDenuncia').style.display = "none";
+            }
+        </script>
+
+
 </body>
 
 </html>

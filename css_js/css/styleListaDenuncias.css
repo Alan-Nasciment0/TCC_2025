@@ -1,0 +1,186 @@
+* {
+    font-family: Arial;
+}
+
+header {
+    width: 100%;
+}
+
+.titulo {
+    font-size: 20px;
+    margin-top: 4rem;
+    margin-right: 950px;
+    margin-bottom: 4rem;
+    text-decoration: underline;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: #1E1E1E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerPrincipal {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1E1E1E;
+}
+
+.containerPesquisa {
+    margin-top: 20px;
+
+    input {
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+        outline: none;
+        box-shadow: none;
+        font: inherit;
+        color: inherit;
+
+    }
+}
+
+.resultado-lista {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    background-color: #fff;
+    border-radius: 0.62rem;
+    padding: 1rem;
+    box-shadow: 0px 4px 20px rgb(0 0 0 / 71%);
+}
+
+.containerListaBanidos {
+    width: 1153px;
+    height: 960px;
+    border-radius: 28px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerBarra {
+    width: 1015px;
+    height: 90px;
+    padding: 0 1rem 0 1rem;
+    margin-top: 93px;
+    border-radius: 10px;
+    background-color: #7D0000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerCampo {
+    width: 990px;
+    height: 57px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.containerDenuncias {
+    width: 1015px;
+    height: 550px;
+    overflow-y: auto;
+}
+
+.containerTexto {
+    width: 247.5px;
+    padding-left: 4rem;
+
+}
+
+.modalDenunciaBackground {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.usu {
+    color: white;
+    margin-left: 30px;
+    margin-bottom: 0px;
+}
+
+.exp {
+    color: white;
+    margin-bottom: 0px;
+}
+
+.acoe {
+    color: white;
+    margin-right: 30px;
+    margin-bottom: 0px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    width: 400px;
+    margin: 10% auto;
+    border-radius: 10px;
+}
+
+.close {
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.textoDenuncia {
+    color: white;
+    margin-right: 80px;
+    margin-bottom: 0px;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.imgAcoes {
+    width: 24px;
+    height: 24px;
+    margin-right: 55px;
+}
+
+.imgPesquisa {
+    width: 24px;
+    height: 24px;
+}
+
+.placeHolder1 {
+    width: 274px;
+    height: 24px;
+    text-decoration: underline;
+
+}

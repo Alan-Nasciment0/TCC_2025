@@ -48,7 +48,7 @@ try {
 
     // Insere denúncia
     $stmt = $pdo->prepare("
-        INSERT INTO denuncia (usuario_cod, comentario_cod, motivo, descricao) 
+        INSERT INTO denuncia (usuario_cod, comentario_cod, denuncia_tipo, denuncia_descricao) 
         VALUES (:usuario_id, :comentario_id, :motivo, :descricao)
     ");
     $stmt->bindValue(':usuario_id', $usuario_id, PDO::PARAM_INT);

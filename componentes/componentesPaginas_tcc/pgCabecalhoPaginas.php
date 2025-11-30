@@ -172,7 +172,7 @@ if($_SESSION['nivel_acesso'] == 1) {?>
                             </li>
 
                             <li class="containerItem">
-                                <a class="itemMenu" href="pgDenucias.php">
+                                <a class="itemMenu" href="pgDenuncias.php">
                                     <img class="imgMenu" src="../img/denunciaIcone.png">Denúncias
                                 </a>
                             </li>
