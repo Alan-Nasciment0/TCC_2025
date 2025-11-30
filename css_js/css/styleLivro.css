@@ -196,3 +196,26 @@ p {
     width: 90%;
     align-items: center !important;
 }
+
+.mensagem-ban {
+    background-color: #00000000;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.mensagem-ban strong {
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.banido {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}

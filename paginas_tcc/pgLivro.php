@@ -104,7 +104,7 @@ if (!$usuario_cod) {
                         </div>
                         <div>
                             <div>
-                                <h4>Autor</h4>                                
+                                <h4>Autor</h4>
                                 <p>
                                     <?php
                                 $autores = explode('||', $livro_pagina['autores']);
@@ -116,7 +116,7 @@ if (!$usuario_cod) {
                                  '</a><br>';
                                 }
                                 ?>
-                                </p>                                
+                                </p>
                             </div>
                             <div>
                                 <h4>Ano de Publicação</h4>
@@ -364,7 +364,39 @@ if (!$usuario_cod) {
             <div class="titulo">
                 <h4>Comentários</h4>
             </div>
+            <?php
+            $usuario_cod = $_SESSION['usuario_cod'] ?? null;
+            $sql = "
+                    SELECT data_fim 
+                    FROM Banimentos
+                    WHERE usuario_cod = :usuario_cod
+                      AND (data_fim IS NULL OR data_fim > NOW())
+                    LIMIT 1;
+                    ";                    
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute([':usuario_cod' => $usuario_cod]);
+                    $ban = $stmt->fetch(PDO::FETCH_ASSOC);
 
+                    if ($ban !== false) {
+                    // Banimento encontrado, pode acessar $ban['data_fim']
+                    if ($ban['data_fim'] !== null) {
+                         echo "<h6 class='banido'>Você está impossibilitado de fazer comentários temporariamente.</h6>";
+                        echo "<h6 class='banido'>Seu banimento vence em " . date('d/m/Y', strtotime($ban['data_fim'])) . ".</h6>";
+                        ?>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function () {
+                                document.querySelectorAll('.containerComentarioRealizados, .containerAddComentario')
+                                    .forEach(el => el.style.display = 'none');
+                            });
+                        </script><?php
+                    } else {
+                        echo "Banimento permanente.";
+                    }
+                    } else {
+                        // Não existe banimento ativo
+                        // Aqui você pode exibir a página normalmente
+                    }                        
+                ?>
             <div class="containerAddComentario">
                 <img class="fotoUsuario" src="../img/foto_perfil_usuario/<?= htmlspecialchars($foto_perfil_usuario) ?>">
                 <form action="../acoes/adicionarComentario.php" method="post" class="formComentario">
