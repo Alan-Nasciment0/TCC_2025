@@ -14,6 +14,8 @@ if (!$moderador_cod) {
 $usuario_cod = $_POST['usuario_cod'] ?? null;
 $duracao = $_POST['duracao'] ?? null;
 $motivo = $_POST['motivo'] ?? "Comentário inapropriado";
+$denuncia_cod = $_POST['denuncia_cod'] ?? null;
+
 
 if (!$usuario_cod || !$duracao) {
     echo "Dados incompletos.";
@@ -23,16 +25,21 @@ if (!$usuario_cod || !$duracao) {
 // Definir datas
 $data_inicio = date('Y-m-d H:i:s');
 
-if ($duracao === 'permanente') {
-    $data_fim = null;
+if ($duracao === 'Ignorar') {
+   
+    $sqlUpdate = "UPDATE Denuncia SET status = 0 WHERE denuncia_cod = :denuncia_cod";
+    $stmtUpdate = $pdo->prepare($sqlUpdate);
+    $stmtUpdate->execute([':denuncia_cod' => $denuncia_cod]);
+    echo "Denúncia ignorada com sucesso!";
+    exit;
 } else {
     // Converter duração em dias
-    switch ($duracao) {
-        case '3 Dias': $dias = 3; break;
-        case '7 Dias': $dias = 7; break;
-        case '14 Dias': $dias = 14; break;
-        default: $dias = 0;
-    }
+    $dias = match($duracao) {
+        '3 Dias' => 3,
+        '7 Dias' => 7,
+        '14 Dias' => 14,
+        default => 0
+    };
     $data_fim = date('Y-m-d H:i:s', strtotime("+$dias days"));
 }
 
@@ -49,5 +56,8 @@ $stmt->execute([
     ':data_fim' => $data_fim,
     ':tipo' => 'comentario'
 ]);
+
+$stmtUpdateBanido = $pdo->prepare("UPDATE Denuncia SET status = 0 WHERE denuncia_cod = :denuncia_cod");
+$stmtUpdateBanido->execute([':denuncia_cod' => $denuncia_cod]);
 
 echo "Banimento registrado com sucesso!";
