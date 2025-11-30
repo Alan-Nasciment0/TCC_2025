@@ -177,8 +177,6 @@ session_start();
             <div class="containerPreencher1">
                 <label>Senha</label>
                 <div class="campoPreencher">
-                    <a class="imgMiniatura" href="" style="width: 24px; height: 24px; position: absolute;"><img
-                            src="../img/img.senha.png"></a>
                     <input class="placeHolder" type="password" id="senha" name="senha" placeholder="Digite sua senha."
                         class="text-body-secondary">
                 </div>
@@ -187,8 +185,6 @@ session_start();
             <div class="containerPreencher1">
                 <label>Confirma a senha</label>
                 <div class="campoPreencher">
-                    <a class="imgMiniatura" href="" style="width: 24px; height: 24px; position: absolute;"><img
-                            src="../img/img.senha.png"></a>
                     <input class="placeHolder" type="password" id="confirmaSenha" name="confirmaSenha"
                         placeholder="Digite novamente a senha" class="text-body-secondary">
                 </div>
