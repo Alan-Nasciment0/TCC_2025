@@ -70,31 +70,31 @@ INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (62, 57);
 INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (63, 58);
 INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (64, 59);
 INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (65, 60);
-INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (66, 61),
-(133, 47),
-(134, 115),
-(135, 116),
-(136, 42),
-(137, 117),
-(138, 119),
-(139, 120),
-(140, 121),
-(141, 122),
-(142, 44),
-(143, 123),
-(144, 48),
-(145, 48),
-(146, 124),
-(147, 117),
-(148, 48),
-(149, 125),
-(150, 46),
-(151, 126),
-(152, 127),
-(153, 128),
-(154, 129),
-(155, 130),
-(156, 48);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (66, 61);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (133, 47);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (134, 115);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (135, 116);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (136, 42);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (137, 117);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (138, 119);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (139, 120);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (140, 121);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (141, 122);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (142, 44);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (143, 123);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (144, 48);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (145, 48);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (146, 124);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (147, 117);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (148, 48);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (149, 125);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (150, 46);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (151, 126);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (152, 127);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (153, 128);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (154, 129);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (155, 130);
+INSERT INTO autorlivro (livro_cod, autor_cod) VALUES (156, 48);
 
 
 /* Insert autor/livro da categoria FICÇÃO*/
