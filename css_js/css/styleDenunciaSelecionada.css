@@ -47,6 +47,20 @@
     margin-top: 1rem;
 }
 
+.botao1 {
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    
+}
+
+.botao2 {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+}
+
 .botaoFecharDenuncia {
     margin-top: 1rem;
 }
