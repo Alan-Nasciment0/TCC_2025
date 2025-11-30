@@ -4,7 +4,7 @@ include('../BuscaDenuncia/buscaDenuncia.php');
 
 <?php if (count($denuncias) > 0): ?>
 <?php foreach ($denuncias as $denuncia): ?>
-<div class="containerCampo">
+<div class="containerCampo denuncia-<?= $denuncia['denuncia_cod'] ?>">
     <div class="containerTexto">
         <h5 class="textoDenuncia">@
             <?= htmlspecialchars($denuncia['usuario_nome']) ?>
@@ -25,6 +25,7 @@ include('../BuscaDenuncia/buscaDenuncia.php');
 
     <div class="containerTexto">
         <img src="../img/acoes.png" class="imgAcoes" alt="Ações"
+            data-denuncia_cod="<?= $denuncia['denuncia_cod'] ?>"
             data-nome="<?= htmlspecialchars($denuncia['usuario_nome']) ?>"
             data-usuario_cod="<?= htmlspecialchars($denuncia['usuario_cod']) ?>"
             data-foto="../img/foto_perfil_usuario/<?= htmlspecialchars($denuncia['foto_perfil_usuario'] ?: '../img/default.png') ?>"

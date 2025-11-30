@@ -37,10 +37,10 @@
             <div style="margin-top: 1.5rem;">
                 <h6>Banir</h6>
                 <div class="containerOpcoesBanimento">
-                    <button class="botao1" data-duracao="3 Dias">3 Dias</button>
-                    <button class="botao1" data-duracao="7 Dias">7 Dias</button>
-                    <button class="botao1" data-duracao="14 Dias">14 Dias</button>
-                    <button class="botao2" data-duracao="permanente">Permanente</button>
+                    <button class="btn btn-dark ignorarBtn" data-duracao="ignorar">Ignorar</button>
+                    <button class="btn btn-dark banBtn" data-duracao="3 Dias">3 Dias</button>
+                    <button class="btn btn-dark banBtn" data-duracao="7 Dias">7 Dias</button>
+                    <button class="btn btn-dark banBtn" data-duracao="14 Dias">14 Dias</button>                    
                 </div>
             </div>
 

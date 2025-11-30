@@ -61,7 +61,9 @@ if (!$usuario_cod) {
 
         <script>
 
-            let usuarioSelecionado = null;
+            let usuarioSelecionado = null;  
+            let denunciaSelecionada = null;          
+
             document.addEventListener("DOMContentLoaded", function () {
 
                 document.querySelectorAll('.imgAcoes').forEach(img => {
@@ -69,6 +71,7 @@ if (!$usuario_cod) {
                     img.addEventListener('click', function () {
                         
                         usuarioSelecionado = this.dataset.usuario_cod;
+                        denunciaSelecionada = this.dataset.denuncia_cod;
                         document.getElementById('modalNomeUsuario').innerText = '@' + this.dataset.nome;
                         document.getElementById('modalQtdDenuncias').innerText = 'Denúncias: ' + this.dataset.qtd;
                         document.getElementById('modalNomeLivro').innerText = this.dataset.livro;
@@ -84,6 +87,32 @@ if (!$usuario_cod) {
 
             });
 
+            document.querySelectorAll('.ignorarBtn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    if (!usuarioSelecionado) return alert("Nenhum usuário selecionado.");
+
+                    const duracao = this.dataset.duracao;
+                    const motivo = "Comentário inapropriado"; // pode ser personalizado
+
+                    if (!confirm(`Deseja ignorar esta denuncia?`)) return;
+
+                    // AJAX
+                    fetch('../acoes/banimento.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: `usuario_cod=${usuarioSelecionado}&denuncia_cod=${denunciaSelecionada}&duracao=${duracao}&motivo=${encodeURIComponent(motivo)}`
+                    })
+                        .then(res => res.text())
+                        .then(msg => {
+                            alert(msg);
+                            fecharModal();
+                            const denunciaDiv = document.querySelector(`.denuncia-${denunciaSelecionada}`);
+                            if (denunciaDiv) denunciaDiv.remove();
+                        })
+                        .catch(err => console.error(err));
+                });
+            });
+
             document.querySelectorAll('.banBtn').forEach(btn => {
                 btn.addEventListener('click', function () {
                     if (!usuarioSelecionado) return alert("Nenhum usuário selecionado.");
@@ -97,12 +126,14 @@ if (!$usuario_cod) {
                     fetch('../acoes/banimento.php', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                        body: `usuario_cod=${usuarioSelecionado}&duracao=${duracao}&motivo=${encodeURIComponent(motivo)}`
+                       body: `usuario_cod=${usuarioSelecionado}&denuncia_cod=${denunciaSelecionada}&duracao=${duracao}&motivo=${encodeURIComponent(motivo)}`
                     })
                         .then(res => res.text())
                         .then(msg => {
                             alert(msg);
                             fecharModal();
+                            const denunciaDiv = document.querySelector(`.denuncia-${denunciaSelecionada}`);
+                            if (denunciaDiv) denunciaDiv.remove();
                         })
                         .catch(err => console.error(err));
                 });
