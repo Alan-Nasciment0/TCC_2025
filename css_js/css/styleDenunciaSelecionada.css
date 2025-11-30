@@ -47,18 +47,26 @@
     margin-top: 1rem;
 }
 
-.botao1 {
-    width: 70px;
+.ignorarBtn {
+    width: 80px;
     height: 30px;
+    color: #fff;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    border: none;
     border-radius: 5px;
     margin-bottom: 5px;
-    
 }
 
-.botao2 {
-    width: 100px;
+.banBtn {
+    width: 80px;
     height: 30px;
+    color: #fff;
+    background-color: black;
+    border: none;
     border-radius: 5px;
+    margin-bottom: 5px;
 }
 
 .botaoFecharDenuncia {
