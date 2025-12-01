@@ -40,7 +40,7 @@ if (!$usuario_cod) {
             <div class="containerBarra">
                 <h2 class="usu">Usuário</h2>
                 <h2 class="exp">Comentário</h2>
-                <h2 class="acoe">Motivo</h2>
+                <h2 class="exp">Motivo</h2>
                 <h2 class="acoe">Ações</h2>
             </div>
             <div class="containerDenuncias">
