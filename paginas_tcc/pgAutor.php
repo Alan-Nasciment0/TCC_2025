@@ -100,7 +100,7 @@ if ($autor_cod) {
         </div>
 
         <div class="containerPrincipaisObrasAutor">
-            <h4>Principais Obras</h4>
+            <h4>Livros relacionados</h4>
             <div class="containerPrincipalObra">
                 <?php include('../componentes/componentesPaginas_tcc/livrosRecomendados.php'); ?>
             </div>
