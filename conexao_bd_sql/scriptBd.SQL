@@ -1,6 +1,5 @@
-/* Lógico_v2: */
- create database bd_tcc;
- use bd_tcc;
+create database bd_tcc;
+use bd_tcc;
 CREATE TABLE Usuario (
     usuario_cod INTEGER PRIMARY KEY AUTO_INCREMENT,
     usuario_nome VARCHAR(50),
@@ -83,7 +82,7 @@ CREATE TABLE Comentario (
     comentario_data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
     comentario_texto VARCHAR(200),
     constraint fk_usuario_cod_2 foreign key(usuario_cod) references usuario (usuario_cod),
-    constraint fk_livro_cod_8 foreign key(usuario_cod) references usuario (usuario_cod)
+    constraint fk_livro_cod_8 foreign key(livro_cod) references livros (livro_cod)
 );
  
 CREATE TABLE Denuncia (
@@ -93,6 +92,7 @@ CREATE TABLE Denuncia (
     denuncia_tipo VARCHAR(30),
     denuncia_descricao VARCHAR(200),
     comentario_cod integer,
+    status bool DEFAULT 1,
     constraint fk_usuario_cod_8 foreign key(usuario_cod) references usuario (usuario_cod),
     constraint fk_comentario_cod foreign key(comentario_cod) references comentario (comentario_cod)
 );
@@ -169,6 +169,3 @@ CREATE TABLE Banimentos (
     CONSTRAINT fk_usuario_ban FOREIGN KEY (usuario_cod) REFERENCES Usuario(usuario_cod),
     CONSTRAINT fk_moderador_ban FOREIGN KEY (moderador_cod) REFERENCES Usuario(usuario_cod)
 );
-
-
-
