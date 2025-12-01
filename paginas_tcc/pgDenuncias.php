@@ -42,8 +42,6 @@ if (!$usuario_cod) {
                 <h2 class="exp">Comentário</h2>
                 <h2 class="acoe">Motivo</h2>
                 <h2 class="acoe">Ações</h2>
-
-
             </div>
             <div class="containerDenuncias">
                 <?php

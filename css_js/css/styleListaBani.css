@@ -34,32 +34,6 @@ body {
     background-color: #1E1E1E;
 }
 
-.containerPesquisa {
-    margin-top: 20px;
-
-    input {
-        border: none;
-        background: none;
-        padding: 0;
-        margin: 0;
-        outline: none;
-        box-shadow: none;
-        font: inherit;
-        color: inherit;
-
-    }
-}
-
-.resultado-lista {
-    display: none;
-    position: absolute;
-    z-index: 999;
-    background-color: #fff;
-    border-radius: 0.62rem;
-    padding: 1rem;
-    box-shadow: 0px 4px 20px rgb(0 0 0 / 71%);
-}
-
 .containerListaBanidos {
     width: 1153px;
     height: 960px;
@@ -90,11 +64,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem;
 }
 
-form {
+.containerDenuncias {
     width: 1015px;
     height: 550px;
+    overflow-y: auto;
 }
 
 .usu {
@@ -132,14 +108,12 @@ form {
     margin-right: 55px;
 }
 
-.imgPesquisa {
-    width: 24px;
-    height: 24px;
-}
-
-.placeHolder1 {
-    width: 274px;
-    height: 24px;
-    text-decoration: underline;
-
+.textoDenuncia {
+    color: white;
+    margin-right: 80px;
+    margin-bottom: 0px;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
