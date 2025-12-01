@@ -367,12 +367,17 @@ if (!$usuario_cod) {
             <?php
             $usuario_cod = $_SESSION['usuario_cod'] ?? null;
             $sql = "
-                    SELECT data_fim 
+                   SELECT data_fim
                     FROM Banimentos
                     WHERE usuario_cod = :usuario_cod
                       AND (data_fim IS NULL OR data_fim > NOW())
-                    LIMIT 1;
-                    ";                    
+                    ORDER BY 
+                      CASE 
+                        WHEN data_fim IS NULL THEN 1 
+                        ELSE 0 
+                      END DESC, 
+                      data_fim DESC
+                    LIMIT 1;";                    
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute([':usuario_cod' => $usuario_cod]);
                     $ban = $stmt->fetch(PDO::FETCH_ASSOC);
